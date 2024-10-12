@@ -1,0 +1,57 @@
+h1:introduction Introduction
+h1:rstudio-environment-and-installation RStudio Environment and Installation
+h1:data-import-and-reading Data Import and Reading
+h2:import-your-data Import Your Data
+h3:weather-math-data-explanation Weather Math Data Explanation
+h2:dataset-packages Dataset packages
+h3:babynames babynames
+h3:starwars starwars
+h2:ways-to-check-data Ways to Check Data
+h1:overview-of-tidyverse-and-core-functions Overview of Tidyverse and Core Functions
+h2:pipe-example pipe example
+h1:data-cleaning-and-transformation Data Cleaning and Transformation
+h1:data-wrangling-and-reshaping Data Wrangling and Reshaping
+h2:pivot pivot
+h3:example-converting-wide-to-long-format example: converting wide to long format
+h2:join join
+h2:bind bind
+h1:statistical-analysis Statistical Analysis
+h2:t-test t-test
+h3:example-independent-t-test example: Independent t-test
+h4:step-1-subset-the-data Step 1: Subset the data
+h4:step-2-conduct-the-t-test Step 2: Conduct the t-test
+h3:example-paired-t-test example: Paired t-test
+h2:anova ANOVA
+h3:one-way-anova one-way ANOVA
+h4:example-1-strength-intelligence example 1: Strength ~ Intelligence
+h4:example-2-strength-gender example 2: Strength ~ Gender
+h3:two-way-anova two-way ANOVA
+h4:example-1-strength-bmi_status-gender example 1: Strength ~ BMI_status * Gender
+h4:example-2-strength-gender-bmi example 2: strength ~ gender * BMI
+h4:example-3-strength-gender-intelligence example 3: strength ~ gender * Intelligence
+h3:three-way-anova three-way ANOVA
+h4:example-1-strength-gender-intelligence-bmi_status example 1: Strength ~ Gender * Intelligence * BMI_status
+h3:mixed-anova mixed ANOVA
+h2:post-hoc-analysis Post hoc analysis
+h2:regression-analysis Regression analysis
+h1:data-visualization Data Visualization
+h2:bar-chart bar chart
+h2:scatter-plot scatter plot
+h2:box-plot box plot
+h2:histogram histogram
+h2:density-plot density plot
+h2:mixed-graphs mixed graphs
+h3:categorical-numeric categorical * numeric
+h3:numeric-numeric numeric * numeric
+h3:numeric-numeric-numeric numeric * numeric * numeric
+h3:numeric-numeric-numeric-categorical numeric * numeric * numeric * categorical
+h2:additional-features-on-the-plot additional features on the plot
+h3:labels labels
+h2:不知道怎麼改label欸-頭痛-ㄞ-可以mutate但好麻煩呀 不知道怎麼改label欸 頭痛 ㄞ 可以mutate但好麻煩呀
+h3:colors colors
+h3:scales scales
+h3:themes themes
+h1:efficiency-tips-for-data-processing Efficiency Tips for Data Processing
+h1:data-export Data Export
+h1:colclusion-and-advanced-learning Colclusion and Advanced Learning
+
