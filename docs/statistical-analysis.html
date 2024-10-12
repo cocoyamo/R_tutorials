@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Statistical Analysis | Hello and welcome to our RStudio journey!</title>
+  <meta name="description" content="This is a RStudio tutorial." />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Statistical Analysis | Hello and welcome to our RStudio journey!" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a RStudio tutorial." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Statistical Analysis | Hello and welcome to our RStudio journey!" />
+  
+  <meta name="twitter:description" content="This is a RStudio tutorial." />
+  
+
+<meta name="author" content="Moya Chu" />
+
+
+<meta name="date" content="2024-10-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-wrangling-and-reshaping.html"/>
+<link rel="next" href="data-visualization.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="rstudio-environment-and-installation.html"><a href="rstudio-environment-and-installation.html"><i class="fa fa-check"></i><b>2</b> RStudio Environment and Installation</a></li>
+<li class="chapter" data-level="3" data-path="data-import-and-reading.html"><a href="data-import-and-reading.html"><i class="fa fa-check"></i><b>3</b> Data Import and Reading</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-import-and-reading.html"><a href="data-import-and-reading.html#import-your-data"><i class="fa fa-check"></i><b>3.1</b> Import Your Data</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="data-import-and-reading.html"><a href="data-import-and-reading.html#weather-math-data-explanation"><i class="fa fa-check"></i><b>3.1.1</b> Weather Math Data Explanation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-import-and-reading.html"><a href="data-import-and-reading.html#dataset-packages"><i class="fa fa-check"></i><b>3.2</b> Dataset packages</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-import-and-reading.html"><a href="data-import-and-reading.html#babynames"><i class="fa fa-check"></i><b>3.2.1</b> babynames</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-import-and-reading.html"><a href="data-import-and-reading.html#starwars"><i class="fa fa-check"></i><b>3.2.2</b> starwars</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-import-and-reading.html"><a href="data-import-and-reading.html#ways-to-check-data"><i class="fa fa-check"></i><b>3.3</b> Ways to Check Data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="overview-of-tidyverse-and-core-functions.html"><a href="overview-of-tidyverse-and-core-functions.html"><i class="fa fa-check"></i><b>4</b> Overview of Tidyverse and Core Functions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="overview-of-tidyverse-and-core-functions.html"><a href="overview-of-tidyverse-and-core-functions.html#pipe-example"><i class="fa fa-check"></i><b>4.1</b> pipe example</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-cleaning-and-transformation.html"><a href="data-cleaning-and-transformation.html"><i class="fa fa-check"></i><b>5</b> Data Cleaning and Transformation</a></li>
+<li class="chapter" data-level="6" data-path="data-wrangling-and-reshaping.html"><a href="data-wrangling-and-reshaping.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling and Reshaping</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-wrangling-and-reshaping.html"><a href="data-wrangling-and-reshaping.html#pivot"><i class="fa fa-check"></i><b>6.1</b> pivot</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="data-wrangling-and-reshaping.html"><a href="data-wrangling-and-reshaping.html#example-converting-wide-to-long-format"><i class="fa fa-check"></i><b>6.1.1</b> example: converting wide to long format</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-wrangling-and-reshaping.html"><a href="data-wrangling-and-reshaping.html#join"><i class="fa fa-check"></i><b>6.2</b> join</a></li>
+<li class="chapter" data-level="6.3" data-path="data-wrangling-and-reshaping.html"><a href="data-wrangling-and-reshaping.html#bind"><i class="fa fa-check"></i><b>6.3</b> bind</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>7</b> Statistical Analysis</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#t-test"><i class="fa fa-check"></i><b>7.1</b> t-test</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#example-independent-t-test"><i class="fa fa-check"></i><b>7.1.1</b> example: Independent t-test</a></li>
+<li class="chapter" data-level="7.1.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#example-paired-t-test"><i class="fa fa-check"></i><b>7.1.2</b> example: Paired t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#anova"><i class="fa fa-check"></i><b>7.2</b> ANOVA</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#one-way-anova"><i class="fa fa-check"></i><b>7.2.1</b> one-way ANOVA</a></li>
+<li class="chapter" data-level="7.2.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#two-way-anova"><i class="fa fa-check"></i><b>7.2.2</b> two-way ANOVA</a></li>
+<li class="chapter" data-level="7.2.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#three-way-anova"><i class="fa fa-check"></i><b>7.2.3</b> three-way ANOVA</a></li>
+<li class="chapter" data-level="7.2.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#mixed-anova"><i class="fa fa-check"></i><b>7.2.4</b> mixed ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#post-hoc-analysis"><i class="fa fa-check"></i><b>7.3</b> Post hoc analysis</a></li>
+<li class="chapter" data-level="7.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression-analysis"><i class="fa fa-check"></i><b>7.4</b> Regression analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>8</b> Data Visualization</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="data-visualization.html"><a href="data-visualization.html#bar-chart"><i class="fa fa-check"></i><b>8.1</b> bar chart</a></li>
+<li class="chapter" data-level="8.2" data-path="data-visualization.html"><a href="data-visualization.html#scatter-plot"><i class="fa fa-check"></i><b>8.2</b> scatter plot</a></li>
+<li class="chapter" data-level="8.3" data-path="data-visualization.html"><a href="data-visualization.html#box-plot"><i class="fa fa-check"></i><b>8.3</b> box plot</a></li>
+<li class="chapter" data-level="8.4" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>8.4</b> histogram</a></li>
+<li class="chapter" data-level="8.5" data-path="data-visualization.html"><a href="data-visualization.html#density-plot"><i class="fa fa-check"></i><b>8.5</b> density plot</a></li>
+<li class="chapter" data-level="8.6" data-path="data-visualization.html"><a href="data-visualization.html#mixed-graphs"><i class="fa fa-check"></i><b>8.6</b> mixed graphs</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="data-visualization.html"><a href="data-visualization.html#categorical-numeric"><i class="fa fa-check"></i><b>8.6.1</b> categorical * numeric</a></li>
+<li class="chapter" data-level="8.6.2" data-path="data-visualization.html"><a href="data-visualization.html#numeric-numeric"><i class="fa fa-check"></i><b>8.6.2</b> numeric * numeric</a></li>
+<li class="chapter" data-level="8.6.3" data-path="data-visualization.html"><a href="data-visualization.html#numeric-numeric-numeric"><i class="fa fa-check"></i><b>8.6.3</b> numeric * numeric * numeric</a></li>
+<li class="chapter" data-level="8.6.4" data-path="data-visualization.html"><a href="data-visualization.html#numeric-numeric-numeric-categorical"><i class="fa fa-check"></i><b>8.6.4</b> numeric * numeric * numeric * categorical</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="data-visualization.html"><a href="data-visualization.html#additional-features-on-the-plot"><i class="fa fa-check"></i><b>8.7</b> additional features on the plot</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="data-visualization.html"><a href="data-visualization.html#labels"><i class="fa fa-check"></i><b>8.7.1</b> labels</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="data-visualization.html"><a href="data-visualization.html#不知道怎麼改label欸-頭痛-ㄞ-可以mutate但好麻煩呀"><i class="fa fa-check"></i><b>8.8</b> 不知道怎麼改label欸 頭痛 ㄞ 可以mutate但好麻煩呀</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="data-visualization.html"><a href="data-visualization.html#colors"><i class="fa fa-check"></i><b>8.8.1</b> colors</a></li>
+<li class="chapter" data-level="8.8.2" data-path="data-visualization.html"><a href="data-visualization.html#scales"><i class="fa fa-check"></i><b>8.8.2</b> scales</a></li>
+<li class="chapter" data-level="8.8.3" data-path="data-visualization.html"><a href="data-visualization.html#themes"><i class="fa fa-check"></i><b>8.8.3</b> themes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="efficiency-tips-for-data-processing.html"><a href="efficiency-tips-for-data-processing.html"><i class="fa fa-check"></i><b>9</b> Efficiency Tips for Data Processing</a></li>
+<li class="chapter" data-level="10" data-path="data-export.html"><a href="data-export.html"><i class="fa fa-check"></i><b>10</b> Data Export</a></li>
+<li class="chapter" data-level="11" data-path="colclusion-and-advanced-learning.html"><a href="colclusion-and-advanced-learning.html"><i class="fa fa-check"></i><b>11</b> Colclusion and Advanced Learning</a></li>
+<li class="chapter" data-level="12" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>12</b> Hello bookdown</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>12.1</b> A section</a>
+<ul>
+<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>13</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>13.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="13.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>13.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>14</b> Parts</a></li>
+<li class="chapter" data-level="15" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>15</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>15.1</b> Footnotes</a></li>
+<li class="chapter" data-level="15.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>15.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>16</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>16.1</b> Equations</a></li>
+<li class="chapter" data-level="16.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>16.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="16.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>16.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>17</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>17.1</b> Publishing</a></li>
+<li class="chapter" data-level="17.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>17.2</b> 404 pages</a></li>
+<li class="chapter" data-level="17.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>17.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Hello and welcome to our RStudio journey!</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistical-analysis" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Statistical Analysis<a href="statistical-analysis.html#statistical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="t-test" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> t-test<a href="statistical-analysis.html#t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="example-independent-t-test" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> example: Independent t-test<a href="statistical-analysis.html#example-independent-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s start by analyzing the difference in strength between superheroes from different publishers.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="statistical-analysis.html#cb76-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb76-2"><a href="statistical-analysis.html#cb76-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Publisher) <span class="sc">|&gt;</span></span>
+<span id="cb76-3"><a href="statistical-analysis.html#cb76-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_strength =</span> <span class="fu">mean</span>(Strength, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 2
+##   Publisher     mean_strength
+##   &lt;chr&gt;                 &lt;dbl&gt;
+## 1 DC Comics              64.6
+## 2 George Lucas           33.3
+## 3 Image Comics           60  
+## 4 Marvel Comics          43.1</code></pre>
+<p>We can observe from the dataset that the mean strength of superheroes from different publishers seems to vary. But, is this difference <strong>statistically significant</strong>?</p>
+<p>Let’s conduct a t-test to compare heroes from <strong>DC Comics</strong> and <strong>Marvel Comics</strong>.</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="statistical-analysis.html#cb78-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb78-2"><a href="statistical-analysis.html#cb78-2" tabindex="-1"></a>  <span class="fu">filter</span>(Publisher <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Marvel Comics&quot;</span>, <span class="st">&quot;DC Comics&quot;</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb78-3"><a href="statistical-analysis.html#cb78-3" tabindex="-1"></a>  <span class="fu">group_by</span>(Publisher) <span class="sc">|&gt;</span></span>
+<span id="cb78-4"><a href="statistical-analysis.html#cb78-4" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Strengths =</span> <span class="fu">list</span>(Strength)) <span class="sc">|&gt;</span></span>
+<span id="cb78-5"><a href="statistical-analysis.html#cb78-5" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">t.test</span>(Strengths[[<span class="dv">1</span>]], Strengths[[<span class="dv">2</span>]], <span class="at">paired =</span> <span class="cn">FALSE</span>))</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Strengths[[1]] and Strengths[[2]]
+## t = 2.8807, df = 32.441, p-value = 0.00698
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##   6.297946 36.652054
+## sample estimates:
+## mean of x mean of y 
+##    64.600    43.125</code></pre>
+<p>That looks complicated. I do not normally use that.</p>
+<div id="step-1-subset-the-data" class="section level4 hasAnchor" number="7.1.1.1">
+<h4><span class="header-section-number">7.1.1.1</span> Step 1: Subset the data<a href="statistical-analysis.html#step-1-subset-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>First, we need to subset the data into two groups: one for DC Comics and one for Marvel Comics.</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="statistical-analysis.html#cb80-1" tabindex="-1"></a><span class="fu">subset</span>(heroes2, Publisher <span class="sc">==</span> <span class="st">&quot;Marvel Comics&quot;</span>) <span class="ot">-&gt;</span> marvel</span>
+<span id="cb80-2"><a href="statistical-analysis.html#cb80-2" tabindex="-1"></a><span class="fu">subset</span>(heroes2, Publisher <span class="sc">==</span> <span class="st">&quot;DC Comics&quot;</span>) <span class="ot">-&gt;</span> DC</span></code></pre></div>
+</div>
+<div id="step-2-conduct-the-t-test" class="section level4 hasAnchor" number="7.1.1.2">
+<h4><span class="header-section-number">7.1.1.2</span> Step 2: Conduct the t-test<a href="statistical-analysis.html#step-2-conduct-the-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Next, we use the <code>t.test()</code> function to calculate the difference in strength between the two groups.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="statistical-analysis.html#cb81-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb81-2"><a href="statistical-analysis.html#cb81-2" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">t.test</span>(marvel<span class="sc">$</span>Strength, DC<span class="sc">$</span>Strength, <span class="at">paired =</span> F))</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  marvel$Strength and DC$Strength
+## t = -2.8807, df = 32.441, p-value = 0.00698
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -36.652054  -6.297946
+## sample estimates:
+## mean of x mean of y 
+##    43.125    64.600</code></pre>
+<p>From the results, we see that there is <strong>no significant difference</strong> in the strength levels between superheroes from DC Comics and Marcel Comics.</p>
+<blockquote>
+<p><strong>Important Note: Independent vs Paired t-test</strong></p>
+</blockquote>
+<p>In this case, we are comparing superheroes from two different groups (DC vs Marvel), which makes this an <strong>independent</strong> t-test. A <strong>paired t-test</strong> would be inappropriate here because the two groups consist of entirely different individuals.</p>
+<p>However, when comparing repeated measurements on the <strong>same group</strong> of people (e.g., before and after a task), a paired t-test would be more suitable.</p>
+</div>
+</div>
+<div id="example-paired-t-test" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> example: Paired t-test<a href="statistical-analysis.html#example-paired-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Remember the performance data from earlier? Let’s say we want to analyze if there’s any difference in exam scores between <strong>Chapter 1</strong> and <strong>Chapter 3</strong> for the same group of students.</p>
+<p>We can perform a paired t-test in this case:</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="statistical-analysis.html#cb83-1" tabindex="-1"></a><span class="co"># group them first</span></span>
+<span id="cb83-2"><a href="statistical-analysis.html#cb83-2" tabindex="-1"></a><span class="fu">subset</span>(performance, Subject_em <span class="sc">==</span> <span class="st">&quot;Eng&quot;</span> <span class="sc">&amp;</span> Chapter <span class="sc">==</span> <span class="st">&quot;C1&quot;</span>) <span class="ot">-&gt;</span> eng_c1</span>
+<span id="cb83-3"><a href="statistical-analysis.html#cb83-3" tabindex="-1"></a><span class="fu">subset</span>(performance, Subject_em <span class="sc">==</span> <span class="st">&quot;Eng&quot;</span> <span class="sc">&amp;</span> Chapter <span class="sc">==</span> <span class="st">&quot;C3&quot;</span>) <span class="ot">-&gt;</span> eng_c3</span>
+<span id="cb83-4"><a href="statistical-analysis.html#cb83-4" tabindex="-1"></a></span>
+<span id="cb83-5"><a href="statistical-analysis.html#cb83-5" tabindex="-1"></a>performance <span class="sc">|&gt;</span></span>
+<span id="cb83-6"><a href="statistical-analysis.html#cb83-6" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">t.test</span>(eng_c1<span class="sc">$</span>Score, eng_c3<span class="sc">$</span>Score, <span class="at">paired =</span> T))</span></code></pre></div>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  eng_c1$Score and eng_c3$Score
+## t = -0.44114, df = 5, p-value = 0.6775
+## alternative hypothesis: true mean difference is not equal to 0
+## 95 percent confidence interval:
+##  -17.06789  12.06789
+## sample estimates:
+## mean difference 
+##            -2.5</code></pre>
+<p>This test checks whether the students’ performance significantly changed between Chapter 1 and Chapter 3. The <strong>paired</strong> argument ensures that the test accounts for the fact that these are the same individuals in both conditions.</p>
+</div>
+</div>
+<div id="anova" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> ANOVA<a href="statistical-analysis.html#anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>ANOVA is a powerful statistical tool used to compare the means of multiple groups. It helps in determining whether the observed differences between group means are statistically significant. Here’s how we can use <code>anova_test()</code> in RStudio to perform various types of ANOVA.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="statistical-analysis.html#cb85-1" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="statistical-analysis.html#cb86-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb86-2"><a href="statistical-analysis.html#cb86-2" tabindex="-1"></a>  <span class="fu">anova_test</span>(</span>
+<span id="cb86-3"><a href="statistical-analysis.html#cb86-3" tabindex="-1"></a>    <span class="at">dv =</span> <span class="co"># dependent variable, </span></span>
+<span id="cb86-4"><a href="statistical-analysis.html#cb86-4" tabindex="-1"></a>    <span class="at">wid =</span> <span class="co"># subject name/id, </span></span>
+<span id="cb86-5"><a href="statistical-analysis.html#cb86-5" tabindex="-1"></a>    <span class="at">type =</span> <span class="cn">NULL</span>, <span class="co"># default: type II ANOVA</span></span>
+<span id="cb86-6"><a href="statistical-analysis.html#cb86-6" tabindex="-1"></a>    <span class="at">between =</span> <span class="co"># between-subject independent variable,</span></span>
+<span id="cb86-7"><a href="statistical-analysis.html#cb86-7" tabindex="-1"></a>    <span class="at">within =</span> <span class="co"># within-subject independent variable,</span></span>
+<span id="cb86-8"><a href="statistical-analysis.html#cb86-8" tabindex="-1"></a>    <span class="at">effect.size =</span> <span class="st">&quot;ges&quot;</span>, </span>
+<span id="cb86-9"><a href="statistical-analysis.html#cb86-9" tabindex="-1"></a>    <span class="at">error =</span> <span class="cn">NULL</span>,</span>
+<span id="cb86-10"><a href="statistical-analysis.html#cb86-10" tabindex="-1"></a>    <span class="at">white.adjust =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb86-11"><a href="statistical-analysis.html#cb86-11" tabindex="-1"></a>    <span class="at">observed =</span> <span class="cn">NULL</span>,</span>
+<span id="cb86-12"><a href="statistical-analysis.html#cb86-12" tabindex="-1"></a>    <span class="at">detailed =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<ul>
+<li><p><code>detailed = TRUE</code>: Requests a more detailed statistical output. <code>FALSE</code> is the default.</p></li>
+<li><p><code>type = NULL</code>: Type 2 ANOVA is the default. You can change this to <code>1</code> or <code>3</code> based on your needs.</p></li>
+<li><p><code>effect.size =</code>: Computes effect size, the default is using generalizing eta squared (<code>ges</code>) or partial eta squared (<code>pes</code>). to compute.</p>
+<ul>
+<li>The <code>Help</code> section in RStudio says I could choose both, but I haven’t figure out how to do so yet.</li>
+</ul></li>
+<li><p>For ANCOVA, you can add <code>covariate =</code> to include continuous variables as covariates. Insert it below <code>within =</code>, above <code>type =</code>.</p></li>
+</ul>
+<div id="one-way-anova" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> one-way ANOVA<a href="statistical-analysis.html#one-way-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>One-way ANOVA is used when we have one independent variable (IV) and one dependent variable (DV).</p>
+<div id="example-1-strength-intelligence" class="section level4 hasAnchor" number="7.2.1.1">
+<h4><span class="header-section-number">7.2.1.1</span> example 1: Strength ~ Intelligence<a href="statistical-analysis.html#example-1-strength-intelligence" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><p>IV: Intelligence</p></li>
+<li><p>DV: Strength</p></li>
+</ul>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="statistical-analysis.html#cb87-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb87-2"><a href="statistical-analysis.html#cb87-2" tabindex="-1"></a>  <span class="fu">anova_test</span>(</span>
+<span id="cb87-3"><a href="statistical-analysis.html#cb87-3" tabindex="-1"></a>    <span class="at">dv =</span> Strength, </span>
+<span id="cb87-4"><a href="statistical-analysis.html#cb87-4" tabindex="-1"></a>    <span class="at">wid =</span> Name, </span>
+<span id="cb87-5"><a href="statistical-analysis.html#cb87-5" tabindex="-1"></a>    <span class="at">between =</span> Intelligence,</span>
+<span id="cb87-6"><a href="statistical-analysis.html#cb87-6" tabindex="-1"></a>    <span class="at">detailed =</span> T)</span></code></pre></div>
+<pre><code>## ANOVA Table (type II tests)
+## 
+##         Effect      SSn    SSd DFn DFd     F     p p&lt;.05   ges
+## 1 Intelligence 8758.544 129262   4 136 2.304 0.062       0.063</code></pre>
+</div>
+<div id="example-2-strength-gender" class="section level4 hasAnchor" number="7.2.1.2">
+<h4><span class="header-section-number">7.2.1.2</span> example 2: Strength ~ Gender<a href="statistical-analysis.html#example-2-strength-gender" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><p>IV: Gender</p></li>
+<li><p>DV: Strength</p></li>
+</ul>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="statistical-analysis.html#cb89-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb89-2"><a href="statistical-analysis.html#cb89-2" tabindex="-1"></a>  <span class="fu">anova_test</span>(</span>
+<span id="cb89-3"><a href="statistical-analysis.html#cb89-3" tabindex="-1"></a>    <span class="at">dv =</span> Strength, </span>
+<span id="cb89-4"><a href="statistical-analysis.html#cb89-4" tabindex="-1"></a>    <span class="at">wid =</span> Name, </span>
+<span id="cb89-5"><a href="statistical-analysis.html#cb89-5" tabindex="-1"></a>    <span class="at">between =</span> Gender,</span>
+<span id="cb89-6"><a href="statistical-analysis.html#cb89-6" tabindex="-1"></a>    <span class="at">detailed =</span> T)</span></code></pre></div>
+<pre><code>## ANOVA Table (type II tests)
+## 
+##   Effect      SSn      SSd DFn DFd     F    p p&lt;.05   ges
+## 1 Gender 3772.182 134248.4   1 139 3.906 0.05       0.027</code></pre>
+</div>
+</div>
+<div id="two-way-anova" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> two-way ANOVA<a href="statistical-analysis.html#two-way-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Two-way ANOVA is used when we have two independent variables and one dependent variable. Here, we look at how these two IVs interact with each other.</p>
+<div id="example-1-strength-bmi_status-gender" class="section level4 hasAnchor" number="7.2.2.1">
+<h4><span class="header-section-number">7.2.2.1</span> example 1: Strength ~ BMI_status * Gender<a href="statistical-analysis.html#example-1-strength-bmi_status-gender" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="statistical-analysis.html#cb91-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb91-2"><a href="statistical-analysis.html#cb91-2" tabindex="-1"></a>   <span class="fu">anova_test</span>(</span>
+<span id="cb91-3"><a href="statistical-analysis.html#cb91-3" tabindex="-1"></a>    <span class="at">dv =</span> Strength, </span>
+<span id="cb91-4"><a href="statistical-analysis.html#cb91-4" tabindex="-1"></a>    <span class="at">wid =</span> Name, </span>
+<span id="cb91-5"><a href="statistical-analysis.html#cb91-5" tabindex="-1"></a>    <span class="at">between =</span> <span class="fu">c</span>(Gender, BMI_status), </span>
+<span id="cb91-6"><a href="statistical-analysis.html#cb91-6" tabindex="-1"></a>    <span class="at">detailed =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<pre><code>## ANOVA Table (type III tests)
+## 
+##              Effect       SSn      SSd DFn DFd      F        p p&lt;.05      ges
+## 1       (Intercept) 68473.044 109803.3   1 133 82.938 1.11e-15     * 0.384000
+## 2            Gender    51.278 109803.3   1 133  0.062 8.04e-01       0.000467
+## 3        BMI_status  8413.707 109803.3   3 133  3.397 2.00e-02     * 0.071000
+## 4 Gender:BMI_status  6885.839 109803.3   3 133  2.780 4.40e-02     * 0.059000</code></pre>
+<blockquote>
+<p><strong>Note:</strong> Be mindful of the ANOVA type. Even if you don’t specify a type, RStudio may default to type III ANOVA. If you prefer type II ANOVA, specify <code>type = 2</code>.</p>
+</blockquote>
+</div>
+<div id="example-2-strength-gender-bmi" class="section level4 hasAnchor" number="7.2.2.2">
+<h4><span class="header-section-number">7.2.2.2</span> example 2: strength ~ gender * BMI<a href="statistical-analysis.html#example-2-strength-gender-bmi" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="statistical-analysis.html#cb93-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb93-2"><a href="statistical-analysis.html#cb93-2" tabindex="-1"></a>  <span class="fu">anova_test</span>(</span>
+<span id="cb93-3"><a href="statistical-analysis.html#cb93-3" tabindex="-1"></a>    <span class="at">dv =</span> Strength, </span>
+<span id="cb93-4"><a href="statistical-analysis.html#cb93-4" tabindex="-1"></a>    <span class="at">wid =</span> Name, </span>
+<span id="cb93-5"><a href="statistical-analysis.html#cb93-5" tabindex="-1"></a>    <span class="at">between =</span> <span class="fu">c</span>(Gender, BMI), </span>
+<span id="cb93-6"><a href="statistical-analysis.html#cb93-6" tabindex="-1"></a>    <span class="at">detailed =</span> T)</span></code></pre></div>
+<p>However, we would encounter an error here. Why is that?</p>
+<p><strong>Step 1:</strong> Check for mismatched variable types. For example, putting both <strong>categorical</strong> (e.g., <code>Gender</code>) and <strong>numerical</strong> (e.g., <code>BMI</code>) in the <code>between =</code> section.</p>
+<p><strong>Solution 1</strong></p>
+<ul>
+<li><p><strong>convert numerical variables into categorical variables</strong></p>
+<p>For example, you can classify BMI into levels like obese, overweight, normal, and underweight. (We did this in the previous section.)</p></li>
+</ul>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="statistical-analysis.html#cb94-1" tabindex="-1"></a><span class="co"># Solution 1</span></span>
+<span id="cb94-2"><a href="statistical-analysis.html#cb94-2" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb94-3"><a href="statistical-analysis.html#cb94-3" tabindex="-1"></a>   <span class="fu">anova_test</span>(</span>
+<span id="cb94-4"><a href="statistical-analysis.html#cb94-4" tabindex="-1"></a>    <span class="at">dv =</span> Strength, </span>
+<span id="cb94-5"><a href="statistical-analysis.html#cb94-5" tabindex="-1"></a>    <span class="at">wid =</span> Name, </span>
+<span id="cb94-6"><a href="statistical-analysis.html#cb94-6" tabindex="-1"></a>    <span class="at">between =</span> <span class="fu">c</span>(Gender, BMI_status), </span>
+<span id="cb94-7"><a href="statistical-analysis.html#cb94-7" tabindex="-1"></a>    <span class="at">detailed =</span> T)   </span></code></pre></div>
+<pre><code>## ANOVA Table (type III tests)
+## 
+##              Effect       SSn      SSd DFn DFd      F        p p&lt;.05      ges
+## 1       (Intercept) 68473.044 109803.3   1 133 82.938 1.11e-15     * 0.384000
+## 2            Gender    51.278 109803.3   1 133  0.062 8.04e-01       0.000467
+## 3        BMI_status  8413.707 109803.3   3 133  3.397 2.00e-02     * 0.071000
+## 4 Gender:BMI_status  6885.839 109803.3   3 133  2.780 4.40e-02     * 0.059000</code></pre>
+<p><strong>Solution 2</strong></p>
+<ul>
+<li><p><strong>use ANCOVA (Analysis of Covariance)</strong> (continuous * category ~ continuous)</p>
+<p>ANCOVA is suitable when you have <strong>continuous variable</strong> that you want to adjust for or control while analyzing the main effects of categorical independent variables. In ANCOVA, you can include the continuous variable as a covariate.</p></li>
+</ul>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="statistical-analysis.html#cb96-1" tabindex="-1"></a><span class="co"># Solution 2 (ANCOVA)</span></span>
+<span id="cb96-2"><a href="statistical-analysis.html#cb96-2" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb96-3"><a href="statistical-analysis.html#cb96-3" tabindex="-1"></a>   <span class="fu">anova_test</span>(</span>
+<span id="cb96-4"><a href="statistical-analysis.html#cb96-4" tabindex="-1"></a>    <span class="at">dv =</span> Strength, </span>
+<span id="cb96-5"><a href="statistical-analysis.html#cb96-5" tabindex="-1"></a>    <span class="at">wid =</span> Name, </span>
+<span id="cb96-6"><a href="statistical-analysis.html#cb96-6" tabindex="-1"></a>    <span class="at">between =</span> Gender, </span>
+<span id="cb96-7"><a href="statistical-analysis.html#cb96-7" tabindex="-1"></a>    <span class="at">covariate =</span> BMI,</span>
+<span id="cb96-8"><a href="statistical-analysis.html#cb96-8" tabindex="-1"></a>    <span class="at">detailed =</span> T)   </span></code></pre></div>
+<pre><code>## ANOVA Table (type II tests)
+## 
+##   Effect       SSn      SSd DFn DFd      F        p p&lt;.05      ges
+## 1    BMI 23336.275 110912.1   1 138 29.036 2.99e-07     * 1.74e-01
+## 2 Gender    10.606 110912.1   1 138  0.013 9.09e-01       9.56e-05</code></pre>
+<pre><code>In Solution 2, the BMI variable is used as a covariate. This allows you to account for the continuous variable (BMI) while examining the effect of gender on strength.</code></pre>
+</div>
+<div id="example-3-strength-gender-intelligence" class="section level4 hasAnchor" number="7.2.2.3">
+<h4><span class="header-section-number">7.2.2.3</span> example 3: strength ~ gender * Intelligence<a href="statistical-analysis.html#example-3-strength-gender-intelligence" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let us take a look at another example.</p>
+<p>In the <code>heroes2</code> dataset, the <code>Intelligence</code> is a <strong>categorical variable</strong>. The intelligence levels of superheroes are labelled as <code>high</code>, <code>good</code>, <code>average</code>, <code>moderate</code>, and <code>low</code>.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="statistical-analysis.html#cb99-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb99-2"><a href="statistical-analysis.html#cb99-2" tabindex="-1"></a>  <span class="fu">distinct</span>(Intelligence)</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 1
+##   Intelligence
+##   &lt;chr&gt;       
+## 1 moderate    
+## 2 good        
+## 3 high        
+## 4 average     
+## 5 low</code></pre>
+<p>Therefore, we should not encounter the same problem as example 2.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="statistical-analysis.html#cb101-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb101-2"><a href="statistical-analysis.html#cb101-2" tabindex="-1"></a>  <span class="fu">anova_test</span>(</span>
+<span id="cb101-3"><a href="statistical-analysis.html#cb101-3" tabindex="-1"></a>    <span class="at">dv =</span> Strength, </span>
+<span id="cb101-4"><a href="statistical-analysis.html#cb101-4" tabindex="-1"></a>    <span class="at">wid =</span> Name, </span>
+<span id="cb101-5"><a href="statistical-analysis.html#cb101-5" tabindex="-1"></a>    <span class="at">between =</span> <span class="fu">c</span>(Gender, Intelligence), </span>
+<span id="cb101-6"><a href="statistical-analysis.html#cb101-6" tabindex="-1"></a>    <span class="at">detailed =</span> T)</span></code></pre></div>
+<p>However, we still see errors here. After examining <strong>Step 1</strong>, we can conclude that it is not the issue here. We can try to debug using the following methods:</p>
+<p><strong>Step 2</strong></p>
+<p>We examine both independent variables separately to ensure they are functioning properly individually. We can delete one of the variables each time for testing. (Although this is usually not the problem, it’s still good practice to check.)</p>
+<ul>
+<li>Checking the variable <code>Gender</code></li>
+</ul>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="statistical-analysis.html#cb102-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb102-2"><a href="statistical-analysis.html#cb102-2" tabindex="-1"></a>  <span class="fu">anova_test</span>(</span>
+<span id="cb102-3"><a href="statistical-analysis.html#cb102-3" tabindex="-1"></a>    <span class="at">dv =</span> Strength, </span>
+<span id="cb102-4"><a href="statistical-analysis.html#cb102-4" tabindex="-1"></a>    <span class="at">wid =</span> Name, </span>
+<span id="cb102-5"><a href="statistical-analysis.html#cb102-5" tabindex="-1"></a>    <span class="at">between =</span> Gender, </span>
+<span id="cb102-6"><a href="statistical-analysis.html#cb102-6" tabindex="-1"></a>    <span class="at">detailed =</span> T)</span></code></pre></div>
+<pre><code>## ANOVA Table (type II tests)
+## 
+##   Effect      SSn      SSd DFn DFd     F    p p&lt;.05   ges
+## 1 Gender 3772.182 134248.4   1 139 3.906 0.05       0.027</code></pre>
+<ul>
+<li>Checking the variable <code>Intelligence</code></li>
+</ul>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="statistical-analysis.html#cb104-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb104-2"><a href="statistical-analysis.html#cb104-2" tabindex="-1"></a>  <span class="fu">anova_test</span>(</span>
+<span id="cb104-3"><a href="statistical-analysis.html#cb104-3" tabindex="-1"></a>    <span class="at">dv =</span> Strength, </span>
+<span id="cb104-4"><a href="statistical-analysis.html#cb104-4" tabindex="-1"></a>    <span class="at">wid =</span> Name, </span>
+<span id="cb104-5"><a href="statistical-analysis.html#cb104-5" tabindex="-1"></a>    <span class="at">between =</span> Intelligence, </span>
+<span id="cb104-6"><a href="statistical-analysis.html#cb104-6" tabindex="-1"></a>    <span class="at">detailed =</span> T)</span></code></pre></div>
+<pre><code>## ANOVA Table (type II tests)
+## 
+##         Effect      SSn    SSd DFn DFd     F     p p&lt;.05   ges
+## 1 Intelligence 8758.544 129262   4 136 2.304 0.062       0.063</code></pre>
+<p>Both variables look fine, and the code works smoothly when tested individually.</p>
+<p><strong>Step 3</strong></p>
+<p>We examine if there are any <strong>missing values</strong> in any of the category. (I often forgot about this step, and spend hours confused about why my ANOVA isn’t ANOVAing…)</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="statistical-analysis.html#cb106-1" tabindex="-1"></a><span class="fu">table</span>(heroes2<span class="sc">$</span>Gender, heroes2<span class="sc">$</span>Intelligence)</span></code></pre></div>
+<pre><code>##    
+##     average good high low moderate
+##   F      14   20    4   0        2
+##   M      24   41   27   2        7</code></pre>
+<p>Here, we see that in female superheroes category, there is a zero for low intelligence level. This prevents the ANOVA from proceeding. Now that we have identified the problem, we can remove the <code>intelligence == "low"</code> from our analysis, as it hinders the process.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="statistical-analysis.html#cb108-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb108-2"><a href="statistical-analysis.html#cb108-2" tabindex="-1"></a>  <span class="fu">filter</span>(Intelligence <span class="sc">!=</span> <span class="st">&quot;low&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb108-3"><a href="statistical-analysis.html#cb108-3" tabindex="-1"></a>   <span class="fu">anova_test</span>(</span>
+<span id="cb108-4"><a href="statistical-analysis.html#cb108-4" tabindex="-1"></a>    <span class="at">dv =</span> Strength, </span>
+<span id="cb108-5"><a href="statistical-analysis.html#cb108-5" tabindex="-1"></a>    <span class="at">wid =</span> Name, </span>
+<span id="cb108-6"><a href="statistical-analysis.html#cb108-6" tabindex="-1"></a>    <span class="at">between =</span> <span class="fu">c</span>(Gender, Intelligence), </span>
+<span id="cb108-7"><a href="statistical-analysis.html#cb108-7" tabindex="-1"></a>    <span class="at">type =</span> <span class="dv">2</span>,</span>
+<span id="cb108-8"><a href="statistical-analysis.html#cb108-8" tabindex="-1"></a>    <span class="at">detailed =</span> T)   </span></code></pre></div>
+<pre><code>## ANOVA Table (type II tests)
+## 
+##                Effect      SSn      SSd DFn DFd     F     p p&lt;.05   ges
+## 1              Gender 1982.076 126823.2   1 131 2.047 0.155       0.015
+## 2        Intelligence 3719.933 126823.2   3 131 1.281 0.284       0.028
+## 3 Gender:Intelligence  406.757 126823.2   3 131 0.140 0.936       0.003</code></pre>
+<p>You might think: “I’ll just add <code>group_by()</code> before the <code>anova_test()</code>.” However, while this approach would not give you error message, it would not yield a <strong>two-way ANOVA</strong> as we intended. Instead, it would just separate the data into two groups before performing a <strong>one-way ANOVA</strong> on each. See the codes below:</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="statistical-analysis.html#cb110-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb110-2"><a href="statistical-analysis.html#cb110-2" tabindex="-1"></a>  <span class="fu">filter</span>(Intelligence <span class="sc">!=</span> <span class="st">&quot;low&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb110-3"><a href="statistical-analysis.html#cb110-3" tabindex="-1"></a>  <span class="fu">group_by</span>(Gender) <span class="sc">|&gt;</span></span>
+<span id="cb110-4"><a href="statistical-analysis.html#cb110-4" tabindex="-1"></a>   <span class="fu">anova_test</span>(</span>
+<span id="cb110-5"><a href="statistical-analysis.html#cb110-5" tabindex="-1"></a>    <span class="at">dv =</span> Strength, </span>
+<span id="cb110-6"><a href="statistical-analysis.html#cb110-6" tabindex="-1"></a>    <span class="at">wid =</span> Name, </span>
+<span id="cb110-7"><a href="statistical-analysis.html#cb110-7" tabindex="-1"></a>    <span class="at">between =</span> Intelligence, </span>
+<span id="cb110-8"><a href="statistical-analysis.html#cb110-8" tabindex="-1"></a>    <span class="at">detailed =</span> T)   </span></code></pre></div>
+<pre><code>## # A tibble: 2 × 10
+##   Gender Effect         SSn    SSd   DFn   DFd     F     p `p&lt;.05`   ges
+## * &lt;chr&gt;  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 F      Intelligence 1564. 33535.     3    36  0.56 0.645 &quot;&quot;      0.045
+## 2 M      Intelligence 2563. 93288.     3    95  0.87 0.46  &quot;&quot;      0.027</code></pre>
+<p>We can see that the result table differs from the two-way ANOVA table (refer to the upper table), and the numbers are also different (see <code>DFn</code> and <code>DFd</code> in both results).</p>
+</div>
+</div>
+<div id="three-way-anova" class="section level3 hasAnchor" number="7.2.3">
+<h3><span class="header-section-number">7.2.3</span> three-way ANOVA<a href="statistical-analysis.html#three-way-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="example-1-strength-gender-intelligence-bmi_status" class="section level4 hasAnchor" number="7.2.3.1">
+<h4><span class="header-section-number">7.2.3.1</span> example 1: Strength ~ Gender * Intelligence * BMI_status<a href="statistical-analysis.html#example-1-strength-gender-intelligence-bmi_status" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If we want to add more independent variables, we can simply include additional column names in the <code>between =</code> section.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="statistical-analysis.html#cb112-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb112-2"><a href="statistical-analysis.html#cb112-2" tabindex="-1"></a>  <span class="fu">filter</span>(Intelligence <span class="sc">!=</span> <span class="st">&quot;low&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb112-3"><a href="statistical-analysis.html#cb112-3" tabindex="-1"></a>   <span class="fu">anova_test</span>(</span>
+<span id="cb112-4"><a href="statistical-analysis.html#cb112-4" tabindex="-1"></a>    <span class="at">dv =</span> Strength, </span>
+<span id="cb112-5"><a href="statistical-analysis.html#cb112-5" tabindex="-1"></a>    <span class="at">wid =</span> Name, </span>
+<span id="cb112-6"><a href="statistical-analysis.html#cb112-6" tabindex="-1"></a>    <span class="at">between =</span> <span class="fu">c</span>(Gender, Intelligence, BMI_status), </span>
+<span id="cb112-7"><a href="statistical-analysis.html#cb112-7" tabindex="-1"></a>    <span class="at">type =</span> <span class="dv">2</span>,</span>
+<span id="cb112-8"><a href="statistical-analysis.html#cb112-8" tabindex="-1"></a>    <span class="at">detailed =</span> T)   </span></code></pre></div>
+<pre><code>## ANOVA Table (type II tests)
+## 
+##                           Effect       SSn      SSd DFn DFd     F        p p&lt;.05   ges
+## 1                         Gender  1083.194 96626.99   1 118 1.323 0.252000       0.011
+## 2                   Intelligence  3465.586 96626.99   3 118 1.411 0.243000       0.035
+## 3                     BMI_status 16524.941 96626.99   3 118 6.727 0.000314     * 0.146
+## 4            Gender:Intelligence  2703.193 96626.99   2 118 1.651 0.196000       0.027
+## 5              Gender:BMI_status  8295.111 96626.99   3 118 3.377 0.021000     * 0.079
+## 6        Intelligence:BMI_status  7715.048 96626.99   7 118 1.346 0.235000       0.074
+## 7 Gender:Intelligence:BMI_status        NA 96626.99   0 118    NA       NA  &lt;NA&gt;    NA</code></pre>
+<p>Note that if the independent variable is within-subject (in the case of a mixed analysis), we place the <strong>within-subject</strong> independent variables in the <code>within =</code> section. This is commonly used when analyzing experimental results, such as comparing test scores before learning and after learning. See below for more details on mixed ANOVA.</p>
+</div>
+</div>
+<div id="mixed-anova" class="section level3 hasAnchor" number="7.2.4">
+<h3><span class="header-section-number">7.2.4</span> mixed ANOVA<a href="statistical-analysis.html#mixed-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As mentioned, mixed ANOVA is often used for analyzing experimental results, as it allows for tracking individual changes over time, which is difficult to achieve with other methods.</p>
+<p>Let’s assume a high school wants to investigate whether different teaching styles affect students’ exam scores. They conducted an experiments, dividing students into two groups: one received education in a fun way, while the other was taught in a more rigid manner. The school also tested the students before and after learning the subject.</p>
+<ul>
+<li><p><strong>Independent variable</strong>: teaching style (fun/rigid), exam time (before/after)</p></li>
+<li><p><strong>Dependent variable</strong>: exam score</p></li>
+</ul>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="statistical-analysis.html#cb114-1" tabindex="-1"></a>teaching_style <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb114-2"><a href="statistical-analysis.html#cb114-2" tabindex="-1"></a>  <span class="at">student =</span> <span class="fu">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;6&quot;</span>, </span>
+<span id="cb114-3"><a href="statistical-analysis.html#cb114-3" tabindex="-1"></a>              <span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;6&quot;</span>),</span>
+<span id="cb114-4"><a href="statistical-analysis.html#cb114-4" tabindex="-1"></a>  <span class="at">style =</span> <span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">&quot;fun&quot;</span>, <span class="st">&quot;rigid&quot;</span>, <span class="st">&quot;fun&quot;</span>, <span class="st">&quot;rigid&quot;</span>, <span class="st">&quot;fun&quot;</span>, <span class="st">&quot;rigid&quot;</span>,</span>
+<span id="cb114-5"><a href="statistical-analysis.html#cb114-5" tabindex="-1"></a>                      <span class="st">&quot;fun&quot;</span>, <span class="st">&quot;rigid&quot;</span>, <span class="st">&quot;fun&quot;</span>, <span class="st">&quot;rigid&quot;</span>, <span class="st">&quot;fun&quot;</span>, <span class="st">&quot;rigid&quot;</span>)),</span>
+<span id="cb114-6"><a href="statistical-analysis.html#cb114-6" tabindex="-1"></a>  <span class="at">timing =</span> <span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">&quot;before&quot;</span>, <span class="st">&quot;before&quot;</span>, <span class="st">&quot;before&quot;</span>, <span class="st">&quot;before&quot;</span>, <span class="st">&quot;before&quot;</span>, <span class="st">&quot;before&quot;</span>, </span>
+<span id="cb114-7"><a href="statistical-analysis.html#cb114-7" tabindex="-1"></a>                       <span class="st">&quot;after&quot;</span>, <span class="st">&quot;after&quot;</span>, <span class="st">&quot;after&quot;</span>, <span class="st">&quot;after&quot;</span>, <span class="st">&quot;after&quot;</span>, <span class="st">&quot;after&quot;</span>)),</span>
+<span id="cb114-8"><a href="statistical-analysis.html#cb114-8" tabindex="-1"></a>  <span class="at">score =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">13</span>, <span class="dv">10</span>, <span class="dv">70</span>, <span class="dv">23</span>, <span class="dv">70</span>, <span class="dv">70</span>, <span class="dv">90</span>, <span class="dv">66</span>, <span class="dv">83</span>, <span class="dv">80</span>, <span class="dv">80</span>))</span></code></pre></div>
+<p>The data frame is created with 6 students: 3 participated in the <code>fun</code> teaching style, and 3 experienced the <code>rigid</code> style. All of their <code>before</code> and <code>after</code> exam scores were recorded.</p>
+<p>Here, we want to see if the teaching style influenced their exam scores.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="statistical-analysis.html#cb115-1" tabindex="-1"></a>teaching_style <span class="sc">|&gt;</span></span>
+<span id="cb115-2"><a href="statistical-analysis.html#cb115-2" tabindex="-1"></a>   <span class="fu">anova_test</span>(</span>
+<span id="cb115-3"><a href="statistical-analysis.html#cb115-3" tabindex="-1"></a>    <span class="at">dv =</span> score, </span>
+<span id="cb115-4"><a href="statistical-analysis.html#cb115-4" tabindex="-1"></a>    <span class="at">wid =</span> student, </span>
+<span id="cb115-5"><a href="statistical-analysis.html#cb115-5" tabindex="-1"></a>    <span class="at">between =</span> style, </span>
+<span id="cb115-6"><a href="statistical-analysis.html#cb115-6" tabindex="-1"></a>    <span class="at">within =</span> timing,</span>
+<span id="cb115-7"><a href="statistical-analysis.html#cb115-7" tabindex="-1"></a>    <span class="at">detailed =</span> T)   </span></code></pre></div>
+<pre><code>## ANOVA Table (type II tests)
+## 
+##         Effect DFn DFd       SSn      SSd       F       p p&lt;.05   ges
+## 1  (Intercept)   1   4 41418.750 1278.667 129.569 0.00034     * 0.929
+## 2        style   1   4   954.083 1278.667   2.985 0.15900       0.232
+## 3       timing   1   4  4524.083 1876.667   9.643 0.03600     * 0.589
+## 4 style:timing   1   4    90.750 1876.667   0.193 0.68300       0.028</code></pre>
+<p>From the analysis, we can observe that teaching style does not have a significant impact on their scores. However, there is a main effect of the <code>timing</code> variable.</p>
+<p>By examining the mean scores across different times, we can see that students performed better after learning, regardless of the teaching style applied.</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="statistical-analysis.html#cb117-1" tabindex="-1"></a>teaching_style <span class="sc">|&gt;</span></span>
+<span id="cb117-2"><a href="statistical-analysis.html#cb117-2" tabindex="-1"></a>  <span class="fu">group_by</span>(timing) <span class="sc">|&gt;</span></span>
+<span id="cb117-3"><a href="statistical-analysis.html#cb117-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(score))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   timing mean_score
+##   &lt;fct&gt;       &lt;dbl&gt;
+## 1 after        78.2
+## 2 before       39.3</code></pre>
+<p><strong>Additional notes</strong></p>
+<ul>
+<li><p>Use <code>filter()</code> to choose specific groups for analysis.</p>
+<p>For instance, <code>filter(Intelligence %in% c("high", "good")</code> or <code>filter(Hair_color != "No Hair")</code>.</p></li>
+<li><p><code>group_by()</code> is useful if you want to examine ANOVA results for both conditions’ simultaneously.</p></li>
+</ul>
+</div>
+</div>
+<div id="post-hoc-analysis" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Post hoc analysis<a href="statistical-analysis.html#post-hoc-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>After conducting an ANOVA, if we want to explore the data further (assuming the ANOVA results are significant), we can perform a post hoc analysis.</p>
+<p>I used to be confused about the difference between post hoc analysis and pairwise t-test. It’s important to note that post hoc analysis is done <strong>after</strong> obtaining a significant result from ANOVA, while pairwise t-test can be applied to any two groups of data.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="statistical-analysis.html#cb119-1" tabindex="-1"></a>teaching_style <span class="sc">|&gt;</span></span>
+<span id="cb119-2"><a href="statistical-analysis.html#cb119-2" tabindex="-1"></a> <span class="fu">group_by</span>(style) <span class="sc">|&gt;</span></span>
+<span id="cb119-3"><a href="statistical-analysis.html#cb119-3" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(</span>
+<span id="cb119-4"><a href="statistical-analysis.html#cb119-4" tabindex="-1"></a>    score <span class="sc">~</span> timing,</span>
+<span id="cb119-5"><a href="statistical-analysis.html#cb119-5" tabindex="-1"></a>    <span class="at">paired =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb119-6"><a href="statistical-analysis.html#cb119-6" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 11
+##   style .y.   group1 group2    n1    n2 statistic    df     p p.adj p.adj.signif
+## * &lt;fct&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       
+## 1 fun   score after  before     3     3      3.64     2 0.068 0.068 ns          
+## 2 rigid score after  before     3     3      1.53     2 0.267 0.267 ns</code></pre>
+<p>In this example, we use post hoc analysis:</p>
+<ul>
+<li><p><code>score ~ timing</code>: Here, we put the <strong>dependent variable</strong> on the left and the <strong>independent variable</strong> on the right. We are comparing <code>scores</code> across different exam <code>timing</code>.</p></li>
+<li><p><code>paired =</code>: Set this to <code>TRUE</code> if it’s a repeated measures design , and <code>FALSE</code> if it’s a between-subject design (i.e., different participants in each group).</p></li>
+<li><p><code>p.adjust.method</code>: This argument allows us to choose a method for adjusting p values.</p></li>
+</ul>
+</div>
+<div id="regression-analysis" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Regression analysis<a href="statistical-analysis.html#regression-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-wrangling-and-reshaping.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"fig_caption": true,
+"theme": "simplex",
+"toc_depth": 3,
+"toc_float": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
