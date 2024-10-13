@@ -12,7 +12,7 @@
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a RStudio tutorial." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="cocoyamo/R_tutorials" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 5 Data Cleaning and Transformation | Hello and welcome to our RStudio journey!" />
@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="This is a RStudio tutorial." />
   
 
-<meta name="author" content="Moya Chu" />
+<meta name="author" content="Moya" />
 
 
-<meta name="date" content="2024-10-12" />
+<meta name="date" content="2024-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -160,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Welcome!</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
@@ -269,7 +269,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/cocoyamo/R_tutorials" target="blank">Check out cocoya's GitHub Repository</a></li>
 
 </ul>
 
@@ -292,7 +292,7 @@ div.csl-indent {
 <h1><span class="header-section-number">Chapter 5</span> Data Cleaning and Transformation<a href="data-cleaning-and-transformation.html#data-cleaning-and-transformation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Here is a dataset for superheros that I downloaded from <a href="https://github.com/dariomalchiodi/superhero-datascience/blob/master/content/data/heroes.csv?plain=1">here</a>.</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="data-cleaning-and-transformation.html#cb28-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb28-2"><a href="data-cleaning-and-transformation.html#cb28-2" tabindex="-1"></a><span class="fu">setwd</span>  (<span class="st">&quot;~/Documents/MMR&quot;</span>)</span>
+<span id="cb28-2"><a href="data-cleaning-and-transformation.html#cb28-2" tabindex="-1"></a><span class="fu">setwd</span>  (<span class="st">&quot;~/Documents/R_tutorials&quot;</span>)</span>
 <span id="cb28-3"><a href="data-cleaning-and-transformation.html#cb28-3" tabindex="-1"></a>heroes <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;example files/heroes.csv&quot;</span>, </span>
 <span id="cb28-4"><a href="data-cleaning-and-transformation.html#cb28-4" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb28-5"><a href="data-cleaning-and-transformation.html#cb28-5" tabindex="-1"></a><span class="fu">View</span>(heroes)</span></code></pre></div>
@@ -303,38 +303,40 @@ div.csl-indent {
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="data-cleaning-and-transformation.html#cb29-1" tabindex="-1"></a>heroes <span class="sc">|&gt;</span></span>
 <span id="cb29-2"><a href="data-cleaning-and-transformation.html#cb29-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;Name&quot;</span>, <span class="st">&quot;Height&quot;</span>, <span class="st">&quot;Weight&quot;</span>, <span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;Eye color&quot;</span>, <span class="st">&quot;Hair color&quot;</span>, <span class="st">&quot;Strength&quot;</span>, <span class="st">&quot;Intelligence&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 735 × 8
-##    Name        Height Weight Gender `Eye color` `Hair color` Strength Intelligence
-##    &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;       
-##  1 A-Bomb        203.  442.  M      Yellow      No Hair           100 moderate    
-##  2 Abraxas        NA    NA   M      Blue        Black             100 high        
-##  3 Abomination   203.  442.  M      Green       No Hair            80 good        
-##  4 Adam Monroe    NA    NA   M      Blue        Blond              10 good        
-##  5 Agent 13      173.   61.0 F      Blue        Blond              NA &lt;NA&gt;        
-##  6 Air-Walker    189.  108.  M      Blue        White              85 average     
-##  7 Agent Bob     178.   81.4 M      Brown       Brown              10 low         
-##  8 Abe Sapien    191.   65.4 M      Blue        No Hair            30 high        
-##  9 Abin Sur      186.   90.9 M      Blue        No Hair            90 average     
-## 10 Angela         NA    NA   F      &lt;NA&gt;        &lt;NA&gt;              100 high        
-## # ℹ 725 more rows</code></pre>
+##    Name       Height Weight Gender `Eye color` `Hair color` Strength
+##    &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;           &lt;dbl&gt;
+##  1 A-Bomb       203.  442.  M      Yellow      No Hair           100
+##  2 Abraxas       NA    NA   M      Blue        Black             100
+##  3 Abominati…   203.  442.  M      Green       No Hair            80
+##  4 Adam Monr…    NA    NA   M      Blue        Blond              10
+##  5 Agent 13     173.   61.0 F      Blue        Blond              NA
+##  6 Air-Walker   189.  108.  M      Blue        White              85
+##  7 Agent Bob    178.   81.4 M      Brown       Brown              10
+##  8 Abe Sapien   191.   65.4 M      Blue        No Hair            30
+##  9 Abin Sur     186.   90.9 M      Blue        No Hair            90
+## 10 Angela        NA    NA   F      &lt;NA&gt;        &lt;NA&gt;              100
+## # ℹ 725 more rows
+## # ℹ 1 more variable: Intelligence &lt;chr&gt;</code></pre>
 <p>Now, if we want to filter for superheroes with high intelligence, we can use the <code>filter()</code> function.</p>
 <p>This function allows us to extract rows that meet specified conditions.</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="data-cleaning-and-transformation.html#cb31-1" tabindex="-1"></a>heroes <span class="sc">|&gt;</span></span>
 <span id="cb31-2"><a href="data-cleaning-and-transformation.html#cb31-2" tabindex="-1"></a>  <span class="fu">filter</span>(Intelligence <span class="sc">==</span> <span class="st">&quot;high&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 144 × 12
-##    Name         Identity `Birth place` Publisher Height Weight Gender `First appearance` `Eye color`
-##    &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;      
-##  1 Abraxas      Abraxas  Within Etern… Marvel C…   NA     NA   M                      NA Blue       
-##  2 Abe Sapien   Abraham… &lt;NA&gt;          Dark Hor…  191.    65.4 M                    1993 Blue       
-##  3 Angela       &lt;NA&gt;     &lt;NA&gt;          Image Co…   NA     NA   F                      NA &lt;NA&gt;       
-##  4 Yoda         Yoda     &lt;NA&gt;          George L…   66.3   17.0 M                    1980 Brown      
-##  5 Zatanna      Zatanna… &lt;NA&gt;          DC Comics  170.    57.8 F                      NA Blue       
-##  6 Yellowjacket Hank Pym Elmsford, Ne… Marvel C…  183.    83.7 M                      NA Blue       
-##  7 X-Man        Nate Gr… American Nor… Marvel C…  176.    61.8 M                    1995 Blue       
-##  8 Wonder Woman Diana P… Themyscira    DC Comics  183.    74.7 F                    1941 Blue       
-##  9 Watcher      Uatu     &lt;NA&gt;          Marvel C…   NA     NA   M                    1963 &lt;NA&gt;       
-## 10 Warlock      Adam Wa… The Beehive,… Marvel C…  188.   108.  M                      NA Red        
+##    Name        Identity `Birth place` Publisher Height Weight Gender
+##    &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; 
+##  1 Abraxas     Abraxas  Within Etern… Marvel C…   NA     NA   M     
+##  2 Abe Sapien  Abraham… &lt;NA&gt;          Dark Hor…  191.    65.4 M     
+##  3 Angela      &lt;NA&gt;     &lt;NA&gt;          Image Co…   NA     NA   F     
+##  4 Yoda        Yoda     &lt;NA&gt;          George L…   66.3   17.0 M     
+##  5 Zatanna     Zatanna… &lt;NA&gt;          DC Comics  170.    57.8 F     
+##  6 Yellowjack… Hank Pym Elmsford, Ne… Marvel C…  183.    83.7 M     
+##  7 X-Man       Nate Gr… American Nor… Marvel C…  176.    61.8 M     
+##  8 Wonder Wom… Diana P… Themyscira    DC Comics  183.    74.7 F     
+##  9 Watcher     Uatu     &lt;NA&gt;          Marvel C…   NA     NA   M     
+## 10 Warlock     Adam Wa… The Beehive,… Marvel C…  188.   108.  M     
 ## # ℹ 134 more rows
-## # ℹ 3 more variables: `Hair color` &lt;chr&gt;, Strength &lt;dbl&gt;, Intelligence &lt;chr&gt;</code></pre>
+## # ℹ 5 more variables: `First appearance` &lt;dbl&gt;, `Eye color` &lt;chr&gt;,
+## #   `Hair color` &lt;chr&gt;, Strength &lt;dbl&gt;, Intelligence &lt;chr&gt;</code></pre>
 <p>In fact, <code>select()</code> and <code>filter()</code> can be combined.</p>
 <p>Let’s look for female superheroes with strength over 50 and high intelligence levels.</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="data-cleaning-and-transformation.html#cb33-1" tabindex="-1"></a>heroes <span class="sc">|&gt;</span></span>
@@ -417,39 +419,42 @@ BMI = weight(kg)/height(m)^2
 <span id="cb39-3"><a href="data-cleaning-and-transformation.html#cb39-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Height_m2 =</span> Height_m<span class="sc">*</span>Height_m) <span class="sc">|&gt;</span> <span class="co"># square of the heights</span></span>
 <span id="cb39-4"><a href="data-cleaning-and-transformation.html#cb39-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">BMI =</span> Weight <span class="sc">/</span> Height_m2) <span class="co"># divide weights by the squrare of the heights</span></span></code></pre></div>
 <pre><code>## # A tibble: 735 × 15
-##    Name        Identity  `Birth place` Publisher Height Weight Gender `First appearance` `Eye color`
-##    &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;      
-##  1 A-Bomb      Richard … Scarsdale, A… Marvel C…   203.  442.  M                    2008 Yellow     
-##  2 Abraxas     Abraxas   Within Etern… Marvel C…    NA    NA   M                      NA Blue       
-##  3 Abomination Emil Blo… Zagreb, Yugo… Marvel C…   203.  442.  M                      NA Green      
-##  4 Adam Monroe &lt;NA&gt;      &lt;NA&gt;          NBC - He…    NA    NA   M                      NA Blue       
-##  5 Agent 13    Sharon C… &lt;NA&gt;          Marvel C…   173.   61.0 F                      NA Blue       
-##  6 Air-Walker  Gabriel … Xandar, a pl… Marvel C…   189.  108.  M                      NA Blue       
-##  7 Agent Bob   Bob       &lt;NA&gt;          Marvel C…   178.   81.4 M                    2007 Brown      
-##  8 Abe Sapien  Abraham … &lt;NA&gt;          Dark Hor…   191.   65.4 M                    1993 Blue       
-##  9 Abin Sur    &lt;NA&gt;      Ungara        DC Comics   186.   90.9 M                    1959 Blue       
-## 10 Angela      &lt;NA&gt;      &lt;NA&gt;          Image Co…    NA    NA   F                      NA &lt;NA&gt;       
+##    Name        Identity `Birth place` Publisher Height Weight Gender
+##    &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; 
+##  1 A-Bomb      Richard… Scarsdale, A… Marvel C…   203.  442.  M     
+##  2 Abraxas     Abraxas  Within Etern… Marvel C…    NA    NA   M     
+##  3 Abomination Emil Bl… Zagreb, Yugo… Marvel C…   203.  442.  M     
+##  4 Adam Monroe &lt;NA&gt;     &lt;NA&gt;          NBC - He…    NA    NA   M     
+##  5 Agent 13    Sharon … &lt;NA&gt;          Marvel C…   173.   61.0 F     
+##  6 Air-Walker  Gabriel… Xandar, a pl… Marvel C…   189.  108.  M     
+##  7 Agent Bob   Bob      &lt;NA&gt;          Marvel C…   178.   81.4 M     
+##  8 Abe Sapien  Abraham… &lt;NA&gt;          Dark Hor…   191.   65.4 M     
+##  9 Abin Sur    &lt;NA&gt;     Ungara        DC Comics   186.   90.9 M     
+## 10 Angela      &lt;NA&gt;     &lt;NA&gt;          Image Co…    NA    NA   F     
 ## # ℹ 725 more rows
-## # ℹ 6 more variables: `Hair color` &lt;chr&gt;, Strength &lt;dbl&gt;, Intelligence &lt;chr&gt;, Height_m &lt;dbl&gt;,
-## #   Height_m2 &lt;dbl&gt;, BMI &lt;dbl&gt;</code></pre>
+## # ℹ 8 more variables: `First appearance` &lt;dbl&gt;, `Eye color` &lt;chr&gt;,
+## #   `Hair color` &lt;chr&gt;, Strength &lt;dbl&gt;, Intelligence &lt;chr&gt;,
+## #   Height_m &lt;dbl&gt;, Height_m2 &lt;dbl&gt;, BMI &lt;dbl&gt;</code></pre>
 <p>We can either break this down into multiple steps or, for simplicity, combine everything into one line of code.</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-cleaning-and-transformation.html#cb41-1" tabindex="-1"></a>heroes <span class="sc">|&gt;</span></span>
 <span id="cb41-2"><a href="data-cleaning-and-transformation.html#cb41-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">BMI =</span> Weight <span class="sc">/</span> (Height<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>) </span></code></pre></div>
 <pre><code>## # A tibble: 735 × 13
-##    Name        Identity  `Birth place` Publisher Height Weight Gender `First appearance` `Eye color`
-##    &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;      
-##  1 A-Bomb      Richard … Scarsdale, A… Marvel C…   203.  442.  M                    2008 Yellow     
-##  2 Abraxas     Abraxas   Within Etern… Marvel C…    NA    NA   M                      NA Blue       
-##  3 Abomination Emil Blo… Zagreb, Yugo… Marvel C…   203.  442.  M                      NA Green      
-##  4 Adam Monroe &lt;NA&gt;      &lt;NA&gt;          NBC - He…    NA    NA   M                      NA Blue       
-##  5 Agent 13    Sharon C… &lt;NA&gt;          Marvel C…   173.   61.0 F                      NA Blue       
-##  6 Air-Walker  Gabriel … Xandar, a pl… Marvel C…   189.  108.  M                      NA Blue       
-##  7 Agent Bob   Bob       &lt;NA&gt;          Marvel C…   178.   81.4 M                    2007 Brown      
-##  8 Abe Sapien  Abraham … &lt;NA&gt;          Dark Hor…   191.   65.4 M                    1993 Blue       
-##  9 Abin Sur    &lt;NA&gt;      Ungara        DC Comics   186.   90.9 M                    1959 Blue       
-## 10 Angela      &lt;NA&gt;      &lt;NA&gt;          Image Co…    NA    NA   F                      NA &lt;NA&gt;       
+##    Name        Identity `Birth place` Publisher Height Weight Gender
+##    &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; 
+##  1 A-Bomb      Richard… Scarsdale, A… Marvel C…   203.  442.  M     
+##  2 Abraxas     Abraxas  Within Etern… Marvel C…    NA    NA   M     
+##  3 Abomination Emil Bl… Zagreb, Yugo… Marvel C…   203.  442.  M     
+##  4 Adam Monroe &lt;NA&gt;     &lt;NA&gt;          NBC - He…    NA    NA   M     
+##  5 Agent 13    Sharon … &lt;NA&gt;          Marvel C…   173.   61.0 F     
+##  6 Air-Walker  Gabriel… Xandar, a pl… Marvel C…   189.  108.  M     
+##  7 Agent Bob   Bob      &lt;NA&gt;          Marvel C…   178.   81.4 M     
+##  8 Abe Sapien  Abraham… &lt;NA&gt;          Dark Hor…   191.   65.4 M     
+##  9 Abin Sur    &lt;NA&gt;     Ungara        DC Comics   186.   90.9 M     
+## 10 Angela      &lt;NA&gt;     &lt;NA&gt;          Image Co…    NA    NA   F     
 ## # ℹ 725 more rows
-## # ℹ 4 more variables: `Hair color` &lt;chr&gt;, Strength &lt;dbl&gt;, Intelligence &lt;chr&gt;, BMI &lt;dbl&gt;</code></pre>
+## # ℹ 6 more variables: `First appearance` &lt;dbl&gt;, `Eye color` &lt;chr&gt;,
+## #   `Hair color` &lt;chr&gt;, Strength &lt;dbl&gt;, Intelligence &lt;chr&gt;,
+## #   BMI &lt;dbl&gt;</code></pre>
 <p>Either approach will give the same result, so you can shoose whichever suits you best.</p>
 <blockquote>
 <p><strong>Tip:</strong> By default, new columns appear on the right, but if you prefer them on the left (to make it easier to check when there are many columns), you can specify <code>.after = "column_name"</code> in <code>mutate()</code> to position the new column immediately after a chosen column.</p>
@@ -457,38 +462,40 @@ BMI = weight(kg)/height(m)^2
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-cleaning-and-transformation.html#cb43-1" tabindex="-1"></a>heroes <span class="sc">|&gt;</span></span>
 <span id="cb43-2"><a href="data-cleaning-and-transformation.html#cb43-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">BMI =</span> Weight <span class="sc">/</span> (Height<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>, <span class="at">.before =</span> <span class="dv">1</span>) </span></code></pre></div>
 <pre><code>## # A tibble: 735 × 13
-##      BMI Name   Identity `Birth place` Publisher Height Weight Gender `First appearance` `Eye color`
-##    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;      
-##  1 107.  A-Bomb Richard… Scarsdale, A… Marvel C…   203.  442.  M                    2008 Yellow     
-##  2  NA   Abrax… Abraxas  Within Etern… Marvel C…    NA    NA   M                      NA Blue       
-##  3 107.  Abomi… Emil Bl… Zagreb, Yugo… Marvel C…   203.  442.  M                      NA Green      
-##  4  NA   Adam … &lt;NA&gt;     &lt;NA&gt;          NBC - He…    NA    NA   M                      NA Blue       
-##  5  20.3 Agent… Sharon … &lt;NA&gt;          Marvel C…   173.   61.0 F                      NA Blue       
-##  6  30.4 Air-W… Gabriel… Xandar, a pl… Marvel C…   189.  108.  M                      NA Blue       
-##  7  25.6 Agent… Bob      &lt;NA&gt;          Marvel C…   178.   81.4 M                    2007 Brown      
-##  8  17.9 Abe S… Abraham… &lt;NA&gt;          Dark Hor…   191.   65.4 M                    1993 Blue       
-##  9  26.4 Abin … &lt;NA&gt;     Ungara        DC Comics   186.   90.9 M                    1959 Blue       
-## 10  NA   Angela &lt;NA&gt;     &lt;NA&gt;          Image Co…    NA    NA   F                      NA &lt;NA&gt;       
+##      BMI Name  Identity `Birth place` Publisher Height Weight Gender
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; 
+##  1 107.  A-Bo… Richard… Scarsdale, A… Marvel C…   203.  442.  M     
+##  2  NA   Abra… Abraxas  Within Etern… Marvel C…    NA    NA   M     
+##  3 107.  Abom… Emil Bl… Zagreb, Yugo… Marvel C…   203.  442.  M     
+##  4  NA   Adam… &lt;NA&gt;     &lt;NA&gt;          NBC - He…    NA    NA   M     
+##  5  20.3 Agen… Sharon … &lt;NA&gt;          Marvel C…   173.   61.0 F     
+##  6  30.4 Air-… Gabriel… Xandar, a pl… Marvel C…   189.  108.  M     
+##  7  25.6 Agen… Bob      &lt;NA&gt;          Marvel C…   178.   81.4 M     
+##  8  17.9 Abe … Abraham… &lt;NA&gt;          Dark Hor…   191.   65.4 M     
+##  9  26.4 Abin… &lt;NA&gt;     Ungara        DC Comics   186.   90.9 M     
+## 10  NA   Ange… &lt;NA&gt;     &lt;NA&gt;          Image Co…    NA    NA   F     
 ## # ℹ 725 more rows
-## # ℹ 3 more variables: `Hair color` &lt;chr&gt;, Strength &lt;dbl&gt;, Intelligence &lt;chr&gt;</code></pre>
+## # ℹ 5 more variables: `First appearance` &lt;dbl&gt;, `Eye color` &lt;chr&gt;,
+## #   `Hair color` &lt;chr&gt;, Strength &lt;dbl&gt;, Intelligence &lt;chr&gt;</code></pre>
 <p>If, for example, I want the new <code>BMI</code> column to appear immediately after the <code>Name</code> column, I can write <code>.after = "Name"</code> to achieve that.</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-cleaning-and-transformation.html#cb45-1" tabindex="-1"></a>heroes <span class="sc">|&gt;</span></span>
 <span id="cb45-2"><a href="data-cleaning-and-transformation.html#cb45-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">BMI =</span> Weight <span class="sc">/</span> (Height<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>, <span class="at">.after =</span> <span class="st">&quot;Name&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 735 × 13
-##    Name     BMI Identity `Birth place` Publisher Height Weight Gender `First appearance` `Eye color`
-##    &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;      
-##  1 A-Bomb 107.  Richard… Scarsdale, A… Marvel C…   203.  442.  M                    2008 Yellow     
-##  2 Abrax…  NA   Abraxas  Within Etern… Marvel C…    NA    NA   M                      NA Blue       
-##  3 Abomi… 107.  Emil Bl… Zagreb, Yugo… Marvel C…   203.  442.  M                      NA Green      
-##  4 Adam …  NA   &lt;NA&gt;     &lt;NA&gt;          NBC - He…    NA    NA   M                      NA Blue       
-##  5 Agent…  20.3 Sharon … &lt;NA&gt;          Marvel C…   173.   61.0 F                      NA Blue       
-##  6 Air-W…  30.4 Gabriel… Xandar, a pl… Marvel C…   189.  108.  M                      NA Blue       
-##  7 Agent…  25.6 Bob      &lt;NA&gt;          Marvel C…   178.   81.4 M                    2007 Brown      
-##  8 Abe S…  17.9 Abraham… &lt;NA&gt;          Dark Hor…   191.   65.4 M                    1993 Blue       
-##  9 Abin …  26.4 &lt;NA&gt;     Ungara        DC Comics   186.   90.9 M                    1959 Blue       
-## 10 Angela  NA   &lt;NA&gt;     &lt;NA&gt;          Image Co…    NA    NA   F                      NA &lt;NA&gt;       
+##    Name    BMI Identity `Birth place` Publisher Height Weight Gender
+##    &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; 
+##  1 A-Bo… 107.  Richard… Scarsdale, A… Marvel C…   203.  442.  M     
+##  2 Abra…  NA   Abraxas  Within Etern… Marvel C…    NA    NA   M     
+##  3 Abom… 107.  Emil Bl… Zagreb, Yugo… Marvel C…   203.  442.  M     
+##  4 Adam…  NA   &lt;NA&gt;     &lt;NA&gt;          NBC - He…    NA    NA   M     
+##  5 Agen…  20.3 Sharon … &lt;NA&gt;          Marvel C…   173.   61.0 F     
+##  6 Air-…  30.4 Gabriel… Xandar, a pl… Marvel C…   189.  108.  M     
+##  7 Agen…  25.6 Bob      &lt;NA&gt;          Marvel C…   178.   81.4 M     
+##  8 Abe …  17.9 Abraham… &lt;NA&gt;          Dark Hor…   191.   65.4 M     
+##  9 Abin…  26.4 &lt;NA&gt;     Ungara        DC Comics   186.   90.9 M     
+## 10 Ange…  NA   &lt;NA&gt;     &lt;NA&gt;          Image Co…    NA    NA   F     
 ## # ℹ 725 more rows
-## # ℹ 3 more variables: `Hair color` &lt;chr&gt;, Strength &lt;dbl&gt;, Intelligence &lt;chr&gt;</code></pre>
+## # ℹ 5 more variables: `First appearance` &lt;dbl&gt;, `Eye color` &lt;chr&gt;,
+## #   `Hair color` &lt;chr&gt;, Strength &lt;dbl&gt;, Intelligence &lt;chr&gt;</code></pre>
 <blockquote>
 <p><strong>Tip:</strong> Instead of using <code>select()</code> to manually keep only the columns you’ve used during <code>mutate()</code> process, you can use <code>.keep = "used"</code>. This tells RStudio to retain only the columns involved in the mutation process.</p>
 </blockquote>
@@ -646,7 +653,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/cocoyamo/R_tutorials/edit/gh-pages/index.Rmd",
 "text": "Edit"
 },
 "history": {

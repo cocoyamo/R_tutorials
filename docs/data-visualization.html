@@ -12,7 +12,7 @@
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a RStudio tutorial." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="cocoyamo/R_tutorials" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 8 Data Visualization | Hello and welcome to our RStudio journey!" />
@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="This is a RStudio tutorial." />
   
 
-<meta name="author" content="Moya Chu" />
+<meta name="author" content="Moya" />
 
 
-<meta name="date" content="2024-10-12" />
+<meta name="date" content="2024-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -160,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Welcome!</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
@@ -269,7 +269,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/cocoyamo/R_tutorials" target="blank">Check out cocoya's GitHub Repository</a></li>
 
 </ul>
 
@@ -296,20 +296,21 @@ div.csl-indent {
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="data-visualization.html#cb121-1" tabindex="-1"></a><span class="fu">library</span>(openintro)</span>
 <span id="cb121-2"><a href="data-visualization.html#cb121-2" tabindex="-1"></a>lego_sample</span></code></pre></div>
 <pre><code>## # A tibble: 75 × 14
-##    item_number set_name     theme pieces  price amazon_price  year ages  pages minifigures packaging
-##          &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;    
-##  1       10859 My First La… DUPL…      6   4.99        16     2018 Ages…     9          NA Box      
-##  2       10860 My First Ra… DUPL…      6   4.99         9.45  2018 Ages…     9          NA Box      
-##  3       10862 My First Ce… DUPL…     41  15.0         39.9   2018 Ages…     9          NA Box      
-##  4       10864 Large Playg… DUPL…     71  50.0         56.7   2018 Ages…    32           2 Plastic …
-##  5       10867 Farmers&#39; Ma… DUPL…     26  20.0         37.0   2018 Ages…     9           3 Box      
-##  6       10870 Farm Animals DUPL…     16   9.99         9.99  2018 Ages…     8          NA Box      
-##  7       10872 Train Bridg… DUPL…     26  25.0         22.0   2018 Ages…    16           1 Box      
-##  8       10875 Cargo Train  DUPL…    105 120.         129.    2018 Ages…    64           3 Box      
-##  9       10876 Spider-Man … DUPL…     38  30.0         74.5   2018 Ages…    20           3 Box      
-## 10       10878 Rapunzel&#39;s … DUPL…     37  30.0         99.0   2018 Ages…    24           1 Box      
+##    item_number set_name theme pieces  price amazon_price  year ages 
+##          &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+##  1       10859 My Firs… DUPL…      6   4.99        16     2018 Ages…
+##  2       10860 My Firs… DUPL…      6   4.99         9.45  2018 Ages…
+##  3       10862 My Firs… DUPL…     41  15.0         39.9   2018 Ages…
+##  4       10864 Large P… DUPL…     71  50.0         56.7   2018 Ages…
+##  5       10867 Farmers… DUPL…     26  20.0         37.0   2018 Ages…
+##  6       10870 Farm An… DUPL…     16   9.99         9.99  2018 Ages…
+##  7       10872 Train B… DUPL…     26  25.0         22.0   2018 Ages…
+##  8       10875 Cargo T… DUPL…    105 120.         129.    2018 Ages…
+##  9       10876 Spider-… DUPL…     38  30.0         74.5   2018 Ages…
+## 10       10878 Rapunze… DUPL…     37  30.0         99.0   2018 Ages…
 ## # ℹ 65 more rows
-## # ℹ 3 more variables: weight &lt;chr&gt;, unique_pieces &lt;dbl&gt;, size &lt;chr&gt;</code></pre>
+## # ℹ 6 more variables: pages &lt;dbl&gt;, minifigures &lt;dbl&gt;,
+## #   packaging &lt;chr&gt;, weight &lt;chr&gt;, unique_pieces &lt;dbl&gt;, size &lt;chr&gt;</code></pre>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="data-visualization.html#cb123-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
 <span id="cb123-2"><a href="data-visualization.html#cb123-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">|&gt;</span></span>
 <span id="cb123-3"><a href="data-visualization.html#cb123-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> packaging, <span class="at">y =</span> pieces)) <span class="sc">+</span></span>
@@ -463,20 +464,21 @@ div.csl-indent {
 <p>這邊的資料在下面才有介紹，不知道是要把介紹提前還是怎樣：Ｄ</p>
 <div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="data-visualization.html#cb143-1" tabindex="-1"></a>lego_sample</span></code></pre></div>
 <pre><code>## # A tibble: 75 × 14
-##    item_number set_name     theme pieces  price amazon_price  year ages  pages minifigures packaging
-##          &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;    
-##  1       10859 My First La… DUPL…      6   4.99        16     2018 Ages…     9          NA Box      
-##  2       10860 My First Ra… DUPL…      6   4.99         9.45  2018 Ages…     9          NA Box      
-##  3       10862 My First Ce… DUPL…     41  15.0         39.9   2018 Ages…     9          NA Box      
-##  4       10864 Large Playg… DUPL…     71  50.0         56.7   2018 Ages…    32           2 Plastic …
-##  5       10867 Farmers&#39; Ma… DUPL…     26  20.0         37.0   2018 Ages…     9           3 Box      
-##  6       10870 Farm Animals DUPL…     16   9.99         9.99  2018 Ages…     8          NA Box      
-##  7       10872 Train Bridg… DUPL…     26  25.0         22.0   2018 Ages…    16           1 Box      
-##  8       10875 Cargo Train  DUPL…    105 120.         129.    2018 Ages…    64           3 Box      
-##  9       10876 Spider-Man … DUPL…     38  30.0         74.5   2018 Ages…    20           3 Box      
-## 10       10878 Rapunzel&#39;s … DUPL…     37  30.0         99.0   2018 Ages…    24           1 Box      
+##    item_number set_name theme pieces  price amazon_price  year ages 
+##          &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+##  1       10859 My Firs… DUPL…      6   4.99        16     2018 Ages…
+##  2       10860 My Firs… DUPL…      6   4.99         9.45  2018 Ages…
+##  3       10862 My Firs… DUPL…     41  15.0         39.9   2018 Ages…
+##  4       10864 Large P… DUPL…     71  50.0         56.7   2018 Ages…
+##  5       10867 Farmers… DUPL…     26  20.0         37.0   2018 Ages…
+##  6       10870 Farm An… DUPL…     16   9.99         9.99  2018 Ages…
+##  7       10872 Train B… DUPL…     26  25.0         22.0   2018 Ages…
+##  8       10875 Cargo T… DUPL…    105 120.         129.    2018 Ages…
+##  9       10876 Spider-… DUPL…     38  30.0         74.5   2018 Ages…
+## 10       10878 Rapunze… DUPL…     37  30.0         99.0   2018 Ages…
 ## # ℹ 65 more rows
-## # ℹ 3 more variables: weight &lt;chr&gt;, unique_pieces &lt;dbl&gt;, size &lt;chr&gt;</code></pre>
+## # ℹ 6 more variables: pages &lt;dbl&gt;, minifigures &lt;dbl&gt;,
+## #   packaging &lt;chr&gt;, weight &lt;chr&gt;, unique_pieces &lt;dbl&gt;, size &lt;chr&gt;</code></pre>
 <p>Let’s say we want to explore the relationship between the price of Lego sets (<code>price</code>, a <strong>continuous numeric variable</strong>) and their size (<code>size</code>, a <strong>categorical variable</strong>).</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="data-visualization.html#cb145-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
 <span id="cb145-2"><a href="data-visualization.html#cb145-2" tabindex="-1"></a>  <span class="fu">ggpairs</span>(<span class="at">columns =</span> <span class="fu">c</span>(<span class="st">&quot;price&quot;</span>, <span class="st">&quot;size&quot;</span>))</span></code></pre></div>
@@ -710,7 +712,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/cocoyamo/R_tutorials/edit/gh-pages/index.Rmd",
 "text": "Edit"
 },
 "history": {

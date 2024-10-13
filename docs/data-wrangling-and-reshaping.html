@@ -12,7 +12,7 @@
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a RStudio tutorial." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="cocoyamo/R_tutorials" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 6 Data Wrangling and Reshaping | Hello and welcome to our RStudio journey!" />
@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="This is a RStudio tutorial." />
   
 
-<meta name="author" content="Moya Chu" />
+<meta name="author" content="Moya" />
 
 
-<meta name="date" content="2024-10-12" />
+<meta name="date" content="2024-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -160,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Welcome!</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
@@ -269,7 +269,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/cocoyamo/R_tutorials" target="blank">Check out cocoya's GitHub Repository</a></li>
 
 </ul>
 
@@ -577,13 +577,20 @@ div.csl-indent {
 <p>We pull the original performance data and want to add the Biology columns to it.</p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-wrangling-and-reshaping.html#cb69-1" tabindex="-1"></a>performance_original <span class="sc">|&gt;</span></span>
 <span id="cb69-2"><a href="data-wrangling-and-reshaping.html#cb69-2" tabindex="-1"></a>  <span class="fu">left_join</span>(performance_biology, <span class="at">by =</span> <span class="st">&quot;Name&quot;</span>) </span></code></pre></div>
-<pre><code>##    Name Eng_C1 Eng_C2 Eng_C3 Math_C1 Math_C2 Math_C3 Bio_C1 Bio_C2 Bio_C3
-## 1 Kelly     90     95     80      90      80      97     80     73     90
-## 2  Liam     70     80     94      80      89      79     80     76     93
-## 3 Henry     79     80     85      96      92      90     83     75     94
-## 4 Alice     98     93     89      83      72      74     93     77     90
-## 5  Jake     81     93     73      92      84      70     80     79     81
-## 6   Dan     79     70     91      68      83      92     88     83     82</code></pre>
+<pre><code>##    Name Eng_C1 Eng_C2 Eng_C3 Math_C1 Math_C2 Math_C3 Bio_C1 Bio_C2
+## 1 Kelly     90     95     80      90      80      97     80     73
+## 2  Liam     70     80     94      80      89      79     80     76
+## 3 Henry     79     80     85      96      92      90     83     75
+## 4 Alice     98     93     89      83      72      74     93     77
+## 5  Jake     81     93     73      92      84      70     80     79
+## 6   Dan     79     70     91      68      83      92     88     83
+##   Bio_C3
+## 1     90
+## 2     93
+## 3     94
+## 4     90
+## 5     81
+## 6     82</code></pre>
 <p>Here, we’ve successfully added the Biology columns to the original dataset. When dealing with multiple independent variables (columns), you can use <code>by = c("column1", "column2", …)</code> to specify the join basis.</p>
 <p>Now, you might have guessed – there is also a <code>right_join()</code> in RStudio. While I don’t use it as often as <code>left_join()</code> in my usual data analysis, it’s still important to understand the difference.</p>
 <ul>
@@ -655,7 +662,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/cocoyamo/R_tutorials/edit/gh-pages/index.Rmd",
 "text": "Edit"
 },
 "history": {
