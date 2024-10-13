@@ -1,5 +1,6 @@
 bookdown::gitbook:
   output_dir: "docs"
+  fig_path: figures/
   css: style.css
   config:
     toc:          # 啟用目錄
@@ -16,7 +17,7 @@ bookdown::gitbook:
     # toc: yes          # 啟用目錄
     toc_depth: 3      # 目錄的層次深度
     toc_float: yes     # 浮動目錄    
-    
+
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
