@@ -12,7 +12,7 @@
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a RStudio tutorial." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="cocoyamo/R_tutorials" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 7 Statistical Analysis | Hello and welcome to our RStudio journey!" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Moya" />
 
 
-<meta name="date" content="2024-10-13" />
+<meta name="date" content="2024-10-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -617,14 +617,22 @@ div.csl-indent {
 <span id="cb112-8"><a href="statistical-analysis.html#cb112-8" tabindex="-1"></a>    <span class="at">detailed =</span> T)   </span></code></pre></div>
 <pre><code>## ANOVA Table (type II tests)
 ## 
-##                           Effect       SSn      SSd DFn DFd     F        p p&lt;.05   ges
-## 1                         Gender  1083.194 96626.99   1 118 1.323 0.252000       0.011
-## 2                   Intelligence  3465.586 96626.99   3 118 1.411 0.243000       0.035
-## 3                     BMI_status 16524.941 96626.99   3 118 6.727 0.000314     * 0.146
-## 4            Gender:Intelligence  2703.193 96626.99   2 118 1.651 0.196000       0.027
-## 5              Gender:BMI_status  8295.111 96626.99   3 118 3.377 0.021000     * 0.079
-## 6        Intelligence:BMI_status  7715.048 96626.99   7 118 1.346 0.235000       0.074
-## 7 Gender:Intelligence:BMI_status        NA 96626.99   0 118    NA       NA  &lt;NA&gt;    NA</code></pre>
+##                           Effect       SSn      SSd DFn DFd     F        p
+## 1                         Gender  1083.194 96626.99   1 118 1.323 0.252000
+## 2                   Intelligence  3465.586 96626.99   3 118 1.411 0.243000
+## 3                     BMI_status 16524.941 96626.99   3 118 6.727 0.000314
+## 4            Gender:Intelligence  2703.193 96626.99   2 118 1.651 0.196000
+## 5              Gender:BMI_status  8295.111 96626.99   3 118 3.377 0.021000
+## 6        Intelligence:BMI_status  7715.048 96626.99   7 118 1.346 0.235000
+## 7 Gender:Intelligence:BMI_status        NA 96626.99   0 118    NA       NA
+##   p&lt;.05   ges
+## 1       0.011
+## 2       0.035
+## 3     * 0.146
+## 4       0.027
+## 5     * 0.079
+## 6       0.074
+## 7  &lt;NA&gt;    NA</code></pre>
 <p>Note that if the independent variable is within-subject (in the case of a mixed analysis), we place the <strong>within-subject</strong> independent variables in the <code>within =</code> section. This is commonly used when analyzing experimental results, such as comparing test scores before learning and after learning. See below for more details on mixed ANOVA.</p>
 </div>
 </div>
