@@ -123,29 +123,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -237,37 +214,6 @@ div.csl-indent {
 <li class="chapter" data-level="9" data-path="efficiency-tips-for-data-processing.html"><a href="efficiency-tips-for-data-processing.html"><i class="fa fa-check"></i><b>9</b> Efficiency Tips for Data Processing</a></li>
 <li class="chapter" data-level="10" data-path="data-export.html"><a href="data-export.html"><i class="fa fa-check"></i><b>10</b> Data Export</a></li>
 <li class="chapter" data-level="11" data-path="colclusion-and-advanced-learning.html"><a href="colclusion-and-advanced-learning.html"><i class="fa fa-check"></i><b>11</b> Colclusion and Advanced Learning</a></li>
-<li class="chapter" data-level="12" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>12</b> Hello bookdown</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>12.1</b> A section</a>
-<ul>
-<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>13</b> Cross-references</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>13.1</b> Chapters and sub-chapters</a></li>
-<li class="chapter" data-level="13.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>13.2</b> Captioned figures and tables</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>14</b> Parts</a></li>
-<li class="chapter" data-level="15" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>15</b> Footnotes and citations</a>
-<ul>
-<li class="chapter" data-level="15.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>15.1</b> Footnotes</a></li>
-<li class="chapter" data-level="15.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>15.2</b> Citations</a></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>16</b> Blocks</a>
-<ul>
-<li class="chapter" data-level="16.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>16.1</b> Equations</a></li>
-<li class="chapter" data-level="16.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>16.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="16.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>16.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>17</b> Sharing your book</a>
-<ul>
-<li class="chapter" data-level="17.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>17.1</b> Publishing</a></li>
-<li class="chapter" data-level="17.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>17.2</b> 404 pages</a></li>
-<li class="chapter" data-level="17.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>17.3</b> Metadata for sharing</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/cocoyamo/R_tutorials" target="blank">Check out cocoya's GitHub Repository</a></li>
 
@@ -296,20 +242,22 @@ div.csl-indent {
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="data-visualization.html#cb121-1" tabindex="-1"></a><span class="fu">library</span>(openintro)</span>
 <span id="cb121-2"><a href="data-visualization.html#cb121-2" tabindex="-1"></a>lego_sample</span></code></pre></div>
 <pre><code>## # A tibble: 75 × 14
-##    item_number set_name         theme pieces  price amazon_price  year ages  pages minifigures packaging weight
-##          &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt; 
-##  1       10859 My First Ladybi… DUPL…      6   4.99        16     2018 Ages…     9          NA Box       &lt;NA&gt;  
-##  2       10860 My First Race C… DUPL…      6   4.99         9.45  2018 Ages…     9          NA Box       0.13K…
-##  3       10862 My First Celebr… DUPL…     41  15.0         39.9   2018 Ages…     9          NA Box       &lt;NA&gt;  
-##  4       10864 Large Playgroun… DUPL…     71  50.0         56.7   2018 Ages…    32           2 Plastic … 1.41K…
-##  5       10867 Farmers&#39; Market  DUPL…     26  20.0         37.0   2018 Ages…     9           3 Box       &lt;NA&gt;  
-##  6       10870 Farm Animals     DUPL…     16   9.99         9.99  2018 Ages…     8          NA Box       &lt;NA&gt;  
-##  7       10872 Train Bridge an… DUPL…     26  25.0         22.0   2018 Ages…    16           1 Box       0.88K…
-##  8       10875 Cargo Train      DUPL…    105 120.         129.    2018 Ages…    64           3 Box       2.86K…
-##  9       10876 Spider-Man &amp; Hu… DUPL…     38  30.0         74.5   2018 Ages…    20           3 Box       0.54K…
-## 10       10878 Rapunzel&#39;s Tower DUPL…     37  30.0         99.0   2018 Ages…    24           1 Box       &lt;NA&gt;  
+##    item_number set_name    theme pieces  price amazon_price
+##          &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt;
+##  1       10859 My First L… DUPL…      6   4.99        16   
+##  2       10860 My First R… DUPL…      6   4.99         9.45
+##  3       10862 My First C… DUPL…     41  15.0         39.9 
+##  4       10864 Large Play… DUPL…     71  50.0         56.7 
+##  5       10867 Farmers&#39; M… DUPL…     26  20.0         37.0 
+##  6       10870 Farm Anima… DUPL…     16   9.99         9.99
+##  7       10872 Train Brid… DUPL…     26  25.0         22.0 
+##  8       10875 Cargo Train DUPL…    105 120.         129.  
+##  9       10876 Spider-Man… DUPL…     38  30.0         74.5 
+## 10       10878 Rapunzel&#39;s… DUPL…     37  30.0         99.0 
 ## # ℹ 65 more rows
-## # ℹ 2 more variables: unique_pieces &lt;dbl&gt;, size &lt;chr&gt;</code></pre>
+## # ℹ 8 more variables: year &lt;dbl&gt;, ages &lt;chr&gt;, pages &lt;dbl&gt;,
+## #   minifigures &lt;dbl&gt;, packaging &lt;chr&gt;, weight &lt;chr&gt;,
+## #   unique_pieces &lt;dbl&gt;, size &lt;chr&gt;</code></pre>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="data-visualization.html#cb123-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
 <span id="cb123-2"><a href="data-visualization.html#cb123-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">|&gt;</span></span>
 <span id="cb123-3"><a href="data-visualization.html#cb123-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> packaging, <span class="at">y =</span> pieces)) <span class="sc">+</span></span>
@@ -463,20 +411,22 @@ div.csl-indent {
 <p>這邊的資料在下面才有介紹，不知道是要把介紹提前還是怎樣：Ｄ</p>
 <div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="data-visualization.html#cb143-1" tabindex="-1"></a>lego_sample</span></code></pre></div>
 <pre><code>## # A tibble: 75 × 14
-##    item_number set_name         theme pieces  price amazon_price  year ages  pages minifigures packaging weight
-##          &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt; 
-##  1       10859 My First Ladybi… DUPL…      6   4.99        16     2018 Ages…     9          NA Box       &lt;NA&gt;  
-##  2       10860 My First Race C… DUPL…      6   4.99         9.45  2018 Ages…     9          NA Box       0.13K…
-##  3       10862 My First Celebr… DUPL…     41  15.0         39.9   2018 Ages…     9          NA Box       &lt;NA&gt;  
-##  4       10864 Large Playgroun… DUPL…     71  50.0         56.7   2018 Ages…    32           2 Plastic … 1.41K…
-##  5       10867 Farmers&#39; Market  DUPL…     26  20.0         37.0   2018 Ages…     9           3 Box       &lt;NA&gt;  
-##  6       10870 Farm Animals     DUPL…     16   9.99         9.99  2018 Ages…     8          NA Box       &lt;NA&gt;  
-##  7       10872 Train Bridge an… DUPL…     26  25.0         22.0   2018 Ages…    16           1 Box       0.88K…
-##  8       10875 Cargo Train      DUPL…    105 120.         129.    2018 Ages…    64           3 Box       2.86K…
-##  9       10876 Spider-Man &amp; Hu… DUPL…     38  30.0         74.5   2018 Ages…    20           3 Box       0.54K…
-## 10       10878 Rapunzel&#39;s Tower DUPL…     37  30.0         99.0   2018 Ages…    24           1 Box       &lt;NA&gt;  
+##    item_number set_name    theme pieces  price amazon_price
+##          &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt;
+##  1       10859 My First L… DUPL…      6   4.99        16   
+##  2       10860 My First R… DUPL…      6   4.99         9.45
+##  3       10862 My First C… DUPL…     41  15.0         39.9 
+##  4       10864 Large Play… DUPL…     71  50.0         56.7 
+##  5       10867 Farmers&#39; M… DUPL…     26  20.0         37.0 
+##  6       10870 Farm Anima… DUPL…     16   9.99         9.99
+##  7       10872 Train Brid… DUPL…     26  25.0         22.0 
+##  8       10875 Cargo Train DUPL…    105 120.         129.  
+##  9       10876 Spider-Man… DUPL…     38  30.0         74.5 
+## 10       10878 Rapunzel&#39;s… DUPL…     37  30.0         99.0 
 ## # ℹ 65 more rows
-## # ℹ 2 more variables: unique_pieces &lt;dbl&gt;, size &lt;chr&gt;</code></pre>
+## # ℹ 8 more variables: year &lt;dbl&gt;, ages &lt;chr&gt;, pages &lt;dbl&gt;,
+## #   minifigures &lt;dbl&gt;, packaging &lt;chr&gt;, weight &lt;chr&gt;,
+## #   unique_pieces &lt;dbl&gt;, size &lt;chr&gt;</code></pre>
 <p>Let’s say we want to explore the relationship between the price of Lego sets (<code>price</code>, a <strong>continuous numeric variable</strong>) and their size (<code>size</code>, a <strong>categorical variable</strong>).</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="data-visualization.html#cb145-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
 <span id="cb145-2"><a href="data-visualization.html#cb145-2" tabindex="-1"></a>  <span class="fu">ggpairs</span>(<span class="at">columns =</span> <span class="fu">c</span>(<span class="st">&quot;price&quot;</span>, <span class="st">&quot;size&quot;</span>))</span></code></pre></div>
