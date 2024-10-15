@@ -1,0 +1,28 @@
+{
+    "id": "AC76401F",
+    "path": "~/Documents/R_tutorials/index.Rmd",
+    "project_path": "index.Rmd",
+    "type": "r_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1728739821248.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "18,18",
+        "scrollLine": "9",
+        "docOutlineVisible": "1",
+        "last_setup_crc32": ""
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1728955934,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1728955934,
+    "read_only": false,
+    "read_only_alternatives": []
+}
