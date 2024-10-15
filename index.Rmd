@@ -2,15 +2,21 @@
 title: "Hello and welcome to our RStudio journey!"
 author: "Moya"
 date: "`r Sys.Date()`"
+output: 
+  bookdown::gitbook: 
+    output_dir: "docs"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 url: https://cocoyamo.github.io/R_tutorials
-# cover-image: path to the social sharing image like images/cover.jpg
 description: |
   This is a RStudio tutorial. 
 link-citations: yes
-github-repo: rstudio/bookdown-demo
+github-repo: cocoyamo/R_tutorials
+knitr:
+  opts_chunk: 
+    fig.show: "hold"
+    fig.path: "figures/"
 ---
 
 ```{r setup, include = FALSE}
@@ -90,7 +96,7 @@ The code may look something like this (but not identical, because, hopefully, we
 
 ```{r}
 library(readxl)
-weather_math <- read_excel("~/Documents/MMR/example files/weather_math.xlsx")
+weather_math <- read_excel("~/Documents/R_tutorials/example files/weather_math.xlsx")
 View(weather_math)
 ```
 
@@ -278,7 +284,7 @@ Here is a dataset for superheros that I downloaded from [here](https://github.co
 
 ```{r}
 library(readr)
-setwd  ("~/Documents/MMR")
+setwd  ("~/Documents/R_tutorials")
 heroes <- read_delim("example files/heroes.csv", 
     delim = ";", escape_double = FALSE, trim_ws = TRUE)
 View(heroes)

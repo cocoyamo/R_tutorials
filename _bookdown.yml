@@ -2,3 +2,8 @@ delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
+
+bookdown:
+  output:
+    bookdown::gitbook:
+      output_dir: docs

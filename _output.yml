@@ -3,20 +3,17 @@ bookdown::gitbook:
   fig_path: figures/
   css: style.css
   config:
-    toc:          # 啟用目錄
+    toc:          
       before: |
         <li><a href="./">Welcome!</a></li>
       after: |
         <li><a href="https://github.com/cocoyamo/R_tutorials" target="blank">Check out cocoya's GitHub Repository</a></li>
-    
     edit: https://github.com/cocoyamo/R_tutorials/edit/gh-pages/%s
-#    edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
     download: ["pdf", "epub"]
-    fig_caption: yes  # 啟用圖表標題
-    theme: simplex     # 設定主題
-    # toc: yes          # 啟用目錄
-    toc_depth: 3      # 目錄的層次深度
-    toc_float: yes     # 浮動目錄    
+    fig_caption: yes  
+    theme: simplex     
+    toc_depth: 3      
+    toc_float: yes     
 
 bookdown::pdf_book:
   includes:
@@ -24,4 +21,5 @@ bookdown::pdf_book:
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
+
 bookdown::epub_book: default
