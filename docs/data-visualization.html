@@ -296,24 +296,22 @@ div.csl-indent {
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="data-visualization.html#cb121-1" tabindex="-1"></a><span class="fu">library</span>(openintro)</span>
 <span id="cb121-2"><a href="data-visualization.html#cb121-2" tabindex="-1"></a>lego_sample</span></code></pre></div>
 <pre><code>## # A tibble: 75 × 14
-##    item_number set_name    theme pieces  price
-##          &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-##  1       10859 My First L… DUPL…      6   4.99
-##  2       10860 My First R… DUPL…      6   4.99
-##  3       10862 My First C… DUPL…     41  15.0 
-##  4       10864 Large Play… DUPL…     71  50.0 
-##  5       10867 Farmers&#39; M… DUPL…     26  20.0 
-##  6       10870 Farm Anima… DUPL…     16   9.99
-##  7       10872 Train Brid… DUPL…     26  25.0 
-##  8       10875 Cargo Train DUPL…    105 120.  
-##  9       10876 Spider-Man… DUPL…     38  30.0 
-## 10       10878 Rapunzel&#39;s… DUPL…     37  30.0 
+##    item_number set_name    theme pieces  price amazon_price  year
+##          &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;
+##  1       10859 My First L… DUPL…      6   4.99        16     2018
+##  2       10860 My First R… DUPL…      6   4.99         9.45  2018
+##  3       10862 My First C… DUPL…     41  15.0         39.9   2018
+##  4       10864 Large Play… DUPL…     71  50.0         56.7   2018
+##  5       10867 Farmers&#39; M… DUPL…     26  20.0         37.0   2018
+##  6       10870 Farm Anima… DUPL…     16   9.99         9.99  2018
+##  7       10872 Train Brid… DUPL…     26  25.0         22.0   2018
+##  8       10875 Cargo Train DUPL…    105 120.         129.    2018
+##  9       10876 Spider-Man… DUPL…     38  30.0         74.5   2018
+## 10       10878 Rapunzel&#39;s… DUPL…     37  30.0         99.0   2018
 ## # ℹ 65 more rows
-## # ℹ 9 more variables: amazon_price &lt;dbl&gt;,
-## #   year &lt;dbl&gt;, ages &lt;chr&gt;, pages &lt;dbl&gt;,
-## #   minifigures &lt;dbl&gt;, packaging &lt;chr&gt;,
-## #   weight &lt;chr&gt;, unique_pieces &lt;dbl&gt;,
-## #   size &lt;chr&gt;</code></pre>
+## # ℹ 7 more variables: ages &lt;chr&gt;, pages &lt;dbl&gt;,
+## #   minifigures &lt;dbl&gt;, packaging &lt;chr&gt;, weight &lt;chr&gt;,
+## #   unique_pieces &lt;dbl&gt;, size &lt;chr&gt;</code></pre>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="data-visualization.html#cb123-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
 <span id="cb123-2"><a href="data-visualization.html#cb123-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">|&gt;</span></span>
 <span id="cb123-3"><a href="data-visualization.html#cb123-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> packaging, <span class="at">y =</span> pieces)) <span class="sc">+</span></span>
@@ -375,18 +373,18 @@ div.csl-indent {
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="data-visualization.html#cb127-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;openintro&quot;</span>)</span>
 <span id="cb127-2"><a href="data-visualization.html#cb127-2" tabindex="-1"></a>movies</span></code></pre></div>
 <pre><code>## # A tibble: 140 × 5
-##    movie         genre score rating box_office
-##    &lt;chr&gt;         &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;
-##  1 2Fast2Furious acti…  48.9 PG-13      127.  
-##  2 28DaysLater   horr…  78.2 R           45.1 
-##  3 AGuyThing     rom-…  39.5 PG-13       15.5 
-##  4 AManApart     acti…  42.9 R           26.2 
-##  5 AMightyWind   come…  79.9 PG-13       17.8 
-##  6 AgentCodyBan… acti…  57.9 PG          47.8 
-##  7 Alex&amp;Emma     rom-…  35.1 PG-13       14.2 
-##  8 AmericanWedd… come…  50.7 R          104.  
-##  9 AngerManagem… come…  62.6 PG-13      134.  
-## 10 AnythingElse  rom-…  63.3 R            3.21
+##    movie           genre      score rating box_office
+##    &lt;chr&gt;           &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;
+##  1 2Fast2Furious   action      48.9 PG-13      127.  
+##  2 28DaysLater     horror      78.2 R           45.1 
+##  3 AGuyThing       rom-comedy  39.5 PG-13       15.5 
+##  4 AManApart       action      42.9 R           26.2 
+##  5 AMightyWind     comedy      79.9 PG-13       17.8 
+##  6 AgentCodyBanks  action      57.9 PG          47.8 
+##  7 Alex&amp;Emma       rom-comedy  35.1 PG-13       14.2 
+##  8 AmericanWedding comedy      50.7 R          104.  
+##  9 AngerManagement comedy      62.6 PG-13      134.  
+## 10 AnythingElse    rom-comedy  63.3 R            3.21
 ## # ℹ 130 more rows</code></pre>
 <p>The dataset contains 5 columns and 140 rows, representing movies released in 2003. The columns include the movie title, genre, score (by critics on a scale 0-100), MPAA rating, and <code>box_office</code> (millions of dollars earned at the box office in the US and Canada.)</p>
 <p>You can type <code>movies</code> in the <code>help</code> section in the bottom-right panel for a detailed description of the data.</p>
@@ -467,24 +465,22 @@ div.csl-indent {
 <p>這邊的資料在下面才有介紹，不知道是要把介紹提前還是怎樣：Ｄ</p>
 <div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="data-visualization.html#cb143-1" tabindex="-1"></a>lego_sample</span></code></pre></div>
 <pre><code>## # A tibble: 75 × 14
-##    item_number set_name    theme pieces  price
-##          &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-##  1       10859 My First L… DUPL…      6   4.99
-##  2       10860 My First R… DUPL…      6   4.99
-##  3       10862 My First C… DUPL…     41  15.0 
-##  4       10864 Large Play… DUPL…     71  50.0 
-##  5       10867 Farmers&#39; M… DUPL…     26  20.0 
-##  6       10870 Farm Anima… DUPL…     16   9.99
-##  7       10872 Train Brid… DUPL…     26  25.0 
-##  8       10875 Cargo Train DUPL…    105 120.  
-##  9       10876 Spider-Man… DUPL…     38  30.0 
-## 10       10878 Rapunzel&#39;s… DUPL…     37  30.0 
+##    item_number set_name    theme pieces  price amazon_price  year
+##          &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;
+##  1       10859 My First L… DUPL…      6   4.99        16     2018
+##  2       10860 My First R… DUPL…      6   4.99         9.45  2018
+##  3       10862 My First C… DUPL…     41  15.0         39.9   2018
+##  4       10864 Large Play… DUPL…     71  50.0         56.7   2018
+##  5       10867 Farmers&#39; M… DUPL…     26  20.0         37.0   2018
+##  6       10870 Farm Anima… DUPL…     16   9.99         9.99  2018
+##  7       10872 Train Brid… DUPL…     26  25.0         22.0   2018
+##  8       10875 Cargo Train DUPL…    105 120.         129.    2018
+##  9       10876 Spider-Man… DUPL…     38  30.0         74.5   2018
+## 10       10878 Rapunzel&#39;s… DUPL…     37  30.0         99.0   2018
 ## # ℹ 65 more rows
-## # ℹ 9 more variables: amazon_price &lt;dbl&gt;,
-## #   year &lt;dbl&gt;, ages &lt;chr&gt;, pages &lt;dbl&gt;,
-## #   minifigures &lt;dbl&gt;, packaging &lt;chr&gt;,
-## #   weight &lt;chr&gt;, unique_pieces &lt;dbl&gt;,
-## #   size &lt;chr&gt;</code></pre>
+## # ℹ 7 more variables: ages &lt;chr&gt;, pages &lt;dbl&gt;,
+## #   minifigures &lt;dbl&gt;, packaging &lt;chr&gt;, weight &lt;chr&gt;,
+## #   unique_pieces &lt;dbl&gt;, size &lt;chr&gt;</code></pre>
 <p>Let’s say we want to explore the relationship between the price of Lego sets (<code>price</code>, a <strong>continuous numeric variable</strong>) and their size (<code>size</code>, a <strong>categorical variable</strong>).</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="data-visualization.html#cb145-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
 <span id="cb145-2"><a href="data-visualization.html#cb145-2" tabindex="-1"></a>  <span class="fu">ggpairs</span>(<span class="at">columns =</span> <span class="fu">c</span>(<span class="st">&quot;price&quot;</span>, <span class="st">&quot;size&quot;</span>))</span></code></pre></div>
