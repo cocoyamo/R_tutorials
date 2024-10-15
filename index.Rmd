@@ -16,7 +16,7 @@ github-repo: cocoyamo/R_tutorials
 knitr:
   opts_chunk: 
     fig.show: "hold"
-    fig.path: "figures/"
+    fig.path: "docs/figures/"
 ---
 
 ```{r setup, include = FALSE}

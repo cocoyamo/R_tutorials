@@ -3,9 +3,9 @@
     "path": "~/Documents/R_tutorials/index.Rmd",
     "project_path": "index.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "1545843514",
     "contents": "",
-    "dirty": true,
+    "dirty": false,
     "created": 1728739821248.0,
     "source_on_save": false,
     "relative_order": 2,
@@ -18,11 +18,11 @@
         "last_setup_crc32": ""
     },
     "folds": "",
-    "lastKnownWriteTime": 1728955934,
+    "lastKnownWriteTime": 1728959197,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1728957200212,
+    "last_content_update": 1728959197790,
     "read_only": false,
     "read_only_alternatives": []
 }
