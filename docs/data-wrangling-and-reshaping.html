@@ -23,7 +23,7 @@
 <meta name="author" content="Moya" />
 
 
-<meta name="date" content="2024-10-13" />
+<meta name="date" content="2024-10-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -385,13 +385,20 @@ div.csl-indent {
 <span id="cb60-7"><a href="data-wrangling-and-reshaping.html#cb60-7" tabindex="-1"></a>   <span class="at">Math_C2 =</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">89</span>, <span class="dv">92</span>, <span class="dv">72</span>, <span class="dv">84</span>, <span class="dv">83</span>),</span>
 <span id="cb60-8"><a href="data-wrangling-and-reshaping.html#cb60-8" tabindex="-1"></a>   <span class="at">Math_C3 =</span> <span class="fu">c</span>(<span class="dv">97</span>, <span class="dv">79</span>, <span class="dv">90</span>, <span class="dv">74</span>, <span class="dv">70</span>, <span class="dv">92</span>))</span>
 <span id="cb60-9"><a href="data-wrangling-and-reshaping.html#cb60-9" tabindex="-1"></a>performance_original</span></code></pre></div>
-<pre><code>##    Name Eng_C1 Eng_C2 Eng_C3 Math_C1 Math_C2 Math_C3
-## 1 Kelly     90     95     80      90      80      97
-## 2  Liam     70     80     94      80      89      79
-## 3 Henry     79     80     85      96      92      90
-## 4 Alice     98     93     89      83      72      74
-## 5  Jake     81     93     73      92      84      70
-## 6   Dan     79     70     91      68      83      92</code></pre>
+<pre><code>##    Name Eng_C1 Eng_C2 Eng_C3 Math_C1 Math_C2
+## 1 Kelly     90     95     80      90      80
+## 2  Liam     70     80     94      80      89
+## 3 Henry     79     80     85      96      92
+## 4 Alice     98     93     89      83      72
+## 5  Jake     81     93     73      92      84
+## 6   Dan     79     70     91      68      83
+##   Math_C3
+## 1      97
+## 2      79
+## 3      90
+## 4      74
+## 5      70
+## 6      92</code></pre>
 <p>To convert this data into a long format, where each row represents one exam score, we can use <code>pivot_longer()</code>. The goal is to get data that looks like this:</p>
 <table>
 <thead>
@@ -577,20 +584,20 @@ div.csl-indent {
 <p>We pull the original performance data and want to add the Biology columns to it.</p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-wrangling-and-reshaping.html#cb69-1" tabindex="-1"></a>performance_original <span class="sc">|&gt;</span></span>
 <span id="cb69-2"><a href="data-wrangling-and-reshaping.html#cb69-2" tabindex="-1"></a>  <span class="fu">left_join</span>(performance_biology, <span class="at">by =</span> <span class="st">&quot;Name&quot;</span>) </span></code></pre></div>
-<pre><code>##    Name Eng_C1 Eng_C2 Eng_C3 Math_C1 Math_C2 Math_C3 Bio_C1 Bio_C2
-## 1 Kelly     90     95     80      90      80      97     80     73
-## 2  Liam     70     80     94      80      89      79     80     76
-## 3 Henry     79     80     85      96      92      90     83     75
-## 4 Alice     98     93     89      83      72      74     93     77
-## 5  Jake     81     93     73      92      84      70     80     79
-## 6   Dan     79     70     91      68      83      92     88     83
-##   Bio_C3
-## 1     90
-## 2     93
-## 3     94
-## 4     90
-## 5     81
-## 6     82</code></pre>
+<pre><code>##    Name Eng_C1 Eng_C2 Eng_C3 Math_C1 Math_C2
+## 1 Kelly     90     95     80      90      80
+## 2  Liam     70     80     94      80      89
+## 3 Henry     79     80     85      96      92
+## 4 Alice     98     93     89      83      72
+## 5  Jake     81     93     73      92      84
+## 6   Dan     79     70     91      68      83
+##   Math_C3 Bio_C1 Bio_C2 Bio_C3
+## 1      97     80     73     90
+## 2      79     80     76     93
+## 3      90     83     75     94
+## 4      74     93     77     90
+## 5      70     80     79     81
+## 6      92     88     83     82</code></pre>
 <p>Here, we’ve successfully added the Biology columns to the original dataset. When dealing with multiple independent variables (columns), you can use <code>by = c("column1", "column2", …)</code> to specify the join basis.</p>
 <p>Now, you might have guessed – there is also a <code>right_join()</code> in RStudio. While I don’t use it as often as <code>left_join()</code> in my usual data analysis, it’s still important to understand the difference.</p>
 <ul>
