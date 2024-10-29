@@ -1,4 +1,4 @@
---- 
+---
 title: "Hello and welcome to our RStudio journey!"
 author: "Moya"
 date: "`r Sys.Date()`"
@@ -1114,6 +1114,7 @@ lego_sample |>
 ```
 
 ## scatter plot
+
 ```{r}
 lego_sample |>
   na.omit() |>
@@ -1129,8 +1130,6 @@ In the `aes()` section, I've used both color **AND** shape to differentiate by `
 -   `geom_point()` is used to display individual data point, creating the scatter plot.
 
 -   `geom_smooth()` adds trend lines to the data. By setting `method = "lm"`, we apply a linear model, which results in a straight trend line.
-
-
 
 Next, let's try a different dataset: `movies`. This dataset is part of the `openintro` package and contains several datasets.
 
@@ -1519,6 +1518,109 @@ You can modify the `ylim()` values based on your data.
 ### themes
 
 The `theme()` function allows you to change the overall appearance of your graph. Some commonly used themes are `theme_classic()`, `theme_light()`, and the default `theme_gray()`.
+
+### significance levels
+
+To be honest, before I discovered this function, I always pasted my graphs into PowerPoint and then used bars and star signs to manually add the significance levels to the graphs. It was super tedious and difficult, as I often accidentally moved the graphs easily.
+
+Not to mention, I frequently forgot to leave enough space for the significance levels to be displayed on the graph, which required me to go back to the code and use `coord_cartesian()` to change the scale again and again.
+
+To make matters worse, it is really hard to get the precise position, as I would have to draw multiple grid lines to help me align everything.
+
+Now, these problems will vanish into thin air! I present to you the power of `geom_signif()`, which allows you to easily add significance levels (or anything else you want) to your graphs!
+
+This life-changing function is from `ggsignif` package. Therefore, install and library the package first. 
+
+```{r, echo=FALSE, message=FALSE}
+install.packages("ggsignif")
+library(ggsignif)
+```
+
+Let's start by simply take a graph we already drew in the previous parts. 
+
+
+Here, we place the graph in a separate plot called `lego_graph`. While you can continue adding significance levels after the plot, I prefer to separate both functions for easier readability.
+
+**example 1: lego_sample**
+```{r}
+lego_sample |>
+  filter(packaging == "Box") |>
+  na.omit() |>
+  ggplot(aes(x = theme, y = price, fill = theme)) +
+  geom_bar(stat = "summary", position = position_dodge(.8), width = .7) +
+  geom_errorbar(stat = "summary", position = position_dodge(.8), width = .12) -> lego_graph
+lego_graph
+```
+
+```{r}
+lego_graph+
+  geom_signif(data = lego_sample, 
+              comparisons = list(c("DUPLO®","Friends")))
+```
+If I want to move the bar lower, I can change its position using `y_position = `.
+
+```{r}
+lego_graph+
+  geom_signif(data = lego_sample, 
+              comparisons = list(c("DUPLO®","Friends")),
+              y_position = 90)
+```
+You can adjust the number by your need. Trials and errors are required in order to find the perfect position. 
+
+Let's say we want to add another significance level.
+
+```{r}
+lego_graph +
+  geom_signif(data = lego_sample, 
+              comparisons = list(c("DUPLO®","Friends")),
+              y_position = 90) +
+  geom_signif(data = lego_sample,
+              comparisons = list(c("Friends", "City")),
+              y_position = 73)
+```
+
+Note that it is highly advised to change the `y_position` between two bars, so that they don't overlap and hinder the information.
+
+If today you don't want the numbers, just want "not sig" or other words you'd like, you can also modify that by using `annotations`.
+
+```{r}
+lego_graph +
+  geom_signif(data = lego_sample, 
+              comparisons = list(c("DUPLO®","Friends")),
+              map_signif_level = TRUE, annotations = "not sig. :(",
+              y_position = 90) +
+  geom_signif(data = lego_sample,
+              comparisons = list(c("Friends", "City")),
+              map_signif_level = TRUE, annotations = "not sig. :P",
+              y_position = 73)
+```
+
+If your data is not significant, and you just want to add "NS", then you could just remove the `annotations` part and leave the `map_signif_level = TRUE`.
+
+```{r}
+lego_graph +
+  geom_signif(data = lego_sample, 
+              comparisons = list(c("DUPLO®","Friends")),
+              map_signif_level = TRUE,
+              y_position = 90) 
+```
+
+These labelling methods applies to other kinds of graphs as well.
+
+**example 2: movies**
+```{r}
+movies |>
+  ggplot(aes(x = score, y = rating)) +
+  geom_boxplot() -> movie_graph
+movie_graph
+```
+
+```{r}
+movie_graph + 
+  geom_signif(data = movies, comparisons = list(c("G", "PG")))
+```
+
+
 
 # Efficiency Tips for Data Processing
 
