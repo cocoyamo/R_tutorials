@@ -10,6 +10,9 @@ h2:ways-to-check-data Ways to Check Data
 h1:overview-of-tidyverse-and-core-functions Overview of Tidyverse and Core Functions
 h2:pipe-example pipe example
 h1:data-cleaning-and-transformation Data Cleaning and Transformation
+h2:select-filter-mutate select(), filter(), & mutate()
+h2:dealing-with-omission dealing with omission
+h2:change-column-names change column names
 h1:data-wrangling-and-reshaping Data Wrangling and Reshaping
 h2:pivot pivot
 h3:example-converting-wide-to-long-format example: converting wide to long format
@@ -47,7 +50,6 @@ h3:numeric-numeric-numeric numeric * numeric * numeric
 h3:numeric-numeric-numeric-categorical numeric * numeric * numeric * categorical
 h2:additional-features-on-the-plot additional features on the plot
 h3:labels labels
-h2:不知道怎麼改label欸-頭痛-ㄞ-可以mutate但好麻煩呀 不知道怎麼改label欸 頭痛 ㄞ 可以mutate但好麻煩呀
 h3:colors colors
 h3:scales scales
 h3:themes themes

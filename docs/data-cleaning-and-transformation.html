@@ -159,7 +159,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1" data-path="overview-of-tidyverse-and-core-functions.html"><a href="overview-of-tidyverse-and-core-functions.html#pipe-example"><i class="fa fa-check"></i><b>4.1</b> pipe example</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data-cleaning-and-transformation.html"><a href="data-cleaning-and-transformation.html"><i class="fa fa-check"></i><b>5</b> Data Cleaning and Transformation</a></li>
+<li class="chapter" data-level="5" data-path="data-cleaning-and-transformation.html"><a href="data-cleaning-and-transformation.html"><i class="fa fa-check"></i><b>5</b> Data Cleaning and Transformation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-cleaning-and-transformation.html"><a href="data-cleaning-and-transformation.html#select-filter-mutate"><i class="fa fa-check"></i><b>5.1</b> select(), filter(), &amp; mutate()</a></li>
+<li class="chapter" data-level="5.2" data-path="data-cleaning-and-transformation.html"><a href="data-cleaning-and-transformation.html#dealing-with-omission"><i class="fa fa-check"></i><b>5.2</b> dealing with omission</a></li>
+<li class="chapter" data-level="5.3" data-path="data-cleaning-and-transformation.html"><a href="data-cleaning-and-transformation.html#change-column-names"><i class="fa fa-check"></i><b>5.3</b> change column names</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="data-wrangling-and-reshaping.html"><a href="data-wrangling-and-reshaping.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling and Reshaping</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="data-wrangling-and-reshaping.html"><a href="data-wrangling-and-reshaping.html#pivot"><i class="fa fa-check"></i><b>6.1</b> pivot</a>
@@ -203,13 +208,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.7" data-path="data-visualization.html"><a href="data-visualization.html#additional-features-on-the-plot"><i class="fa fa-check"></i><b>8.7</b> additional features on the plot</a>
 <ul>
 <li class="chapter" data-level="8.7.1" data-path="data-visualization.html"><a href="data-visualization.html#labels"><i class="fa fa-check"></i><b>8.7.1</b> labels</a></li>
-</ul></li>
-<li class="chapter" data-level="8.8" data-path="data-visualization.html"><a href="data-visualization.html#不知道怎麼改label欸-頭痛-ㄞ-可以mutate但好麻煩呀"><i class="fa fa-check"></i><b>8.8</b> 不知道怎麼改label欸 頭痛 ㄞ 可以mutate但好麻煩呀</a>
-<ul>
-<li class="chapter" data-level="8.8.1" data-path="data-visualization.html"><a href="data-visualization.html#colors"><i class="fa fa-check"></i><b>8.8.1</b> colors</a></li>
-<li class="chapter" data-level="8.8.2" data-path="data-visualization.html"><a href="data-visualization.html#scales"><i class="fa fa-check"></i><b>8.8.2</b> scales</a></li>
-<li class="chapter" data-level="8.8.3" data-path="data-visualization.html"><a href="data-visualization.html#themes"><i class="fa fa-check"></i><b>8.8.3</b> themes</a></li>
-<li class="chapter" data-level="8.8.4" data-path="data-visualization.html"><a href="data-visualization.html#significance-levels"><i class="fa fa-check"></i><b>8.8.4</b> significance levels</a></li>
+<li class="chapter" data-level="8.7.2" data-path="data-visualization.html"><a href="data-visualization.html#colors"><i class="fa fa-check"></i><b>8.7.2</b> colors</a></li>
+<li class="chapter" data-level="8.7.3" data-path="data-visualization.html"><a href="data-visualization.html#scales"><i class="fa fa-check"></i><b>8.7.3</b> scales</a></li>
+<li class="chapter" data-level="8.7.4" data-path="data-visualization.html"><a href="data-visualization.html#themes"><i class="fa fa-check"></i><b>8.7.4</b> themes</a></li>
+<li class="chapter" data-level="8.7.5" data-path="data-visualization.html"><a href="data-visualization.html#significance-levels"><i class="fa fa-check"></i><b>8.7.5</b> significance levels</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="efficiency-tips-for-data-processing.html"><a href="efficiency-tips-for-data-processing.html"><i class="fa fa-check"></i><b>9</b> Efficiency Tips for Data Processing</a></li>
@@ -246,6 +248,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Note that the spreadsheet is in <code>.csv</code> format. Therefore, when importing data, we should choose <code>From Text(readr)</code> instead of <code>From Text(Excel)</code>.</p>
 <p>However, as you may notice from the <code>Preview</code>, the data is not ideal – it appears as a single row, with all the information packed into one.</p>
 <p>To resolve this, we can click on <code>Delimiter</code> and select <code>Semicolon</code>, telling RStudio that the columns in this dataset are separated by semicolons (<code>;</code>) rather than commas or tabs.</p>
+<div id="select-filter-mutate" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> select(), filter(), &amp; mutate()<a href="data-cleaning-and-transformation.html#select-filter-mutate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Once the data is properly imported, we can see that it contains information about many superheroes. If we want a clearer view to focus on the data that we need for analysis, we can use <code>select()</code> function to choose specific columns.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="data-cleaning-and-transformation.html#cb29-1" tabindex="-1"></a>heroes <span class="sc">|&gt;</span></span>
 <span id="cb29-2"><a href="data-cleaning-and-transformation.html#cb29-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;Name&quot;</span>, <span class="st">&quot;Height&quot;</span>, <span class="st">&quot;Weight&quot;</span>, <span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;Eye color&quot;</span>, <span class="st">&quot;Hair color&quot;</span>, <span class="st">&quot;Strength&quot;</span>, <span class="st">&quot;Intelligence&quot;</span>))</span></code></pre></div>
@@ -508,6 +512,9 @@ BMI = weight(kg)/height(m)^2
 ## 4 underweight      41
 ## 5 &lt;NA&gt;            252</code></pre>
 <p>Once this is done, we can see how many superheroes are categorized as obese.</p>
+</div>
+<div id="dealing-with-omission" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> dealing with omission<a href="data-cleaning-and-transformation.html#dealing-with-omission" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You may notice a row with <code>&lt;NA&gt;</code> values, which occurs when the data is incomplete. If we don’t want to include rows with missing BMI values in our analysis, we can remove them by using <code>na.omit()</code>. This makes further analysis much easier.</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-cleaning-and-transformation.html#cb52-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
 <span id="cb52-2"><a href="data-cleaning-and-transformation.html#cb52-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">|&gt;</span></span>
@@ -552,14 +559,68 @@ BMI = weight(kg)/height(m)^2
 ## 6 M      obese            39
 ## 7 M      overweight       39
 ## 8 M      underweight       1</code></pre>
+</div>
+<div id="change-column-names" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> change column names<a href="data-cleaning-and-transformation.html#change-column-names" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Lastly, let’s discuss renaming columns. You don’t need to go back to the original <code>.csv</code> or <code>.xlsx</code> files to change column names!</p>
-<p>For example, if we want to change the <code>Hair color</code> column to <code>Hair_color</code> and <code>Eye color</code> colun to <code>Eye_color</code>, we can do this directly in RStudio using the <code>colnames()</code> function.</p>
-<p><strong>rename()??</strong></p>
+<p><strong>colnames()</strong></p>
+<p>If we want to change the <code>Hair color</code> column to <code>Hair_color</code> and <code>Eye color</code> colun to <code>Eye_color</code>, we can do this directly in RStudio using the <code>colnames()</code> function.</p>
+<p>We can use <code>colnames()</code> to modify column names in our datasets by assigning new names to the existing ones.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-cleaning-and-transformation.html#cb59-1" tabindex="-1"></a><span class="fu">colnames</span>(data)[<span class="fu">colnames</span>(data) <span class="sc">==</span> <span class="st">&quot;old column name&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;new column name&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-cleaning-and-transformation.html#cb60-1" tabindex="-1"></a><span class="fu">colnames</span>(heroes2)[<span class="fu">colnames</span>(heroes2) <span class="sc">==</span> <span class="st">&quot;Hair color&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Hair_color&quot;</span></span>
+<span id="cb60-2"><a href="data-cleaning-and-transformation.html#cb60-2" tabindex="-1"></a><span class="fu">colnames</span>(heroes2)[<span class="fu">colnames</span>(heroes2) <span class="sc">==</span> <span class="st">&quot;Eye color&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Eye_color&quot;</span></span></code></pre></div>
+<p>Let’s check if we achieved our goal.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-cleaning-and-transformation.html#cb61-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
+<span id="cb61-2"><a href="data-cleaning-and-transformation.html#cb61-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Hair_color, Eye_color))</span></code></pre></div>
+<pre><code>## # A tibble: 141 × 2
+##    Hair_color Eye_color
+##    &lt;chr&gt;      &lt;chr&gt;    
+##  1 No Hair    Yellow   
+##  2 Black      Brown    
+##  3 No Hair    Blue     
+##  4 Brown      Blue     
+##  5 Blond      Blue     
+##  6 Black      Blue     
+##  7 Black      Brown    
+##  8 Brown      Brown    
+##  9 Black      Blue     
+## 10 Black      Amber    
+## # ℹ 131 more rows</code></pre>
+<p>From the results, we can see that the column names have been changed as we desired.</p>
+<p><strong>rename()</strong></p>
+<p><code>rename()</code> is another way to achieve the same result. It is a function in <code>dplyr</code>. Therefore, make sure to have library(dplyr) before using this.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-cleaning-and-transformation.html#cb63-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<p>The function should be written as follows:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-cleaning-and-transformation.html#cb64-1" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
+<span id="cb64-2"><a href="data-cleaning-and-transformation.html#cb64-2" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&quot;New column name 1&quot;</span> <span class="ot">=</span> <span class="st">&quot;Old column name 1&quot;</span>,</span>
+<span id="cb64-3"><a href="data-cleaning-and-transformation.html#cb64-3" tabindex="-1"></a>         <span class="st">&quot;New column name 2&quot;</span> <span class="ot">=</span> <span class="st">&quot;Old column name 2&quot;</span>)</span></code></pre></div>
+<p>Make sure to type the old column names accurately, so that R can identify and rename the correct columns.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-cleaning-and-transformation.html#cb65-1" tabindex="-1"></a>heroes <span class="sc">|&gt;</span></span>
+<span id="cb65-2"><a href="data-cleaning-and-transformation.html#cb65-2" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&quot;Birth_place&quot;</span> <span class="ot">=</span> <span class="st">&quot;Birth place&quot;</span>, <span class="st">&quot;First_app&quot;</span> <span class="ot">=</span> <span class="st">&quot;First appearance&quot;</span>) <span class="ot">-&gt;</span> heroes</span></code></pre></div>
+<p>Let us select both columns to make sure we did the right move.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="data-cleaning-and-transformation.html#cb66-1" tabindex="-1"></a>heroes <span class="sc">|&gt;</span></span>
+<span id="cb66-2"><a href="data-cleaning-and-transformation.html#cb66-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Birth_place, First_app))</span></code></pre></div>
+<pre><code>## # A tibble: 735 × 2
+##    Birth_place                                             First_app
+##    &lt;chr&gt;                                                       &lt;dbl&gt;
+##  1 Scarsdale, Arizona                                           2008
+##  2 Within Eternity                                                NA
+##  3 Zagreb, Yugoslavia                                             NA
+##  4 &lt;NA&gt;                                                           NA
+##  5 &lt;NA&gt;                                                           NA
+##  6 Xandar, a planet in the Tranta system, Andromeda galaxy        NA
+##  7 &lt;NA&gt;                                                         2007
+##  8 &lt;NA&gt;                                                         1993
+##  9 Ungara                                                       1959
+## 10 &lt;NA&gt;                                                           NA
+## # ℹ 725 more rows</code></pre>
+<p>We can see from the result that the original column <code>Birth place</code> was changed into <code>Birth_place</code>, and the <code>First appearance</code> became <code>First_app</code>.</p>
 <blockquote>
-<p>another way (add later)</p>
+<p>You might wonder, if we can change column names using <code>colnames()</code>, why not also learn how to change row names? The good news is that you can! Instead of introducing a new function like <code>rownames()</code>, why not use something we already know? For example, mutate() can be a great way to change row names.</p>
+<p>In my opinion, it’s not always necessary to keep adding new functions; by mastering a few that you like, you can create many different possibilities.</p>
+<p>However, modifying row names can be a bit risky since you’re altering the entries of your data. It’s important to clearly understand the purpose of this change and to avoid making arbitrary modifications.</p>
 </blockquote>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-cleaning-and-transformation.html#cb59-1" tabindex="-1"></a><span class="fu">colnames</span>(heroes2)[<span class="fu">colnames</span>(heroes2) <span class="sc">==</span> <span class="st">&quot;Hair color&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Hair_color&quot;</span></span>
-<span id="cb59-2"><a href="data-cleaning-and-transformation.html#cb59-2" tabindex="-1"></a><span class="fu">colnames</span>(heroes2)[<span class="fu">colnames</span>(heroes2) <span class="sc">==</span> <span class="st">&quot;Eye color&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Eye_color&quot;</span></span></code></pre></div>
+</div>
 </div>
             </section>
 

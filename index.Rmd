@@ -297,6 +297,8 @@ However, as you may notice from the `Preview`, the data is not ideal -- it appea
 
 To resolve this, we can click on `Delimiter` and select `Semicolon`, telling RStudio that the columns in this dataset are separated by semicolons (`;`) rather than commas or tabs.
 
+## select(), filter(), & mutate()
+
 Once the data is properly imported, we can see that it contains information about many superheroes. If we want a clearer view to focus on the data that we need for analysis, we can use `select()` function to choose specific columns.
 
 ```{r}
@@ -429,6 +431,8 @@ heroes2 |>
 
 Once this is done, we can see how many superheroes are categorized as obese.
 
+## dealing with omission
+
 You may notice a row with `<NA>` values, which occurs when the data is incomplete. If we don't want to include rows with missing BMI values in our analysis, we can remove them by using `na.omit()`. This makes further analysis much easier.
 
 ```{r}
@@ -459,18 +463,71 @@ heroes2 |>
   count(BMI_status)
 ```
 
+## change column names
+
 Lastly, let's discuss renaming columns. You don't need to go back to the original `.csv` or `.xlsx` files to change column names!
 
-For example, if we want to change the `Hair color` column to `Hair_color` and `Eye color` colun to `Eye_color`, we can do this directly in RStudio using the `colnames()` function.
+**colnames()**
 
-**rename()??**
+If we want to change the `Hair color` column to `Hair_color` and `Eye color` colun to `Eye_color`, we can do this directly in RStudio using the `colnames()` function.
 
-> another way (add later)
+We can use `colnames()` to modify column names in our datasets by assigning new names to the existing ones.
+
+```{r, echo = TRUE, eval = FALSE}
+colnames(data)[colnames(data) == "old column name"] <- "new column name"
+```
 
 ```{r}
 colnames(heroes2)[colnames(heroes2) == "Hair color"] <- "Hair_color"
 colnames(heroes2)[colnames(heroes2) == "Eye color"] <- "Eye_color"
 ```
+
+Let's check if we achieved our goal.
+
+```{r}
+heroes2 |>
+  select(c(Hair_color, Eye_color))
+```
+
+From the results, we can see that the column names have been changed as we desired.
+
+**rename()**
+
+`rename()` is another way to achieve the same result. It is a function in `dplyr`. Therefore, make sure to have library(dplyr) before using this.
+
+```{r}
+library(dplyr)
+```
+
+The function should be written as follows:
+
+```{r, echo = TRUE, eval = FALSE}
+data |>
+  rename("New column name 1" = "Old column name 1",
+         "New column name 2" = "Old column name 2")
+```
+
+Make sure to type the old column names accurately, so that R can identify and rename the correct columns.
+
+```{r}
+heroes |>
+  rename("Birth_place" = "Birth place", "First_app" = "First appearance") -> heroes
+```
+
+Let us select both columns to make sure we did the right move.
+
+```{r}
+heroes |>
+  select(c(Birth_place, First_app))
+```
+
+We can see from the result that the original column `Birth place` was changed into `Birth_place`, and the `First appearance` became `First_app`.
+
+> You might wonder, if we can change column names using `colnames()`, why not also learn how to change row names? The good news is that you can! Instead of introducing a new function like `rownames()`, why not use something we already know? For example, mutate() can be a great way to change row names.
+>
+> In my opinion, it’s not always necessary to keep adding new functions; by mastering a few that you like, you can create many different possibilities.
+>
+> However, modifying row names can be a bit risky since you're altering the entries of your data. It's important to clearly understand the purpose of this change and to avoid making arbitrary modifications.
 
 # Data Wrangling and Reshaping
 
@@ -1401,8 +1458,6 @@ movies |>
   theme(legend.position = "hide")
 ```
 
-## 不知道怎麼改label欸 頭痛 ㄞ 可以mutate但好麻煩呀
-
 ### colors
 
 Let's demonstrate how to change colors in a graph with the `lego_sample` dataset!
@@ -1517,7 +1572,7 @@ You can modify the `ylim()` values based on your data.
 
 ### themes
 
-The `theme()` function allows you to change the overall appearance of your graph. Some commonly used themes are `theme_classic()`, `theme_light()`, and the default `theme_gray()`.
+The `theme()` function allows you to change the overall appearance of your graph. Some commonly used themes are `theme_classic()`, `theme_light()`, `theme_test()`, and the default `theme_gray()`.
 
 ### significance levels
 
@@ -1529,19 +1584,22 @@ To make matters worse, it is really hard to get the precise position, as I would
 
 Now, these problems will vanish into thin air! I present to you the power of `geom_signif()`, which allows you to easily add significance levels (or anything else you want) to your graphs!
 
-This life-changing function is from `ggsignif` package. Therefore, install and library the package first. 
+This life-changing function is from `ggsignif` package. Therefore, install and library the package first.
 
-```{r, echo=FALSE, message=FALSE}
+```{r, eval = FALSE}
 install.packages("ggsignif")
+```
+
+```{r}
 library(ggsignif)
 ```
 
-Let's start by simply take a graph we already drew in the previous parts. 
-
+Let's start by simply take a graph we already drew in the previous parts.
 
 Here, we place the graph in a separate plot called `lego_graph`. While you can continue adding significance levels after the plot, I prefer to separate both functions for easier readability.
 
 **example 1: lego_sample**
+
 ```{r}
 lego_sample |>
   filter(packaging == "Box") |>
@@ -1557,7 +1615,8 @@ lego_graph+
   geom_signif(data = lego_sample, 
               comparisons = list(c("DUPLO®","Friends")))
 ```
-If I want to move the bar lower, I can change its position using `y_position = `.
+
+If I want to move the bar lower, I can change its position using `y_position =`.
 
 ```{r}
 lego_graph+
@@ -1565,7 +1624,8 @@ lego_graph+
               comparisons = list(c("DUPLO®","Friends")),
               y_position = 90)
 ```
-You can adjust the number by your need. Trials and errors are required in order to find the perfect position. 
+
+You can adjust the number by your need. Trials and errors are required in order to find the perfect position.
 
 Let's say we want to add another significance level.
 
@@ -1608,6 +1668,7 @@ lego_graph +
 These labelling methods applies to other kinds of graphs as well.
 
 **example 2: movies**
+
 ```{r}
 movies |>
   ggplot(aes(x = score, y = rating)) +
@@ -1619,8 +1680,6 @@ movie_graph
 movie_graph + 
   geom_signif(data = movies, comparisons = list(c("G", "PG")))
 ```
-
-
 
 # Efficiency Tips for Data Processing
 

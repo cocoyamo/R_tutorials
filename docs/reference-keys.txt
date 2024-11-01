@@ -10,6 +10,9 @@ ways-to-check-data
 overview-of-tidyverse-and-core-functions
 pipe-example
 data-cleaning-and-transformation
+select-filter-mutate
+dealing-with-omission
+change-column-names
 data-wrangling-and-reshaping
 pivot
 example-converting-wide-to-long-format
@@ -47,7 +50,6 @@ numeric-numeric-numeric
 numeric-numeric-numeric-categorical
 additional-features-on-the-plot
 labels
-不知道怎麼改label欸-頭痛-ㄞ-可以mutate但好麻煩呀
 colors
 scales
 themes
