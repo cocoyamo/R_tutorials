@@ -51,6 +51,7 @@ labels
 colors
 scales
 themes
+significance-levels
 efficiency-tips-for-data-processing
 data-export
 colclusion-and-advanced-learning

@@ -23,7 +23,7 @@
 <meta name="author" content="Moya" />
 
 
-<meta name="date" content="2024-10-15" />
+<meta name="date" content="2024-11-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -209,6 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.8.1" data-path="data-visualization.html"><a href="data-visualization.html#colors"><i class="fa fa-check"></i><b>8.8.1</b> colors</a></li>
 <li class="chapter" data-level="8.8.2" data-path="data-visualization.html"><a href="data-visualization.html#scales"><i class="fa fa-check"></i><b>8.8.2</b> scales</a></li>
 <li class="chapter" data-level="8.8.3" data-path="data-visualization.html"><a href="data-visualization.html#themes"><i class="fa fa-check"></i><b>8.8.3</b> themes</a></li>
+<li class="chapter" data-level="8.8.4" data-path="data-visualization.html"><a href="data-visualization.html#significance-levels"><i class="fa fa-check"></i><b>8.8.4</b> significance levels</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="efficiency-tips-for-data-processing.html"><a href="efficiency-tips-for-data-processing.html"><i class="fa fa-check"></i><b>9</b> Efficiency Tips for Data Processing</a></li>
@@ -242,21 +243,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="data-visualization.html#cb121-1" tabindex="-1"></a><span class="fu">library</span>(openintro)</span>
 <span id="cb121-2"><a href="data-visualization.html#cb121-2" tabindex="-1"></a>lego_sample</span></code></pre></div>
 <pre><code>## # A tibble: 75 × 14
-##    item_number set_name    theme pieces  price amazon_price
-##          &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt;
-##  1       10859 My First L… DUPL…      6   4.99        16   
-##  2       10860 My First R… DUPL…      6   4.99         9.45
-##  3       10862 My First C… DUPL…     41  15.0         39.9 
-##  4       10864 Large Play… DUPL…     71  50.0         56.7 
-##  5       10867 Farmers&#39; M… DUPL…     26  20.0         37.0 
-##  6       10870 Farm Anima… DUPL…     16   9.99         9.99
-##  7       10872 Train Brid… DUPL…     26  25.0         22.0 
-##  8       10875 Cargo Train DUPL…    105 120.         129.  
-##  9       10876 Spider-Man… DUPL…     38  30.0         74.5 
-## 10       10878 Rapunzel&#39;s… DUPL…     37  30.0         99.0 
+##    item_number set_name       theme pieces  price amazon_price  year ages  pages
+##          &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+##  1       10859 My First Lady… DUPL…      6   4.99        16     2018 Ages…     9
+##  2       10860 My First Race… DUPL…      6   4.99         9.45  2018 Ages…     9
+##  3       10862 My First Cele… DUPL…     41  15.0         39.9   2018 Ages…     9
+##  4       10864 Large Playgro… DUPL…     71  50.0         56.7   2018 Ages…    32
+##  5       10867 Farmers&#39; Mark… DUPL…     26  20.0         37.0   2018 Ages…     9
+##  6       10870 Farm Animals   DUPL…     16   9.99         9.99  2018 Ages…     8
+##  7       10872 Train Bridge … DUPL…     26  25.0         22.0   2018 Ages…    16
+##  8       10875 Cargo Train    DUPL…    105 120.         129.    2018 Ages…    64
+##  9       10876 Spider-Man &amp; … DUPL…     38  30.0         74.5   2018 Ages…    20
+## 10       10878 Rapunzel&#39;s To… DUPL…     37  30.0         99.0   2018 Ages…    24
 ## # ℹ 65 more rows
-## # ℹ 8 more variables: year &lt;dbl&gt;, ages &lt;chr&gt;, pages &lt;dbl&gt;,
-## #   minifigures &lt;dbl&gt;, packaging &lt;chr&gt;, weight &lt;chr&gt;,
+## # ℹ 5 more variables: minifigures &lt;dbl&gt;, packaging &lt;chr&gt;, weight &lt;chr&gt;,
 ## #   unique_pieces &lt;dbl&gt;, size &lt;chr&gt;</code></pre>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="data-visualization.html#cb123-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
 <span id="cb123-2"><a href="data-visualization.html#cb123-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">|&gt;</span></span>
@@ -411,21 +411,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>這邊的資料在下面才有介紹，不知道是要把介紹提前還是怎樣：Ｄ</p>
 <div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="data-visualization.html#cb143-1" tabindex="-1"></a>lego_sample</span></code></pre></div>
 <pre><code>## # A tibble: 75 × 14
-##    item_number set_name    theme pieces  price amazon_price
-##          &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt;
-##  1       10859 My First L… DUPL…      6   4.99        16   
-##  2       10860 My First R… DUPL…      6   4.99         9.45
-##  3       10862 My First C… DUPL…     41  15.0         39.9 
-##  4       10864 Large Play… DUPL…     71  50.0         56.7 
-##  5       10867 Farmers&#39; M… DUPL…     26  20.0         37.0 
-##  6       10870 Farm Anima… DUPL…     16   9.99         9.99
-##  7       10872 Train Brid… DUPL…     26  25.0         22.0 
-##  8       10875 Cargo Train DUPL…    105 120.         129.  
-##  9       10876 Spider-Man… DUPL…     38  30.0         74.5 
-## 10       10878 Rapunzel&#39;s… DUPL…     37  30.0         99.0 
+##    item_number set_name       theme pieces  price amazon_price  year ages  pages
+##          &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+##  1       10859 My First Lady… DUPL…      6   4.99        16     2018 Ages…     9
+##  2       10860 My First Race… DUPL…      6   4.99         9.45  2018 Ages…     9
+##  3       10862 My First Cele… DUPL…     41  15.0         39.9   2018 Ages…     9
+##  4       10864 Large Playgro… DUPL…     71  50.0         56.7   2018 Ages…    32
+##  5       10867 Farmers&#39; Mark… DUPL…     26  20.0         37.0   2018 Ages…     9
+##  6       10870 Farm Animals   DUPL…     16   9.99         9.99  2018 Ages…     8
+##  7       10872 Train Bridge … DUPL…     26  25.0         22.0   2018 Ages…    16
+##  8       10875 Cargo Train    DUPL…    105 120.         129.    2018 Ages…    64
+##  9       10876 Spider-Man &amp; … DUPL…     38  30.0         74.5   2018 Ages…    20
+## 10       10878 Rapunzel&#39;s To… DUPL…     37  30.0         99.0   2018 Ages…    24
 ## # ℹ 65 more rows
-## # ℹ 8 more variables: year &lt;dbl&gt;, ages &lt;chr&gt;, pages &lt;dbl&gt;,
-## #   minifigures &lt;dbl&gt;, packaging &lt;chr&gt;, weight &lt;chr&gt;,
+## # ℹ 5 more variables: minifigures &lt;dbl&gt;, packaging &lt;chr&gt;, weight &lt;chr&gt;,
 ## #   unique_pieces &lt;dbl&gt;, size &lt;chr&gt;</code></pre>
 <p>Let’s say we want to explore the relationship between the price of Lego sets (<code>price</code>, a <strong>continuous numeric variable</strong>) and their size (<code>size</code>, a <strong>categorical variable</strong>).</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="data-visualization.html#cb145-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
@@ -620,6 +619,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="themes" class="section level3 hasAnchor" number="8.8.3">
 <h3><span class="header-section-number">8.8.3</span> themes<a href="data-visualization.html#themes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>theme()</code> function allows you to change the overall appearance of your graph. Some commonly used themes are <code>theme_classic()</code>, <code>theme_light()</code>, and the default <code>theme_gray()</code>.</p>
+</div>
+<div id="significance-levels" class="section level3 hasAnchor" number="8.8.4">
+<h3><span class="header-section-number">8.8.4</span> significance levels<a href="data-visualization.html#significance-levels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To be honest, before I discovered this function, I always pasted my graphs into PowerPoint and then used bars and star signs to manually add the significance levels to the graphs. It was super tedious and difficult, as I often accidentally moved the graphs easily.</p>
+<p>Not to mention, I frequently forgot to leave enough space for the significance levels to be displayed on the graph, which required me to go back to the code and use <code>coord_cartesian()</code> to change the scale again and again.</p>
+<p>To make matters worse, it is really hard to get the precise position, as I would have to draw multiple grid lines to help me align everything.</p>
+<p>Now, these problems will vanish into thin air! I present to you the power of <code>geom_signif()</code>, which allows you to easily add significance levels (or anything else you want) to your graphs!</p>
+<p>This life-changing function is from <code>ggsignif</code> package. Therefore, install and library the package first.</p>
+<pre><code>## Error in install.packages : Updating loaded packages</code></pre>
+<p>Let’s start by simply take a graph we already drew in the previous parts.</p>
+<p>Here, we place the graph in a separate plot called <code>lego_graph</code>. While you can continue adding significance levels after the plot, I prefer to separate both functions for easier readability.</p>
+<p><strong>example 1: lego_sample</strong></p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="data-visualization.html#cb167-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
+<span id="cb167-2"><a href="data-visualization.html#cb167-2" tabindex="-1"></a>  <span class="fu">filter</span>(packaging <span class="sc">==</span> <span class="st">&quot;Box&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb167-3"><a href="data-visualization.html#cb167-3" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">|&gt;</span></span>
+<span id="cb167-4"><a href="data-visualization.html#cb167-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> theme, <span class="at">y =</span> price, <span class="at">fill =</span> theme)) <span class="sc">+</span></span>
+<span id="cb167-5"><a href="data-visualization.html#cb167-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">8</span>), <span class="at">width =</span> .<span class="dv">7</span>) <span class="sc">+</span></span>
+<span id="cb167-6"><a href="data-visualization.html#cb167-6" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">8</span>), <span class="at">width =</span> .<span class="dv">12</span>) <span class="ot">-&gt;</span> lego_graph</span>
+<span id="cb167-7"><a href="data-visualization.html#cb167-7" tabindex="-1"></a>lego_graph</span></code></pre></div>
+<p><img src="figures/unnamed-chunk-113-1.png" width="672" /></p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="data-visualization.html#cb168-1" tabindex="-1"></a>lego_graph<span class="sc">+</span></span>
+<span id="cb168-2"><a href="data-visualization.html#cb168-2" tabindex="-1"></a>  <span class="fu">geom_signif</span>(<span class="at">data =</span> lego_sample, </span>
+<span id="cb168-3"><a href="data-visualization.html#cb168-3" tabindex="-1"></a>              <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;DUPLO®&quot;</span>,<span class="st">&quot;Friends&quot;</span>)))</span></code></pre></div>
+<p><img src="figures/unnamed-chunk-114-1.png" width="672" />
+If I want to move the bar lower, I can change its position using <code>y_position =</code>.</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="data-visualization.html#cb169-1" tabindex="-1"></a>lego_graph<span class="sc">+</span></span>
+<span id="cb169-2"><a href="data-visualization.html#cb169-2" tabindex="-1"></a>  <span class="fu">geom_signif</span>(<span class="at">data =</span> lego_sample, </span>
+<span id="cb169-3"><a href="data-visualization.html#cb169-3" tabindex="-1"></a>              <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;DUPLO®&quot;</span>,<span class="st">&quot;Friends&quot;</span>)),</span>
+<span id="cb169-4"><a href="data-visualization.html#cb169-4" tabindex="-1"></a>              <span class="at">y_position =</span> <span class="dv">90</span>)</span></code></pre></div>
+<p><img src="figures/unnamed-chunk-115-1.png" width="672" />
+You can adjust the number by your need. Trials and errors are required in order to find the perfect position.</p>
+<p>Let’s say we want to add another significance level.</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="data-visualization.html#cb170-1" tabindex="-1"></a>lego_graph <span class="sc">+</span></span>
+<span id="cb170-2"><a href="data-visualization.html#cb170-2" tabindex="-1"></a>  <span class="fu">geom_signif</span>(<span class="at">data =</span> lego_sample, </span>
+<span id="cb170-3"><a href="data-visualization.html#cb170-3" tabindex="-1"></a>              <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;DUPLO®&quot;</span>,<span class="st">&quot;Friends&quot;</span>)),</span>
+<span id="cb170-4"><a href="data-visualization.html#cb170-4" tabindex="-1"></a>              <span class="at">y_position =</span> <span class="dv">90</span>) <span class="sc">+</span></span>
+<span id="cb170-5"><a href="data-visualization.html#cb170-5" tabindex="-1"></a>  <span class="fu">geom_signif</span>(<span class="at">data =</span> lego_sample,</span>
+<span id="cb170-6"><a href="data-visualization.html#cb170-6" tabindex="-1"></a>              <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Friends&quot;</span>, <span class="st">&quot;City&quot;</span>)),</span>
+<span id="cb170-7"><a href="data-visualization.html#cb170-7" tabindex="-1"></a>              <span class="at">y_position =</span> <span class="dv">73</span>)</span></code></pre></div>
+<p><img src="figures/unnamed-chunk-116-1.png" width="672" /></p>
+<p>Note that it is highly advised to change the <code>y_position</code> between two bars, so that they don’t overlap and hinder the information.</p>
+<p>If today you don’t want the numbers, just want “not sig” or other words you’d like, you can also modify that by using <code>annotations</code>.</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="data-visualization.html#cb171-1" tabindex="-1"></a>lego_graph <span class="sc">+</span></span>
+<span id="cb171-2"><a href="data-visualization.html#cb171-2" tabindex="-1"></a>  <span class="fu">geom_signif</span>(<span class="at">data =</span> lego_sample, </span>
+<span id="cb171-3"><a href="data-visualization.html#cb171-3" tabindex="-1"></a>              <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;DUPLO®&quot;</span>,<span class="st">&quot;Friends&quot;</span>)),</span>
+<span id="cb171-4"><a href="data-visualization.html#cb171-4" tabindex="-1"></a>              <span class="at">map_signif_level =</span> <span class="cn">TRUE</span>, <span class="at">annotations =</span> <span class="st">&quot;not sig. :(&quot;</span>,</span>
+<span id="cb171-5"><a href="data-visualization.html#cb171-5" tabindex="-1"></a>              <span class="at">y_position =</span> <span class="dv">90</span>) <span class="sc">+</span></span>
+<span id="cb171-6"><a href="data-visualization.html#cb171-6" tabindex="-1"></a>  <span class="fu">geom_signif</span>(<span class="at">data =</span> lego_sample,</span>
+<span id="cb171-7"><a href="data-visualization.html#cb171-7" tabindex="-1"></a>              <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Friends&quot;</span>, <span class="st">&quot;City&quot;</span>)),</span>
+<span id="cb171-8"><a href="data-visualization.html#cb171-8" tabindex="-1"></a>              <span class="at">map_signif_level =</span> <span class="cn">TRUE</span>, <span class="at">annotations =</span> <span class="st">&quot;not sig. :P&quot;</span>,</span>
+<span id="cb171-9"><a href="data-visualization.html#cb171-9" tabindex="-1"></a>              <span class="at">y_position =</span> <span class="dv">73</span>)</span></code></pre></div>
+<p><img src="figures/unnamed-chunk-117-1.png" width="672" /></p>
+<p>If your data is not significant, and you just want to add “NS”, then you could just remove the <code>annotations</code> part and leave the <code>map_signif_level = TRUE</code>.</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="data-visualization.html#cb172-1" tabindex="-1"></a>lego_graph <span class="sc">+</span></span>
+<span id="cb172-2"><a href="data-visualization.html#cb172-2" tabindex="-1"></a>  <span class="fu">geom_signif</span>(<span class="at">data =</span> lego_sample, </span>
+<span id="cb172-3"><a href="data-visualization.html#cb172-3" tabindex="-1"></a>              <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;DUPLO®&quot;</span>,<span class="st">&quot;Friends&quot;</span>)),</span>
+<span id="cb172-4"><a href="data-visualization.html#cb172-4" tabindex="-1"></a>              <span class="at">map_signif_level =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb172-5"><a href="data-visualization.html#cb172-5" tabindex="-1"></a>              <span class="at">y_position =</span> <span class="dv">90</span>) </span></code></pre></div>
+<p><img src="figures/unnamed-chunk-118-1.png" width="672" /></p>
+<p>These labelling methods applies to other kinds of graphs as well.</p>
+<p><strong>example 2: movies</strong></p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="data-visualization.html#cb173-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
+<span id="cb173-2"><a href="data-visualization.html#cb173-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score, <span class="at">y =</span> rating)) <span class="sc">+</span></span>
+<span id="cb173-3"><a href="data-visualization.html#cb173-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="ot">-&gt;</span> movie_graph</span>
+<span id="cb173-4"><a href="data-visualization.html#cb173-4" tabindex="-1"></a>movie_graph</span></code></pre></div>
+<p><img src="figures/unnamed-chunk-119-1.png" width="672" /></p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="data-visualization.html#cb174-1" tabindex="-1"></a>movie_graph <span class="sc">+</span> </span>
+<span id="cb174-2"><a href="data-visualization.html#cb174-2" tabindex="-1"></a>  <span class="fu">geom_signif</span>(<span class="at">data =</span> movies, <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;G&quot;</span>, <span class="st">&quot;PG&quot;</span>)))</span></code></pre></div>
+<p><img src="figures/unnamed-chunk-120-1.png" width="672" /></p>
 </div>
 </div>
 </div>

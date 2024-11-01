@@ -23,7 +23,7 @@
 <meta name="author" content="Moya" />
 
 
-<meta name="date" content="2024-10-15" />
+<meta name="date" content="2024-11-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -209,6 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.8.1" data-path="data-visualization.html"><a href="data-visualization.html#colors"><i class="fa fa-check"></i><b>8.8.1</b> colors</a></li>
 <li class="chapter" data-level="8.8.2" data-path="data-visualization.html"><a href="data-visualization.html#scales"><i class="fa fa-check"></i><b>8.8.2</b> scales</a></li>
 <li class="chapter" data-level="8.8.3" data-path="data-visualization.html"><a href="data-visualization.html#themes"><i class="fa fa-check"></i><b>8.8.3</b> themes</a></li>
+<li class="chapter" data-level="8.8.4" data-path="data-visualization.html"><a href="data-visualization.html#significance-levels"><i class="fa fa-check"></i><b>8.8.4</b> significance levels</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="efficiency-tips-for-data-processing.html"><a href="efficiency-tips-for-data-processing.html"><i class="fa fa-check"></i><b>9</b> Efficiency Tips for Data Processing</a></li>
@@ -366,10 +367,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb87-6"><a href="statistical-analysis.html#cb87-6" tabindex="-1"></a>    <span class="at">detailed =</span> T)</span></code></pre></div>
 <pre><code>## ANOVA Table (type II tests)
 ## 
-##         Effect      SSn    SSd DFn DFd     F     p p&lt;.05
-## 1 Intelligence 8758.544 129262   4 136 2.304 0.062      
-##     ges
-## 1 0.063</code></pre>
+##         Effect      SSn    SSd DFn DFd     F     p p&lt;.05   ges
+## 1 Intelligence 8758.544 129262   4 136 2.304 0.062       0.063</code></pre>
 </div>
 <div id="example-2-strength-gender" class="section level4 hasAnchor" number="7.2.1.2">
 <h4><span class="header-section-number">7.2.1.2</span> example 2: Strength ~ Gender<a href="statistical-analysis.html#example-2-strength-gender" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -402,16 +401,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb91-6"><a href="statistical-analysis.html#cb91-6" tabindex="-1"></a>    <span class="at">detailed =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
 <pre><code>## ANOVA Table (type III tests)
 ## 
-##              Effect       SSn      SSd DFn DFd      F
-## 1       (Intercept) 68473.044 109803.3   1 133 82.938
-## 2            Gender    51.278 109803.3   1 133  0.062
-## 3        BMI_status  8413.707 109803.3   3 133  3.397
-## 4 Gender:BMI_status  6885.839 109803.3   3 133  2.780
-##          p p&lt;.05      ges
-## 1 1.11e-15     * 0.384000
-## 2 8.04e-01       0.000467
-## 3 2.00e-02     * 0.071000
-## 4 4.40e-02     * 0.059000</code></pre>
+##              Effect       SSn      SSd DFn DFd      F        p p&lt;.05      ges
+## 1       (Intercept) 68473.044 109803.3   1 133 82.938 1.11e-15     * 0.384000
+## 2            Gender    51.278 109803.3   1 133  0.062 8.04e-01       0.000467
+## 3        BMI_status  8413.707 109803.3   3 133  3.397 2.00e-02     * 0.071000
+## 4 Gender:BMI_status  6885.839 109803.3   3 133  2.780 4.40e-02     * 0.059000</code></pre>
 <blockquote>
 <p><strong>Note:</strong> Be mindful of the ANOVA type. Even if you don’t specify a type, RStudio may default to type III ANOVA. If you prefer type II ANOVA, specify <code>type = 2</code>.</p>
 </blockquote>
@@ -440,16 +434,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb94-7"><a href="statistical-analysis.html#cb94-7" tabindex="-1"></a>    <span class="at">detailed =</span> T)   </span></code></pre></div>
 <pre><code>## ANOVA Table (type III tests)
 ## 
-##              Effect       SSn      SSd DFn DFd      F
-## 1       (Intercept) 68473.044 109803.3   1 133 82.938
-## 2            Gender    51.278 109803.3   1 133  0.062
-## 3        BMI_status  8413.707 109803.3   3 133  3.397
-## 4 Gender:BMI_status  6885.839 109803.3   3 133  2.780
-##          p p&lt;.05      ges
-## 1 1.11e-15     * 0.384000
-## 2 8.04e-01       0.000467
-## 3 2.00e-02     * 0.071000
-## 4 4.40e-02     * 0.059000</code></pre>
+##              Effect       SSn      SSd DFn DFd      F        p p&lt;.05      ges
+## 1       (Intercept) 68473.044 109803.3   1 133 82.938 1.11e-15     * 0.384000
+## 2            Gender    51.278 109803.3   1 133  0.062 8.04e-01       0.000467
+## 3        BMI_status  8413.707 109803.3   3 133  3.397 2.00e-02     * 0.071000
+## 4 Gender:BMI_status  6885.839 109803.3   3 133  2.780 4.40e-02     * 0.059000</code></pre>
 <p><strong>Solution 2</strong></p>
 <ul>
 <li><p><strong>use ANCOVA (Analysis of Covariance)</strong> (continuous * category ~ continuous)</p>
@@ -465,12 +454,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb96-8"><a href="statistical-analysis.html#cb96-8" tabindex="-1"></a>    <span class="at">detailed =</span> T)   </span></code></pre></div>
 <pre><code>## ANOVA Table (type II tests)
 ## 
-##   Effect       SSn      SSd DFn DFd      F        p p&lt;.05
-## 1    BMI 23336.275 110912.1   1 138 29.036 2.99e-07     *
-## 2 Gender    10.606 110912.1   1 138  0.013 9.09e-01      
-##        ges
-## 1 1.74e-01
-## 2 9.56e-05</code></pre>
+##   Effect       SSn      SSd DFn DFd      F        p p&lt;.05      ges
+## 1    BMI 23336.275 110912.1   1 138 29.036 2.99e-07     * 1.74e-01
+## 2 Gender    10.606 110912.1   1 138  0.013 9.09e-01       9.56e-05</code></pre>
 <pre><code>In Solution 2, the BMI variable is used as a covariate. This allows you to account for the continuous variable (BMI) while examining the effect of gender on strength.</code></pre>
 </div>
 <div id="example-3-strength-gender-intelligence" class="section level4 hasAnchor" number="7.2.2.3">
@@ -521,10 +507,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb104-6"><a href="statistical-analysis.html#cb104-6" tabindex="-1"></a>    <span class="at">detailed =</span> T)</span></code></pre></div>
 <pre><code>## ANOVA Table (type II tests)
 ## 
-##         Effect      SSn    SSd DFn DFd     F     p p&lt;.05
-## 1 Intelligence 8758.544 129262   4 136 2.304 0.062      
-##     ges
-## 1 0.063</code></pre>
+##         Effect      SSn    SSd DFn DFd     F     p p&lt;.05   ges
+## 1 Intelligence 8758.544 129262   4 136 2.304 0.062       0.063</code></pre>
 <p>Both variables look fine, and the code works smoothly when tested individually.</p>
 <p><strong>Step 3</strong></p>
 <p>We examine if there are any <strong>missing values</strong> in any of the category. (I often forgot about this step, and spend hours confused about why my ANOVA isn’t ANOVAing…)</p>
@@ -544,14 +528,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb108-8"><a href="statistical-analysis.html#cb108-8" tabindex="-1"></a>    <span class="at">detailed =</span> T)   </span></code></pre></div>
 <pre><code>## ANOVA Table (type II tests)
 ## 
-##                Effect      SSn      SSd DFn DFd     F
-## 1              Gender 1982.076 126823.2   1 131 2.047
-## 2        Intelligence 3719.933 126823.2   3 131 1.281
-## 3 Gender:Intelligence  406.757 126823.2   3 131 0.140
-##       p p&lt;.05   ges
-## 1 0.155       0.015
-## 2 0.284       0.028
-## 3 0.936       0.003</code></pre>
+##                Effect      SSn      SSd DFn DFd     F     p p&lt;.05   ges
+## 1              Gender 1982.076 126823.2   1 131 2.047 0.155       0.015
+## 2        Intelligence 3719.933 126823.2   3 131 1.281 0.284       0.028
+## 3 Gender:Intelligence  406.757 126823.2   3 131 0.140 0.936       0.003</code></pre>
 <p>You might think: “I’ll just add <code>group_by()</code> before the <code>anova_test()</code>.” However, while this approach would not give you error message, it would not yield a <strong>two-way ANOVA</strong> as we intended. Instead, it would just separate the data into two groups before performing a <strong>one-way ANOVA</strong> on each. See the codes below:</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="statistical-analysis.html#cb110-1" tabindex="-1"></a>heroes2 <span class="sc">|&gt;</span></span>
 <span id="cb110-2"><a href="statistical-analysis.html#cb110-2" tabindex="-1"></a>  <span class="fu">filter</span>(Intelligence <span class="sc">!=</span> <span class="st">&quot;low&quot;</span>) <span class="sc">|&gt;</span></span>
@@ -562,11 +542,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb110-7"><a href="statistical-analysis.html#cb110-7" tabindex="-1"></a>    <span class="at">between =</span> Intelligence, </span>
 <span id="cb110-8"><a href="statistical-analysis.html#cb110-8" tabindex="-1"></a>    <span class="at">detailed =</span> T)   </span></code></pre></div>
 <pre><code>## # A tibble: 2 × 10
-##   Gender Effect         SSn    SSd   DFn   DFd     F     p
-## * &lt;chr&gt;  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 F      Intelligence 1564. 33535.     3    36  0.56 0.645
-## 2 M      Intelligence 2563. 93288.     3    95  0.87 0.46 
-## # ℹ 2 more variables: `p&lt;.05` &lt;chr&gt;, ges &lt;dbl&gt;</code></pre>
+##   Gender Effect         SSn    SSd   DFn   DFd     F     p `p&lt;.05`   ges
+## * &lt;chr&gt;  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 F      Intelligence 1564. 33535.     3    36  0.56 0.645 &quot;&quot;      0.045
+## 2 M      Intelligence 2563. 93288.     3    95  0.87 0.46  &quot;&quot;      0.027</code></pre>
 <p>We can see that the result table differs from the two-way ANOVA table (refer to the upper table), and the numbers are also different (see <code>DFn</code> and <code>DFd</code> in both results).</p>
 </div>
 </div>
@@ -585,22 +564,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb112-8"><a href="statistical-analysis.html#cb112-8" tabindex="-1"></a>    <span class="at">detailed =</span> T)   </span></code></pre></div>
 <pre><code>## ANOVA Table (type II tests)
 ## 
-##                           Effect       SSn      SSd DFn
-## 1                         Gender  1083.194 96626.99   1
-## 2                   Intelligence  3465.586 96626.99   3
-## 3                     BMI_status 16524.941 96626.99   3
-## 4            Gender:Intelligence  2703.193 96626.99   2
-## 5              Gender:BMI_status  8295.111 96626.99   3
-## 6        Intelligence:BMI_status  7715.048 96626.99   7
-## 7 Gender:Intelligence:BMI_status        NA 96626.99   0
-##   DFd     F        p p&lt;.05   ges
-## 1 118 1.323 0.252000       0.011
-## 2 118 1.411 0.243000       0.035
-## 3 118 6.727 0.000314     * 0.146
-## 4 118 1.651 0.196000       0.027
-## 5 118 3.377 0.021000     * 0.079
-## 6 118 1.346 0.235000       0.074
-## 7 118    NA       NA  &lt;NA&gt;    NA</code></pre>
+##                           Effect       SSn      SSd DFn DFd     F        p
+## 1                         Gender  1083.194 96626.99   1 118 1.323 0.252000
+## 2                   Intelligence  3465.586 96626.99   3 118 1.411 0.243000
+## 3                     BMI_status 16524.941 96626.99   3 118 6.727 0.000314
+## 4            Gender:Intelligence  2703.193 96626.99   2 118 1.651 0.196000
+## 5              Gender:BMI_status  8295.111 96626.99   3 118 3.377 0.021000
+## 6        Intelligence:BMI_status  7715.048 96626.99   7 118 1.346 0.235000
+## 7 Gender:Intelligence:BMI_status        NA 96626.99   0 118    NA       NA
+##   p&lt;.05   ges
+## 1       0.011
+## 2       0.035
+## 3     * 0.146
+## 4       0.027
+## 5     * 0.079
+## 6       0.074
+## 7  &lt;NA&gt;    NA</code></pre>
 <p>Note that if the independent variable is within-subject (in the case of a mixed analysis), we place the <strong>within-subject</strong> independent variables in the <code>within =</code> section. This is commonly used when analyzing experimental results, such as comparing test scores before learning and after learning. See below for more details on mixed ANOVA.</p>
 </div>
 </div>
@@ -631,16 +610,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb115-7"><a href="statistical-analysis.html#cb115-7" tabindex="-1"></a>    <span class="at">detailed =</span> T)   </span></code></pre></div>
 <pre><code>## ANOVA Table (type II tests)
 ## 
-##         Effect DFn DFd       SSn      SSd       F       p
-## 1  (Intercept)   1   4 41418.750 1278.667 129.569 0.00034
-## 2        style   1   4   954.083 1278.667   2.985 0.15900
-## 3       timing   1   4  4524.083 1876.667   9.643 0.03600
-## 4 style:timing   1   4    90.750 1876.667   0.193 0.68300
-##   p&lt;.05   ges
-## 1     * 0.929
-## 2       0.232
-## 3     * 0.589
-## 4       0.028</code></pre>
+##         Effect DFn DFd       SSn      SSd       F       p p&lt;.05   ges
+## 1  (Intercept)   1   4 41418.750 1278.667 129.569 0.00034     * 0.929
+## 2        style   1   4   954.083 1278.667   2.985 0.15900       0.232
+## 3       timing   1   4  4524.083 1876.667   9.643 0.03600     * 0.589
+## 4 style:timing   1   4    90.750 1876.667   0.193 0.68300       0.028</code></pre>
 <p>From the analysis, we can observe that teaching style does not have a significant impact on their scores. However, there is a main effect of the <code>timing</code> variable.</p>
 <p>By examining the mean scores across different times, we can see that students performed better after learning, regardless of the teaching style applied.</p>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="statistical-analysis.html#cb117-1" tabindex="-1"></a>teaching_style <span class="sc">|&gt;</span></span>
@@ -670,12 +644,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb119-5"><a href="statistical-analysis.html#cb119-5" tabindex="-1"></a>    <span class="at">paired =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb119-6"><a href="statistical-analysis.html#cb119-6" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 11
-##   style .y.   group1 group2    n1    n2 statistic    df
-## * &lt;fct&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;
-## 1 fun   score after  before     3     3      3.64     2
-## 2 rigid score after  before     3     3      1.53     2
-## # ℹ 3 more variables: p &lt;dbl&gt;, p.adj &lt;dbl&gt;,
-## #   p.adj.signif &lt;chr&gt;</code></pre>
+##   style .y.   group1 group2    n1    n2 statistic    df     p p.adj p.adj.signif
+## * &lt;fct&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       
+## 1 fun   score after  before     3     3      3.64     2 0.068 0.068 ns          
+## 2 rigid score after  before     3     3      1.53     2 0.267 0.267 ns</code></pre>
 <p>In this example, we use post hoc analysis:</p>
 <ul>
 <li><p><code>score ~ timing</code>: Here, we put the <strong>dependent variable</strong> on the left and the <strong>independent variable</strong> on the right. We are comparing <code>scores</code> across different exam <code>timing</code>.</p></li>
