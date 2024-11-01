@@ -1622,7 +1622,7 @@ If I want to move the bar lower, I can change its position using `y_position =`.
 lego_graph+
   geom_signif(data = lego_sample, 
               comparisons = list(c("DUPLO®","Friends")),
-              y_position = 90)
+              y_position = 90) 
 ```
 
 You can adjust the number by your need. Trials and errors are required in order to find the perfect position.
@@ -1636,7 +1636,7 @@ lego_graph +
               y_position = 90) +
   geom_signif(data = lego_sample,
               comparisons = list(c("Friends", "City")),
-              y_position = 73)
+              y_position = 73) 
 ```
 
 Note that it is highly advised to change the `y_position` between two bars, so that they don't overlap and hinder the information.
@@ -1667,6 +1667,49 @@ lego_graph +
 
 These labelling methods applies to other kinds of graphs as well.
 
+However, if we type `geom_signif` into the **Help** panel on the right, we can see that the default they are using is **wilcox.test** instead of **t.test**. If, you are like me, used t.test more often, then we need to manually change the test type.
+
+Take the `heroes2` dataset for example.
+
+```{r}
+heroes2 |>
+  filter(Publisher %in% c("Marvel Comics", "DC Comics")) |>
+  ggplot(aes(x = Gender, y = Strength, fill = Gender)) +
+  geom_bar(stat = "summary", position = position_dodge(.8), width = .6, alpha = .8) +
+  geom_errorbar(stat = "summary", position = position_dodge(.8), width = .2) +
+  facet_wrap(~Publisher) +
+  geom_signif(comparisons = list(c("F", "M")),
+              map_signif_level = T,
+              test = "t.test",
+              y_position = 90) +
+  ylim(c(0,100))
+```
+
+As you can see, by simply adding `test = "t.test"`, we can achieve our goal.
+
+What if you are dealing with multiple levels of data instead of just two? The only thing you need to do is to add more layers of `geom_signif()` into the plot.
+
+```{r}
+lego_sample |>
+  ggplot(aes(x = theme, y = price, fill = theme)) +
+  geom_bar(stat = "summary", position = position_dodge(.8), width = .6, alpha = .8) +
+  geom_errorbar(stat = "summary", position = position_dodge(.8), width = .2) +
+  facet_wrap(~ year) +
+  geom_signif(comparisons = list(c("DUPLO®", "Friends")),
+              map_signif_level = T,
+              test = "t.test",
+              y_position = 80) +
+  geom_signif(comparisons = list(c("City", "Friends")),
+              map_signif_level = T,
+              test = "t.test",
+              y_position = 65) +
+  geom_signif(comparisons = list(c("City", "DUPLO®")),
+              map_signif_level = T,
+              test = "t.test",
+              y_position = 50) +
+  ylim(c(0,90))
+```
+
 **example 2: movies**
 
 ```{r}
@@ -1691,7 +1734,7 @@ The function we’ll be using is part of the `openxlsx` package. (If this is you
 library(openxlsx)
 ```
 
-Assuming the dataset you want to export is called `heroes2`, you can use the following code to create an `.xlsx` file in the folder where your current R script is located. 
+Assuming the dataset you want to export is called `heroes2`, you can use the following code to create an `.xlsx` file in the folder where your current R script is located.
 
 ```{r}
 write.xlsx(heroes2, file = "heroes2.xlsx")
