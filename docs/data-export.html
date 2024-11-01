@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 Data Export | Hello and welcome to our RStudio journey!</title>
+  <title>Chapter 9 Data Export | Hello and welcome to our RStudio journey!</title>
   <meta name="description" content="This is a RStudio tutorial." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 Data Export | Hello and welcome to our RStudio journey!" />
+  <meta property="og:title" content="Chapter 9 Data Export | Hello and welcome to our RStudio journey!" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a RStudio tutorial." />
   <meta name="github-repo" content="cocoyamo/R_tutorials" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 Data Export | Hello and welcome to our RStudio journey!" />
+  <meta name="twitter:title" content="Chapter 9 Data Export | Hello and welcome to our RStudio journey!" />
   
   <meta name="twitter:description" content="This is a RStudio tutorial." />
   
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="efficiency-tips-for-data-processing.html"/>
+<link rel="prev" href="data-visualization.html"/>
 <link rel="next" href="colclusion-and-advanced-learning.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -214,9 +214,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.7.5" data-path="data-visualization.html"><a href="data-visualization.html#significance-levels"><i class="fa fa-check"></i><b>8.7.5</b> significance levels</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="efficiency-tips-for-data-processing.html"><a href="efficiency-tips-for-data-processing.html"><i class="fa fa-check"></i><b>9</b> Efficiency Tips for Data Processing</a></li>
-<li class="chapter" data-level="10" data-path="data-export.html"><a href="data-export.html"><i class="fa fa-check"></i><b>10</b> Data Export</a></li>
-<li class="chapter" data-level="11" data-path="colclusion-and-advanced-learning.html"><a href="colclusion-and-advanced-learning.html"><i class="fa fa-check"></i><b>11</b> Colclusion and Advanced Learning</a></li>
+<li class="chapter" data-level="9" data-path="data-export.html"><a href="data-export.html"><i class="fa fa-check"></i><b>9</b> Data Export</a></li>
+<li class="chapter" data-level="10" data-path="colclusion-and-advanced-learning.html"><a href="colclusion-and-advanced-learning.html"><i class="fa fa-check"></i><b>10</b> Colclusion and Advanced Learning</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/cocoyamo/R_tutorials" target="blank">Check out cocoya's GitHub Repository</a></li>
 
@@ -237,15 +236,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-export" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">Chapter 10</span> Data Export<a href="data-export.html#data-export" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="data-export" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Data Export<a href="data-export.html#data-export" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Sometimes, you may want to export the data you’ve tidied up into Excel files. R provides a useful function for exporting datasets to Excel format.</p>
+<p>The function we’ll be using is part of the <code>openxlsx</code> package. (If this is your first time using it, remember to install the package.)</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="data-export.html#cb184-1" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div>
+<p>Assuming the dataset you want to export is called <code>heroes2</code>, you can use the following code to create an <code>.xlsx</code> file in the folder where your current R script is located.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="data-export.html#cb185-1" tabindex="-1"></a><span class="fu">write.xlsx</span>(heroes2, <span class="at">file =</span> <span class="st">&quot;heroes2.xlsx&quot;</span>)</span></code></pre></div>
+<p>If you want to save the output <code>.xlsx</code> file in a different folder, simply specify your desired path in front of the filename. Here’s how you can do it:</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="data-export.html#cb186-1" tabindex="-1"></a><span class="fu">write.xlsx</span>(heroes2, <span class="at">file =</span> <span class="st">&quot;~/your folder path/heroes2.xlsx&quot;</span>)</span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="efficiency-tips-for-data-processing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="colclusion-and-advanced-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

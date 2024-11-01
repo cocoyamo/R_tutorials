@@ -1681,8 +1681,26 @@ movie_graph +
   geom_signif(data = movies, comparisons = list(c("G", "PG")))
 ```
 
-# Efficiency Tips for Data Processing
-
 # Data Export
+
+Sometimes, you may want to export the data you've tidied up into Excel files. R provides a useful function for exporting datasets to Excel format.
+
+The function we’ll be using is part of the `openxlsx` package. (If this is your first time using it, remember to install the package.)
+
+```{r}
+library(openxlsx)
+```
+
+Assuming the dataset you want to export is called `heroes2`, you can use the following code to create an `.xlsx` file in the folder where your current R script is located. 
+
+```{r}
+write.xlsx(heroes2, file = "heroes2.xlsx")
+```
+
+If you want to save the output `.xlsx` file in a different folder, simply specify your desired path in front of the filename. Here's how you can do it:
+
+```{r}
+write.xlsx(heroes2, file = "~/your folder path/heroes2.xlsx")
+```
 
 # Colclusion and Advanced Learning
