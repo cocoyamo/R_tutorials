@@ -23,7 +23,7 @@
 <meta name="author" content="Moya" />
 
 
-<meta name="date" content="2024-11-01" />
+<meta name="date" content="2024-11-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -215,7 +215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="data-export.html"><a href="data-export.html"><i class="fa fa-check"></i><b>9</b> Data Export</a></li>
-<li class="chapter" data-level="10" data-path="colclusion-and-advanced-learning.html"><a href="colclusion-and-advanced-learning.html"><i class="fa fa-check"></i><b>10</b> Colclusion and Advanced Learning</a></li>
+<li class="chapter" data-level="10" data-path="conclusion-and-advanced-learning.html"><a href="conclusion-and-advanced-learning.html"><i class="fa fa-check"></i><b>10</b> Conclusion and Advanced Learning</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/cocoyamo/R_tutorials" target="blank">Check out cocoya's GitHub Repository</a></li>
 
@@ -253,36 +253,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="data-cleaning-and-transformation.html#cb29-1" tabindex="-1"></a>heroes <span class="sc">|&gt;</span></span>
 <span id="cb29-2"><a href="data-cleaning-and-transformation.html#cb29-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;Name&quot;</span>, <span class="st">&quot;Height&quot;</span>, <span class="st">&quot;Weight&quot;</span>, <span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;Eye color&quot;</span>, <span class="st">&quot;Hair color&quot;</span>, <span class="st">&quot;Strength&quot;</span>, <span class="st">&quot;Intelligence&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 735 × 8
-##    Name       Height Weight Gender `Eye color` `Hair color` Strength Intelligence
-##    &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;       
-##  1 A-Bomb       203.  442.  M      Yellow      No Hair           100 moderate    
-##  2 Abraxas       NA    NA   M      Blue        Black             100 high        
-##  3 Abominati…   203.  442.  M      Green       No Hair            80 good        
-##  4 Adam Monr…    NA    NA   M      Blue        Blond              10 good        
-##  5 Agent 13     173.   61.0 F      Blue        Blond              NA &lt;NA&gt;        
-##  6 Air-Walker   189.  108.  M      Blue        White              85 average     
-##  7 Agent Bob    178.   81.4 M      Brown       Brown              10 low         
-##  8 Abe Sapien   191.   65.4 M      Blue        No Hair            30 high        
-##  9 Abin Sur     186.   90.9 M      Blue        No Hair            90 average     
-## 10 Angela        NA    NA   F      &lt;NA&gt;        &lt;NA&gt;              100 high        
+##    Name        Height Weight Gender `Eye color` `Hair color` Strength Intelligence
+##    &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;       
+##  1 A-Bomb        203.  442.  M      Yellow      No Hair           100 moderate    
+##  2 Abraxas        NA    NA   M      Blue        Black             100 high        
+##  3 Abomination   203.  442.  M      Green       No Hair            80 good        
+##  4 Adam Monroe    NA    NA   M      Blue        Blond              10 good        
+##  5 Agent 13      173.   61.0 F      Blue        Blond              NA &lt;NA&gt;        
+##  6 Air-Walker    189.  108.  M      Blue        White              85 average     
+##  7 Agent Bob     178.   81.4 M      Brown       Brown              10 low         
+##  8 Abe Sapien    191.   65.4 M      Blue        No Hair            30 high        
+##  9 Abin Sur      186.   90.9 M      Blue        No Hair            90 average     
+## 10 Angela         NA    NA   F      &lt;NA&gt;        &lt;NA&gt;              100 high        
 ## # ℹ 725 more rows</code></pre>
 <p>Now, if we want to filter for superheroes with high intelligence, we can use the <code>filter()</code> function.</p>
 <p>This function allows us to extract rows that meet specified conditions.</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="data-cleaning-and-transformation.html#cb31-1" tabindex="-1"></a>heroes <span class="sc">|&gt;</span></span>
 <span id="cb31-2"><a href="data-cleaning-and-transformation.html#cb31-2" tabindex="-1"></a>  <span class="fu">filter</span>(Intelligence <span class="sc">==</span> <span class="st">&quot;high&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 144 × 12
-##    Name  Identity `Birth place` Publisher Height Weight Gender `First appearance`
-##    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;
-##  1 Abra… Abraxas  Within Etern… Marvel C…   NA     NA   M                      NA
-##  2 Abe … Abraham… &lt;NA&gt;          Dark Hor…  191.    65.4 M                    1993
-##  3 Ange… &lt;NA&gt;     &lt;NA&gt;          Image Co…   NA     NA   F                      NA
-##  4 Yoda  Yoda     &lt;NA&gt;          George L…   66.3   17.0 M                    1980
-##  5 Zata… Zatanna… &lt;NA&gt;          DC Comics  170.    57.8 F                      NA
-##  6 Yell… Hank Pym Elmsford, Ne… Marvel C…  183.    83.7 M                      NA
-##  7 X-Man Nate Gr… American Nor… Marvel C…  176.    61.8 M                    1995
-##  8 Wond… Diana P… Themyscira    DC Comics  183.    74.7 F                    1941
-##  9 Watc… Uatu     &lt;NA&gt;          Marvel C…   NA     NA   M                    1963
-## 10 Warl… Adam Wa… The Beehive,… Marvel C…  188.   108.  M                      NA
+##    Name       Identity `Birth place` Publisher Height Weight Gender `First appearance`
+##    &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;
+##  1 Abraxas    Abraxas  Within Etern… Marvel C…   NA     NA   M                      NA
+##  2 Abe Sapien Abraham… &lt;NA&gt;          Dark Hor…  191.    65.4 M                    1993
+##  3 Angela     &lt;NA&gt;     &lt;NA&gt;          Image Co…   NA     NA   F                      NA
+##  4 Yoda       Yoda     &lt;NA&gt;          George L…   66.3   17.0 M                    1980
+##  5 Zatanna    Zatanna… &lt;NA&gt;          DC Comics  170.    57.8 F                      NA
+##  6 Yellowjac… Hank Pym Elmsford, Ne… Marvel C…  183.    83.7 M                      NA
+##  7 X-Man      Nate Gr… American Nor… Marvel C…  176.    61.8 M                    1995
+##  8 Wonder Wo… Diana P… Themyscira    DC Comics  183.    74.7 F                    1941
+##  9 Watcher    Uatu     &lt;NA&gt;          Marvel C…   NA     NA   M                    1963
+## 10 Warlock    Adam Wa… The Beehive,… Marvel C…  188.   108.  M                      NA
 ## # ℹ 134 more rows
 ## # ℹ 4 more variables: `Eye color` &lt;chr&gt;, `Hair color` &lt;chr&gt;, Strength &lt;dbl&gt;,
 ## #   Intelligence &lt;chr&gt;</code></pre>
@@ -368,18 +368,18 @@ BMI = weight(kg)/height(m)^2
 <span id="cb39-3"><a href="data-cleaning-and-transformation.html#cb39-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Height_m2 =</span> Height_m<span class="sc">*</span>Height_m) <span class="sc">|&gt;</span> <span class="co"># square of the heights</span></span>
 <span id="cb39-4"><a href="data-cleaning-and-transformation.html#cb39-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">BMI =</span> Weight <span class="sc">/</span> Height_m2) <span class="co"># divide weights by the squrare of the heights</span></span></code></pre></div>
 <pre><code>## # A tibble: 735 × 15
-##    Name  Identity `Birth place` Publisher Height Weight Gender `First appearance`
-##    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;
-##  1 A-Bo… Richard… Scarsdale, A… Marvel C…   203.  442.  M                    2008
-##  2 Abra… Abraxas  Within Etern… Marvel C…    NA    NA   M                      NA
-##  3 Abom… Emil Bl… Zagreb, Yugo… Marvel C…   203.  442.  M                      NA
-##  4 Adam… &lt;NA&gt;     &lt;NA&gt;          NBC - He…    NA    NA   M                      NA
-##  5 Agen… Sharon … &lt;NA&gt;          Marvel C…   173.   61.0 F                      NA
-##  6 Air-… Gabriel… Xandar, a pl… Marvel C…   189.  108.  M                      NA
-##  7 Agen… Bob      &lt;NA&gt;          Marvel C…   178.   81.4 M                    2007
-##  8 Abe … Abraham… &lt;NA&gt;          Dark Hor…   191.   65.4 M                    1993
-##  9 Abin… &lt;NA&gt;     Ungara        DC Comics   186.   90.9 M                    1959
-## 10 Ange… &lt;NA&gt;     &lt;NA&gt;          Image Co…    NA    NA   F                      NA
+##    Name       Identity `Birth place` Publisher Height Weight Gender `First appearance`
+##    &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;
+##  1 A-Bomb     Richard… Scarsdale, A… Marvel C…   203.  442.  M                    2008
+##  2 Abraxas    Abraxas  Within Etern… Marvel C…    NA    NA   M                      NA
+##  3 Abominati… Emil Bl… Zagreb, Yugo… Marvel C…   203.  442.  M                      NA
+##  4 Adam Monr… &lt;NA&gt;     &lt;NA&gt;          NBC - He…    NA    NA   M                      NA
+##  5 Agent 13   Sharon … &lt;NA&gt;          Marvel C…   173.   61.0 F                      NA
+##  6 Air-Walker Gabriel… Xandar, a pl… Marvel C…   189.  108.  M                      NA
+##  7 Agent Bob  Bob      &lt;NA&gt;          Marvel C…   178.   81.4 M                    2007
+##  8 Abe Sapien Abraham… &lt;NA&gt;          Dark Hor…   191.   65.4 M                    1993
+##  9 Abin Sur   &lt;NA&gt;     Ungara        DC Comics   186.   90.9 M                    1959
+## 10 Angela     &lt;NA&gt;     &lt;NA&gt;          Image Co…    NA    NA   F                      NA
 ## # ℹ 725 more rows
 ## # ℹ 7 more variables: `Eye color` &lt;chr&gt;, `Hair color` &lt;chr&gt;, Strength &lt;dbl&gt;,
 ## #   Intelligence &lt;chr&gt;, Height_m &lt;dbl&gt;, Height_m2 &lt;dbl&gt;, BMI &lt;dbl&gt;</code></pre>
@@ -387,18 +387,18 @@ BMI = weight(kg)/height(m)^2
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-cleaning-and-transformation.html#cb41-1" tabindex="-1"></a>heroes <span class="sc">|&gt;</span></span>
 <span id="cb41-2"><a href="data-cleaning-and-transformation.html#cb41-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">BMI =</span> Weight <span class="sc">/</span> (Height<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>) </span></code></pre></div>
 <pre><code>## # A tibble: 735 × 13
-##    Name  Identity `Birth place` Publisher Height Weight Gender `First appearance`
-##    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;
-##  1 A-Bo… Richard… Scarsdale, A… Marvel C…   203.  442.  M                    2008
-##  2 Abra… Abraxas  Within Etern… Marvel C…    NA    NA   M                      NA
-##  3 Abom… Emil Bl… Zagreb, Yugo… Marvel C…   203.  442.  M                      NA
-##  4 Adam… &lt;NA&gt;     &lt;NA&gt;          NBC - He…    NA    NA   M                      NA
-##  5 Agen… Sharon … &lt;NA&gt;          Marvel C…   173.   61.0 F                      NA
-##  6 Air-… Gabriel… Xandar, a pl… Marvel C…   189.  108.  M                      NA
-##  7 Agen… Bob      &lt;NA&gt;          Marvel C…   178.   81.4 M                    2007
-##  8 Abe … Abraham… &lt;NA&gt;          Dark Hor…   191.   65.4 M                    1993
-##  9 Abin… &lt;NA&gt;     Ungara        DC Comics   186.   90.9 M                    1959
-## 10 Ange… &lt;NA&gt;     &lt;NA&gt;          Image Co…    NA    NA   F                      NA
+##    Name       Identity `Birth place` Publisher Height Weight Gender `First appearance`
+##    &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;
+##  1 A-Bomb     Richard… Scarsdale, A… Marvel C…   203.  442.  M                    2008
+##  2 Abraxas    Abraxas  Within Etern… Marvel C…    NA    NA   M                      NA
+##  3 Abominati… Emil Bl… Zagreb, Yugo… Marvel C…   203.  442.  M                      NA
+##  4 Adam Monr… &lt;NA&gt;     &lt;NA&gt;          NBC - He…    NA    NA   M                      NA
+##  5 Agent 13   Sharon … &lt;NA&gt;          Marvel C…   173.   61.0 F                      NA
+##  6 Air-Walker Gabriel… Xandar, a pl… Marvel C…   189.  108.  M                      NA
+##  7 Agent Bob  Bob      &lt;NA&gt;          Marvel C…   178.   81.4 M                    2007
+##  8 Abe Sapien Abraham… &lt;NA&gt;          Dark Hor…   191.   65.4 M                    1993
+##  9 Abin Sur   &lt;NA&gt;     Ungara        DC Comics   186.   90.9 M                    1959
+## 10 Angela     &lt;NA&gt;     &lt;NA&gt;          Image Co…    NA    NA   F                      NA
 ## # ℹ 725 more rows
 ## # ℹ 5 more variables: `Eye color` &lt;chr&gt;, `Hair color` &lt;chr&gt;, Strength &lt;dbl&gt;,
 ## #   Intelligence &lt;chr&gt;, BMI &lt;dbl&gt;</code></pre>
@@ -409,18 +409,18 @@ BMI = weight(kg)/height(m)^2
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-cleaning-and-transformation.html#cb43-1" tabindex="-1"></a>heroes <span class="sc">|&gt;</span></span>
 <span id="cb43-2"><a href="data-cleaning-and-transformation.html#cb43-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">BMI =</span> Weight <span class="sc">/</span> (Height<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>, <span class="at">.before =</span> <span class="dv">1</span>) </span></code></pre></div>
 <pre><code>## # A tibble: 735 × 13
-##      BMI Name        Identity        `Birth place` Publisher Height Weight Gender
-##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;           &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; 
-##  1 107.  A-Bomb      Richard Milhou… Scarsdale, A… Marvel C…   203.  442.  M     
-##  2  NA   Abraxas     Abraxas         Within Etern… Marvel C…    NA    NA   M     
-##  3 107.  Abomination Emil Blonsky    Zagreb, Yugo… Marvel C…   203.  442.  M     
-##  4  NA   Adam Monroe &lt;NA&gt;            &lt;NA&gt;          NBC - He…    NA    NA   M     
-##  5  20.3 Agent 13    Sharon Carter   &lt;NA&gt;          Marvel C…   173.   61.0 F     
-##  6  30.4 Air-Walker  Gabriel Lan     Xandar, a pl… Marvel C…   189.  108.  M     
-##  7  25.6 Agent Bob   Bob             &lt;NA&gt;          Marvel C…   178.   81.4 M     
-##  8  17.9 Abe Sapien  Abraham Sapien  &lt;NA&gt;          Dark Hor…   191.   65.4 M     
-##  9  26.4 Abin Sur    &lt;NA&gt;            Ungara        DC Comics   186.   90.9 M     
-## 10  NA   Angela      &lt;NA&gt;            &lt;NA&gt;          Image Co…    NA    NA   F     
+##      BMI Name        Identity             `Birth place` Publisher Height Weight Gender
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;                &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; 
+##  1 107.  A-Bomb      Richard Milhouse Jo… Scarsdale, A… Marvel C…   203.  442.  M     
+##  2  NA   Abraxas     Abraxas              Within Etern… Marvel C…    NA    NA   M     
+##  3 107.  Abomination Emil Blonsky         Zagreb, Yugo… Marvel C…   203.  442.  M     
+##  4  NA   Adam Monroe &lt;NA&gt;                 &lt;NA&gt;          NBC - He…    NA    NA   M     
+##  5  20.3 Agent 13    Sharon Carter        &lt;NA&gt;          Marvel C…   173.   61.0 F     
+##  6  30.4 Air-Walker  Gabriel Lan          Xandar, a pl… Marvel C…   189.  108.  M     
+##  7  25.6 Agent Bob   Bob                  &lt;NA&gt;          Marvel C…   178.   81.4 M     
+##  8  17.9 Abe Sapien  Abraham Sapien       &lt;NA&gt;          Dark Hor…   191.   65.4 M     
+##  9  26.4 Abin Sur    &lt;NA&gt;                 Ungara        DC Comics   186.   90.9 M     
+## 10  NA   Angela      &lt;NA&gt;                 &lt;NA&gt;          Image Co…    NA    NA   F     
 ## # ℹ 725 more rows
 ## # ℹ 5 more variables: `First appearance` &lt;dbl&gt;, `Eye color` &lt;chr&gt;,
 ## #   `Hair color` &lt;chr&gt;, Strength &lt;dbl&gt;, Intelligence &lt;chr&gt;</code></pre>
@@ -428,18 +428,18 @@ BMI = weight(kg)/height(m)^2
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-cleaning-and-transformation.html#cb45-1" tabindex="-1"></a>heroes <span class="sc">|&gt;</span></span>
 <span id="cb45-2"><a href="data-cleaning-and-transformation.html#cb45-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">BMI =</span> Weight <span class="sc">/</span> (Height<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>, <span class="at">.after =</span> <span class="st">&quot;Name&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 735 × 13
-##    Name          BMI Identity        `Birth place` Publisher Height Weight Gender
-##    &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; 
-##  1 A-Bomb      107.  Richard Milhou… Scarsdale, A… Marvel C…   203.  442.  M     
-##  2 Abraxas      NA   Abraxas         Within Etern… Marvel C…    NA    NA   M     
-##  3 Abomination 107.  Emil Blonsky    Zagreb, Yugo… Marvel C…   203.  442.  M     
-##  4 Adam Monroe  NA   &lt;NA&gt;            &lt;NA&gt;          NBC - He…    NA    NA   M     
-##  5 Agent 13     20.3 Sharon Carter   &lt;NA&gt;          Marvel C…   173.   61.0 F     
-##  6 Air-Walker   30.4 Gabriel Lan     Xandar, a pl… Marvel C…   189.  108.  M     
-##  7 Agent Bob    25.6 Bob             &lt;NA&gt;          Marvel C…   178.   81.4 M     
-##  8 Abe Sapien   17.9 Abraham Sapien  &lt;NA&gt;          Dark Hor…   191.   65.4 M     
-##  9 Abin Sur     26.4 &lt;NA&gt;            Ungara        DC Comics   186.   90.9 M     
-## 10 Angela       NA   &lt;NA&gt;            &lt;NA&gt;          Image Co…    NA    NA   F     
+##    Name          BMI Identity             `Birth place` Publisher Height Weight Gender
+##    &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;                &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; 
+##  1 A-Bomb      107.  Richard Milhouse Jo… Scarsdale, A… Marvel C…   203.  442.  M     
+##  2 Abraxas      NA   Abraxas              Within Etern… Marvel C…    NA    NA   M     
+##  3 Abomination 107.  Emil Blonsky         Zagreb, Yugo… Marvel C…   203.  442.  M     
+##  4 Adam Monroe  NA   &lt;NA&gt;                 &lt;NA&gt;          NBC - He…    NA    NA   M     
+##  5 Agent 13     20.3 Sharon Carter        &lt;NA&gt;          Marvel C…   173.   61.0 F     
+##  6 Air-Walker   30.4 Gabriel Lan          Xandar, a pl… Marvel C…   189.  108.  M     
+##  7 Agent Bob    25.6 Bob                  &lt;NA&gt;          Marvel C…   178.   81.4 M     
+##  8 Abe Sapien   17.9 Abraham Sapien       &lt;NA&gt;          Dark Hor…   191.   65.4 M     
+##  9 Abin Sur     26.4 &lt;NA&gt;                 Ungara        DC Comics   186.   90.9 M     
+## 10 Angela       NA   &lt;NA&gt;                 &lt;NA&gt;          Image Co…    NA    NA   F     
 ## # ℹ 725 more rows
 ## # ℹ 5 more variables: `First appearance` &lt;dbl&gt;, `Eye color` &lt;chr&gt;,
 ## #   `Hair color` &lt;chr&gt;, Strength &lt;dbl&gt;, Intelligence &lt;chr&gt;</code></pre>

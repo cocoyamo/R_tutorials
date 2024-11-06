@@ -1746,4 +1746,38 @@ If you want to save the output `.xlsx` file in a different folder, simply specif
 write.xlsx(heroes2, file = "~/your folder path/heroes2.xlsx")
 ```
 
-# Colclusion and Advanced Learning
+# Conclusion and Advanced Learning
+
+Congratulations on making it to this point of the tutorial! I hope you have learned something so far. Here are some useful resources that have helped me along the way while I was figuring out RStudio.
+
+**Book**
+
+-   [R for Data Science (2e)](https://r4ds.hadley.nz/)
+
+-   [Introduction to Modern Statistics (2e)](https://openintro-ims.netlify.app/)
+
+    -   This book also comes with an [interactive website](https://openintrostat.github.io/ims-tutorials/).
+
+**Youtube Channel**
+
+-   [Moya's RStudio Tutorial](https://www.youtube.com/@moyamoya1591) 💖🎉✨
+
+-   [R Programming 101](https://www.youtube.com/@RProgramming101)
+
+**Coursera Course**
+
+-   [Data Visualization and Transformation with R](https://www.coursera.org/learn/data-visualization-transformation-r) - Duke University
+
+-   [Data Tidying and Importing with R](https://www.coursera.org/learn/data-tidying-importing-r) - Duke University
+
+-   [Introduction to Statistics](https://www.coursera.org/learn/stanford-statistics) - Stanford University
+
+-   [Data Analysis with R Specialization](https://www.coursera.org/specializations/statistics) - Duke University
+
+**Cheatsheet**
+
+-   [Data visualization with ggplot2](https://file.notion.so/f/f/ef8bada3-6a4c-48a8-9393-ebaf025fe998/2b3746eb-d8fa-41fa-9b71-71fa5d94454b/data-visualization-2.1.pdf?table=block&id=f28de837-eeb6-456b-b270-5c453b5414d7&spaceId=ef8bada3-6a4c-48a8-9393-ebaf025fe998&expirationTimestamp=1731024000000&signature=-w2LJOZf__YwdVctKJ5SO0uKWDnCDvSQYwZOjm4nSEg&downloadName=data-visualization-2.1.pdf)
+
+-   [Data transformation with dplyr](https://file.notion.so/f/f/ef8bada3-6a4c-48a8-9393-ebaf025fe998/b082e103-a183-4153-ad0d-cc4bfe7273b8/data-transformation.pdf?table=block&id=1093a85c-a540-4f03-90e5-9344d1cb0a9a&spaceId=ef8bada3-6a4c-48a8-9393-ebaf025fe998&expirationTimestamp=1731024000000&signature=UvKXC5naRRCtzQSYL7dTsOWtKQA_Ctbd43Uq5q-NAG4&downloadName=data-transformation.pdf)
+
+-   [rmarkdown](https://file.notion.so/f/f/ef8bada3-6a4c-48a8-9393-ebaf025fe998/af90c5d1-16bf-4571-a728-b88b5fe4fc3e/rmarkdown-2.0_(3).pdf?table=block&id=5a463ed0-9bc1-417e-a2a7-fa9641f9ea98&spaceId=ef8bada3-6a4c-48a8-9393-ebaf025fe998&expirationTimestamp=1731024000000&signature=AlIw-3aph6Od9D7a6AYto05lq6sqEBBXRlg3H9NoSis&downloadName=rmarkdown-2.0+%283%29.pdf)

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Data Export | Hello and welcome to our RStudio journey!</title>
+  <title>Chapter 10 Conclusion and Advanced Learning | Hello and welcome to our RStudio journey!</title>
   <meta name="description" content="This is a RStudio tutorial." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Data Export | Hello and welcome to our RStudio journey!" />
+  <meta property="og:title" content="Chapter 10 Conclusion and Advanced Learning | Hello and welcome to our RStudio journey!" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a RStudio tutorial." />
   <meta name="github-repo" content="cocoyamo/R_tutorials" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Data Export | Hello and welcome to our RStudio journey!" />
+  <meta name="twitter:title" content="Chapter 10 Conclusion and Advanced Learning | Hello and welcome to our RStudio journey!" />
   
   <meta name="twitter:description" content="This is a RStudio tutorial." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-visualization.html"/>
-<link rel="next" href="conclusion-and-advanced-learning.html"/>
+<link rel="prev" href="data-export.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -236,23 +236,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-export" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Data Export<a href="data-export.html#data-export" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Sometimes, you may want to export the data you’ve tidied up into Excel files. R provides a useful function for exporting datasets to Excel format.</p>
-<p>The function we’ll be using is part of the <code>openxlsx</code> package. (If this is your first time using it, remember to install the package.)</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="data-export.html#cb186-1" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div>
-<p>Assuming the dataset you want to export is called <code>heroes2</code>, you can use the following code to create an <code>.xlsx</code> file in the folder where your current R script is located.</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="data-export.html#cb187-1" tabindex="-1"></a><span class="fu">write.xlsx</span>(heroes2, <span class="at">file =</span> <span class="st">&quot;heroes2.xlsx&quot;</span>)</span></code></pre></div>
-<p>If you want to save the output <code>.xlsx</code> file in a different folder, simply specify your desired path in front of the filename. Here’s how you can do it:</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="data-export.html#cb188-1" tabindex="-1"></a><span class="fu">write.xlsx</span>(heroes2, <span class="at">file =</span> <span class="st">&quot;~/your folder path/heroes2.xlsx&quot;</span>)</span></code></pre></div>
+<div id="conclusion-and-advanced-learning" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Conclusion and Advanced Learning<a href="conclusion-and-advanced-learning.html#conclusion-and-advanced-learning" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Congratulations on making it to this point of the tutorial! I hope you have learned something so far. Here are some useful resources that have helped me along the way while I was figuring out RStudio.</p>
+<p><strong>Book</strong></p>
+<ul>
+<li><p><a href="https://r4ds.hadley.nz/">R for Data Science (2e)</a></p></li>
+<li><p><a href="https://openintro-ims.netlify.app/">Introduction to Modern Statistics (2e)</a></p>
+<ul>
+<li>This book also comes with an <a href="https://openintrostat.github.io/ims-tutorials/">interactive website</a>.</li>
+</ul></li>
+</ul>
+<p><strong>Youtube Channel</strong></p>
+<ul>
+<li><p><a href="https://www.youtube.com/@moyamoya1591">Moya’s RStudio Tutorial</a> 💖🎉✨</p></li>
+<li><p><a href="https://www.youtube.com/@RProgramming101">R Programming 101</a></p></li>
+</ul>
+<p><strong>Coursera Course</strong></p>
+<ul>
+<li><p><a href="https://www.coursera.org/learn/data-visualization-transformation-r">Data Visualization and Transformation with R</a> - Duke University</p></li>
+<li><p><a href="https://www.coursera.org/learn/data-tidying-importing-r">Data Tidying and Importing with R</a> - Duke University</p></li>
+<li><p><a href="https://www.coursera.org/learn/stanford-statistics">Introduction to Statistics</a> - Stanford University</p></li>
+<li><p><a href="https://www.coursera.org/specializations/statistics">Data Analysis with R Specialization</a> - Duke University</p></li>
+</ul>
+<p><strong>Cheatsheet</strong></p>
+<ul>
+<li><p><a href="https://file.notion.so/f/f/ef8bada3-6a4c-48a8-9393-ebaf025fe998/2b3746eb-d8fa-41fa-9b71-71fa5d94454b/data-visualization-2.1.pdf?table=block&amp;id=f28de837-eeb6-456b-b270-5c453b5414d7&amp;spaceId=ef8bada3-6a4c-48a8-9393-ebaf025fe998&amp;expirationTimestamp=1731024000000&amp;signature=-w2LJOZf__YwdVctKJ5SO0uKWDnCDvSQYwZOjm4nSEg&amp;downloadName=data-visualization-2.1.pdf">Data visualization with ggplot2</a></p></li>
+<li><p><a href="https://file.notion.so/f/f/ef8bada3-6a4c-48a8-9393-ebaf025fe998/b082e103-a183-4153-ad0d-cc4bfe7273b8/data-transformation.pdf?table=block&amp;id=1093a85c-a540-4f03-90e5-9344d1cb0a9a&amp;spaceId=ef8bada3-6a4c-48a8-9393-ebaf025fe998&amp;expirationTimestamp=1731024000000&amp;signature=UvKXC5naRRCtzQSYL7dTsOWtKQA_Ctbd43Uq5q-NAG4&amp;downloadName=data-transformation.pdf">Data transformation with dplyr</a></p></li>
+<li><p><a href="https://file.notion.so/f/f/ef8bada3-6a4c-48a8-9393-ebaf025fe998/af90c5d1-16bf-4571-a728-b88b5fe4fc3e/rmarkdown-2.0_(3).pdf?table=block&amp;id=5a463ed0-9bc1-417e-a2a7-fa9641f9ea98&amp;spaceId=ef8bada3-6a4c-48a8-9393-ebaf025fe998&amp;expirationTimestamp=1731024000000&amp;signature=AlIw-3aph6Od9D7a6AYto05lq6sqEBBXRlg3H9NoSis&amp;downloadName=rmarkdown-2.0+%283%29.pdf">rmarkdown</a></p></li>
+</ul>
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="conclusion-and-advanced-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-export.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -55,4 +55,4 @@ scales
 themes
 significance-levels
 data-export
-colclusion-and-advanced-learning
+conclusion-and-advanced-learning
