@@ -35,6 +35,7 @@ example-3-strength-gender-intelligence
 three-way-anova
 example-1-strength-gender-intelligence-bmi_status
 mixed-anova
+additional-notes
 post-hoc-analysis
 regression-analysis
 data-visualization

@@ -23,7 +23,7 @@
 <meta name="author" content="Moya" />
 
 
-<meta name="date" content="2024-11-06" />
+<meta name="date" content="2024-11-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -187,6 +187,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#two-way-anova"><i class="fa fa-check"></i><b>7.2.2</b> two-way ANOVA</a></li>
 <li class="chapter" data-level="7.2.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#three-way-anova"><i class="fa fa-check"></i><b>7.2.3</b> three-way ANOVA</a></li>
 <li class="chapter" data-level="7.2.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#mixed-anova"><i class="fa fa-check"></i><b>7.2.4</b> mixed ANOVA</a></li>
+<li class="chapter" data-level="7.2.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#additional-notes"><i class="fa fa-check"></i><b>7.2.5</b> Additional notes</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#post-hoc-analysis"><i class="fa fa-check"></i><b>7.3</b> Post hoc analysis</a></li>
 <li class="chapter" data-level="7.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression-analysis"><i class="fa fa-check"></i><b>7.4</b> Regression analysis</a></li>
@@ -240,11 +241,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 9</span> Data Export<a href="data-export.html#data-export" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Sometimes, you may want to export the data you’ve tidied up into Excel files. R provides a useful function for exporting datasets to Excel format.</p>
 <p>The function we’ll be using is part of the <code>openxlsx</code> package. (If this is your first time using it, remember to install the package.)</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="data-export.html#cb186-1" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="data-export.html#cb191-1" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div>
 <p>Assuming the dataset you want to export is called <code>heroes2</code>, you can use the following code to create an <code>.xlsx</code> file in the folder where your current R script is located.</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="data-export.html#cb187-1" tabindex="-1"></a><span class="fu">write.xlsx</span>(heroes2, <span class="at">file =</span> <span class="st">&quot;heroes2.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="data-export.html#cb192-1" tabindex="-1"></a><span class="fu">write.xlsx</span>(heroes2, <span class="at">file =</span> <span class="st">&quot;heroes2.xlsx&quot;</span>)</span></code></pre></div>
 <p>If you want to save the output <code>.xlsx</code> file in a different folder, simply specify your desired path in front of the filename. Here’s how you can do it:</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="data-export.html#cb188-1" tabindex="-1"></a><span class="fu">write.xlsx</span>(heroes2, <span class="at">file =</span> <span class="st">&quot;~/your folder path/heroes2.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="data-export.html#cb193-1" tabindex="-1"></a><span class="fu">write.xlsx</span>(heroes2, <span class="at">file =</span> <span class="st">&quot;~/your folder path/heroes2.xlsx&quot;</span>)</span></code></pre></div>
 </div>
             </section>
 

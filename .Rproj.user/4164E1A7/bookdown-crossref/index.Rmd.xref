@@ -35,6 +35,7 @@ h4:example-3-strength-gender-intelligence example 3: strength ~ gender * Intelli
 h3:three-way-anova three-way ANOVA
 h4:example-1-strength-gender-intelligence-bmi_status example 1: Strength ~ Gender * Intelligence * BMI_status
 h3:mixed-anova mixed ANOVA
+h3:additional-notes Additional notes
 h2:post-hoc-analysis Post hoc analysis
 h2:regression-analysis Regression analysis
 h1:data-visualization Data Visualization

@@ -35,7 +35,7 @@ I frequently use statistical analyses like t-tests, ANOVAs, and linear regressio
 
 Occasionally, I use RStudio for amusing projects, such as creating national flags, just for fun. You'll likely see some of these creative endeavors here.
 
-Feel free to leave comments or suggestions. I’m still a beginner in the fascinating world of R and am eager to learn new things!
+Feel free to leave suggestions. I’m still a beginner in the fascinating world of R and am eager to learn new things!
 
 Best, Moya
 
@@ -1073,13 +1073,69 @@ teaching_style |>
   summarise(mean_score = mean(score))
 ```
 
-**Additional notes**
+### Additional notes
 
 -   Use `filter()` to choose specific groups for analysis.
 
     For instance, `filter(Intelligence %in% c("high", "good")` or `filter(Hair_color != "No Hair")`.
 
 -   `group_by()` is useful if you want to examine ANOVA results for both conditions' simultaneously.
+
+> I recently learned that the `anova_test()` function does not support more than one within variable, therefore, you might encounter error messages when doing that (e.g., `within = c(Var1, Var2)`).
+>
+> One way to avoid this is to merge the dataset temporary into the two variables you need.
+
+**method 1: merge data temporary**
+
+```{r}
+heroes2 |>
+  filter(Publisher %in% c("Marvel Comics", "DC Comics")) |>
+  filter(Gender %in% c("F", "M")) |>
+  group_by(Publisher, Gender, Name) |>
+  summarize(Height = mean(Height, na.rm = TRUE), .groups = "drop") -> temporary_hero_data_for_anova
+
+temporary_hero_data_for_anova
+```
+
+Here, as you can see from the temporary dataset, I only need two main variables: `Publisher` and `Gender`. Therefore, I tell R that none of the other variables matter to me right now. I only need these two variables and `Name` to identify each unique hero. I use the `summarize()` function to calculate each hero's mean `Height` across different records, using `na.rm = TRUE` to ignore missing values.
+
+The `.groups = "drop"` argument tells R to drop all grouping levels after the `summarize()` operation is complete. This means that the resulting dataset will no longer retain any of the grouping structure (`Publisher`, `Gender`, or `Name`), making the output a regular data frame without group attributes. This is useful when we don’t need to continue further grouped calculations on this summarized data.
+
+Then you could use this data for further ANOVA analysis.
+
+```{r}
+temporary_hero_data_for_anova |>
+  filter(Publisher %in% c("Marvel Comics", "DC Comics")) |>
+  filter(Gender %in% c("F", "M")) |>
+  group_by(Publisher) |>
+  anova_test(
+    dv = Height,
+    wid = Name,
+    between = Gender,
+    effect.size = "ges",  
+    detailed = FALSE
+  )
+```
+
+**method 2: ez ANOVA**
+
+```{r, eval = FALSE}
+library(ez)
+ezANOVA(
+  final_not_temp, 
+  dv = acc,
+  wid = Subject_pid, 
+  within = c(Var1, Var2),
+  between = if any,
+  observed = NULL,
+  diff = NULL,
+  reverse_diff = FALSE,
+  type = 2,
+  white.adjust = FALSE,
+  detailed = F,
+  return_aov = FALSE)
+
+```
 
 ## Post hoc analysis
 
