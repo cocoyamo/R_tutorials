@@ -37,9 +37,9 @@ Occasionally, I use RStudio for amusing projects, such as creating national flag
 
 Feel free to leave suggestions. I’m still a beginner in the fascinating world of R and am eager to learn new things!
 
-Best, Moya
+Best, [Moya](https://cocoyamo.github.io/)
 
-Reykjavik, 2024
+Reykjavik, May 2024
 
 # RStudio Environment and Installation
 
