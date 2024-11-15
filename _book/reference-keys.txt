@@ -55,3 +55,10 @@ significance-levels
 efficiency-tips-for-data-processing
 data-export
 colclusion-and-advanced-learning
+select-filter-mutate
+dealing-with-omission
+change-column-names
+additional-notes
+violin-plot
+scatterplot-matrix
+conclusion-and-advanced-learning

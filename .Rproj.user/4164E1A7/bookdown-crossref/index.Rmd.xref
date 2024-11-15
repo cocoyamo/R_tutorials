@@ -44,7 +44,8 @@ h2:scatter-plot scatter plot
 h2:box-plot box plot
 h2:histogram histogram
 h2:density-plot density plot
-h2:mixed-graphs mixed graphs
+h2:violin-plot violin plot
+h2:scatterplot-matrix scatterplot matrix
 h3:categorical-numeric categorical * numeric
 h3:numeric-numeric numeric * numeric
 h3:numeric-numeric-numeric numeric * numeric * numeric

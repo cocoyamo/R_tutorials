@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 Data Export | Hello and welcome to our RStudio journey!</title>
+  <title>Chapter 9 Data Export | Hello and welcome to our RStudio journey!</title>
   <meta name="description" content="This is a RStudio tutorial." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 Data Export | Hello and welcome to our RStudio journey!" />
+  <meta property="og:title" content="Chapter 9 Data Export | Hello and welcome to our RStudio journey!" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a RStudio tutorial." />
   <meta name="github-repo" content="cocoyamo/R_tutorials" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 Data Export | Hello and welcome to our RStudio journey!" />
+  <meta name="twitter:title" content="Chapter 9 Data Export | Hello and welcome to our RStudio journey!" />
   
   <meta name="twitter:description" content="This is a RStudio tutorial." />
   
@@ -23,15 +23,15 @@
 <meta name="author" content="Moya" />
 
 
-<meta name="date" content="2024-11-01" />
+<meta name="date" content="2024-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="efficiency-tips-for-data-processing.html"/>
-<link rel="next" href="colclusion-and-advanced-learning.html"/>
+<link rel="prev" href="data-visualization.html"/>
+<link rel="next" href="conclusion-and-advanced-learning.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -159,7 +159,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1" data-path="overview-of-tidyverse-and-core-functions.html"><a href="overview-of-tidyverse-and-core-functions.html#pipe-example"><i class="fa fa-check"></i><b>4.1</b> pipe example</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data-cleaning-and-transformation.html"><a href="data-cleaning-and-transformation.html"><i class="fa fa-check"></i><b>5</b> Data Cleaning and Transformation</a></li>
+<li class="chapter" data-level="5" data-path="data-cleaning-and-transformation.html"><a href="data-cleaning-and-transformation.html"><i class="fa fa-check"></i><b>5</b> Data Cleaning and Transformation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-cleaning-and-transformation.html"><a href="data-cleaning-and-transformation.html#select-filter-mutate"><i class="fa fa-check"></i><b>5.1</b> select(), filter(), &amp; mutate()</a></li>
+<li class="chapter" data-level="5.2" data-path="data-cleaning-and-transformation.html"><a href="data-cleaning-and-transformation.html#dealing-with-omission"><i class="fa fa-check"></i><b>5.2</b> dealing with omission</a></li>
+<li class="chapter" data-level="5.3" data-path="data-cleaning-and-transformation.html"><a href="data-cleaning-and-transformation.html#change-column-names"><i class="fa fa-check"></i><b>5.3</b> change column names</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="data-wrangling-and-reshaping.html"><a href="data-wrangling-and-reshaping.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling and Reshaping</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="data-wrangling-and-reshaping.html"><a href="data-wrangling-and-reshaping.html#pivot"><i class="fa fa-check"></i><b>6.1</b> pivot</a>
@@ -182,6 +187,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#two-way-anova"><i class="fa fa-check"></i><b>7.2.2</b> two-way ANOVA</a></li>
 <li class="chapter" data-level="7.2.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#three-way-anova"><i class="fa fa-check"></i><b>7.2.3</b> three-way ANOVA</a></li>
 <li class="chapter" data-level="7.2.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#mixed-anova"><i class="fa fa-check"></i><b>7.2.4</b> mixed ANOVA</a></li>
+<li class="chapter" data-level="7.2.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#additional-notes"><i class="fa fa-check"></i><b>7.2.5</b> Additional notes</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#post-hoc-analysis"><i class="fa fa-check"></i><b>7.3</b> Post hoc analysis</a></li>
 <li class="chapter" data-level="7.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression-analysis"><i class="fa fa-check"></i><b>7.4</b> Regression analysis</a></li>
@@ -193,28 +199,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="data-visualization.html"><a href="data-visualization.html#box-plot"><i class="fa fa-check"></i><b>8.3</b> box plot</a></li>
 <li class="chapter" data-level="8.4" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>8.4</b> histogram</a></li>
 <li class="chapter" data-level="8.5" data-path="data-visualization.html"><a href="data-visualization.html#density-plot"><i class="fa fa-check"></i><b>8.5</b> density plot</a></li>
-<li class="chapter" data-level="8.6" data-path="data-visualization.html"><a href="data-visualization.html#mixed-graphs"><i class="fa fa-check"></i><b>8.6</b> mixed graphs</a>
+<li class="chapter" data-level="8.6" data-path="data-visualization.html"><a href="data-visualization.html#violin-plot"><i class="fa fa-check"></i><b>8.6</b> violin plot</a></li>
+<li class="chapter" data-level="8.7" data-path="data-visualization.html"><a href="data-visualization.html#scatterplot-matrix"><i class="fa fa-check"></i><b>8.7</b> scatterplot matrix</a>
 <ul>
-<li class="chapter" data-level="8.6.1" data-path="data-visualization.html"><a href="data-visualization.html#categorical-numeric"><i class="fa fa-check"></i><b>8.6.1</b> categorical * numeric</a></li>
-<li class="chapter" data-level="8.6.2" data-path="data-visualization.html"><a href="data-visualization.html#numeric-numeric"><i class="fa fa-check"></i><b>8.6.2</b> numeric * numeric</a></li>
-<li class="chapter" data-level="8.6.3" data-path="data-visualization.html"><a href="data-visualization.html#numeric-numeric-numeric"><i class="fa fa-check"></i><b>8.6.3</b> numeric * numeric * numeric</a></li>
-<li class="chapter" data-level="8.6.4" data-path="data-visualization.html"><a href="data-visualization.html#numeric-numeric-numeric-categorical"><i class="fa fa-check"></i><b>8.6.4</b> numeric * numeric * numeric * categorical</a></li>
+<li class="chapter" data-level="8.7.1" data-path="data-visualization.html"><a href="data-visualization.html#categorical-numeric"><i class="fa fa-check"></i><b>8.7.1</b> categorical * numeric</a></li>
+<li class="chapter" data-level="8.7.2" data-path="data-visualization.html"><a href="data-visualization.html#numeric-numeric"><i class="fa fa-check"></i><b>8.7.2</b> numeric * numeric</a></li>
+<li class="chapter" data-level="8.7.3" data-path="data-visualization.html"><a href="data-visualization.html#numeric-numeric-numeric"><i class="fa fa-check"></i><b>8.7.3</b> numeric * numeric * numeric</a></li>
+<li class="chapter" data-level="8.7.4" data-path="data-visualization.html"><a href="data-visualization.html#numeric-numeric-numeric-categorical"><i class="fa fa-check"></i><b>8.7.4</b> numeric * numeric * numeric * categorical</a></li>
 </ul></li>
-<li class="chapter" data-level="8.7" data-path="data-visualization.html"><a href="data-visualization.html#additional-features-on-the-plot"><i class="fa fa-check"></i><b>8.7</b> additional features on the plot</a>
+<li class="chapter" data-level="8.8" data-path="data-visualization.html"><a href="data-visualization.html#additional-features-on-the-plot"><i class="fa fa-check"></i><b>8.8</b> additional features on the plot</a>
 <ul>
-<li class="chapter" data-level="8.7.1" data-path="data-visualization.html"><a href="data-visualization.html#labels"><i class="fa fa-check"></i><b>8.7.1</b> labels</a></li>
-</ul></li>
-<li class="chapter" data-level="8.8" data-path="data-visualization.html"><a href="data-visualization.html#不知道怎麼改label欸-頭痛-ㄞ-可以mutate但好麻煩呀"><i class="fa fa-check"></i><b>8.8</b> 不知道怎麼改label欸 頭痛 ㄞ 可以mutate但好麻煩呀</a>
-<ul>
-<li class="chapter" data-level="8.8.1" data-path="data-visualization.html"><a href="data-visualization.html#colors"><i class="fa fa-check"></i><b>8.8.1</b> colors</a></li>
-<li class="chapter" data-level="8.8.2" data-path="data-visualization.html"><a href="data-visualization.html#scales"><i class="fa fa-check"></i><b>8.8.2</b> scales</a></li>
-<li class="chapter" data-level="8.8.3" data-path="data-visualization.html"><a href="data-visualization.html#themes"><i class="fa fa-check"></i><b>8.8.3</b> themes</a></li>
-<li class="chapter" data-level="8.8.4" data-path="data-visualization.html"><a href="data-visualization.html#significance-levels"><i class="fa fa-check"></i><b>8.8.4</b> significance levels</a></li>
+<li class="chapter" data-level="8.8.1" data-path="data-visualization.html"><a href="data-visualization.html#labels"><i class="fa fa-check"></i><b>8.8.1</b> labels</a></li>
+<li class="chapter" data-level="8.8.2" data-path="data-visualization.html"><a href="data-visualization.html#colors"><i class="fa fa-check"></i><b>8.8.2</b> colors</a></li>
+<li class="chapter" data-level="8.8.3" data-path="data-visualization.html"><a href="data-visualization.html#scales"><i class="fa fa-check"></i><b>8.8.3</b> scales</a></li>
+<li class="chapter" data-level="8.8.4" data-path="data-visualization.html"><a href="data-visualization.html#themes"><i class="fa fa-check"></i><b>8.8.4</b> themes</a></li>
+<li class="chapter" data-level="8.8.5" data-path="data-visualization.html"><a href="data-visualization.html#significance-levels"><i class="fa fa-check"></i><b>8.8.5</b> significance levels</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="efficiency-tips-for-data-processing.html"><a href="efficiency-tips-for-data-processing.html"><i class="fa fa-check"></i><b>9</b> Efficiency Tips for Data Processing</a></li>
-<li class="chapter" data-level="10" data-path="data-export.html"><a href="data-export.html"><i class="fa fa-check"></i><b>10</b> Data Export</a></li>
-<li class="chapter" data-level="11" data-path="colclusion-and-advanced-learning.html"><a href="colclusion-and-advanced-learning.html"><i class="fa fa-check"></i><b>11</b> Colclusion and Advanced Learning</a></li>
+<li class="chapter" data-level="9" data-path="data-export.html"><a href="data-export.html"><i class="fa fa-check"></i><b>9</b> Data Export</a></li>
+<li class="chapter" data-level="10" data-path="conclusion-and-advanced-learning.html"><a href="conclusion-and-advanced-learning.html"><i class="fa fa-check"></i><b>10</b> Conclusion and Advanced Learning</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/cocoyamo/R_tutorials" target="blank">Check out cocoya's GitHub Repository</a></li>
 
@@ -235,16 +238,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-export" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">Chapter 10</span> Data Export<a href="data-export.html#data-export" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="data-export" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Data Export<a href="data-export.html#data-export" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Sometimes, you may want to export the data you’ve tidied up into Excel files. R provides a useful function for exporting datasets to Excel format.</p>
+<p>The function we’ll be using is part of the <code>openxlsx</code> package. (If this is your first time using it, remember to install the package.)</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="data-export.html#cb211-1" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div>
+<p>Assuming the dataset you want to export is called <code>heroes2</code>, you can use the following code to create an <code>.xlsx</code> file in the folder where your current R script is located.</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="data-export.html#cb212-1" tabindex="-1"></a><span class="fu">write.xlsx</span>(heroes2, <span class="at">file =</span> <span class="st">&quot;heroes2.xlsx&quot;</span>)</span></code></pre></div>
+<p>If you want to save the output <code>.xlsx</code> file in a different folder, simply specify your desired path in front of the filename. Here’s how you can do it:</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="data-export.html#cb213-1" tabindex="-1"></a><span class="fu">write.xlsx</span>(heroes2, <span class="at">file =</span> <span class="st">&quot;~/your folder path/heroes2.xlsx&quot;</span>)</span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="efficiency-tips-for-data-processing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="colclusion-and-advanced-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusion-and-advanced-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

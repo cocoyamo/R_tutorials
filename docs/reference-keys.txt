@@ -44,7 +44,8 @@ scatter-plot
 box-plot
 histogram
 density-plot
-mixed-graphs
+violin-plot
+scatterplot-matrix
 categorical-numeric
 numeric-numeric
 numeric-numeric-numeric
