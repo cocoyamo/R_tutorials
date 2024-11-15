@@ -760,7 +760,7 @@ heroes2 |>
   with(t.test(marvel$Strength, DC$Strength, paired = F))
 ```
 
-From the results, we see that there is **no significant difference** in the strength levels between superheroes from DC Comics and Marcel Comics.
+From the results, we see that there **is a** **significant difference** in the strength levels between superheroes from DC Comics and Marcel Comics.
 
 > **Important Note: Independent vs Paired t-test**
 

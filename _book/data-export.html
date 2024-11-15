@@ -242,11 +242,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 9</span> Data Export<a href="data-export.html#data-export" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Sometimes, you may want to export the data you’ve tidied up into Excel files. R provides a useful function for exporting datasets to Excel format.</p>
 <p>The function we’ll be using is part of the <code>openxlsx</code> package. (If this is your first time using it, remember to install the package.)</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="data-export.html#cb211-1" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="data-export.html#cb195-1" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div>
 <p>Assuming the dataset you want to export is called <code>heroes2</code>, you can use the following code to create an <code>.xlsx</code> file in the folder where your current R script is located.</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="data-export.html#cb212-1" tabindex="-1"></a><span class="fu">write.xlsx</span>(heroes2, <span class="at">file =</span> <span class="st">&quot;heroes2.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="data-export.html#cb196-1" tabindex="-1"></a><span class="fu">write.xlsx</span>(heroes2, <span class="at">file =</span> <span class="st">&quot;heroes2.xlsx&quot;</span>)</span></code></pre></div>
 <p>If you want to save the output <code>.xlsx</code> file in a different folder, simply specify your desired path in front of the filename. Here’s how you can do it:</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="data-export.html#cb213-1" tabindex="-1"></a><span class="fu">write.xlsx</span>(heroes2, <span class="at">file =</span> <span class="st">&quot;~/your folder path/heroes2.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="data-export.html#cb197-1" tabindex="-1"></a><span class="fu">write.xlsx</span>(heroes2, <span class="at">file =</span> <span class="st">&quot;~/your folder path/heroes2.xlsx&quot;</span>)</span></code></pre></div>
 </div>
             </section>
 

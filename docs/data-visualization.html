@@ -267,7 +267,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb136-4"><a href="data-visualization.html#cb136-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">8</span>), <span class="at">width =</span> .<span class="dv">7</span>, <span class="at">fill =</span> <span class="st">&quot;#BDD5EA&quot;</span>) <span class="sc">+</span></span>
 <span id="cb136-5"><a href="data-visualization.html#cb136-5" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.5</span>), <span class="at">width =</span> .<span class="dv">12</span>) <span class="sc">+</span></span>
 <span id="cb136-6"><a href="data-visualization.html#cb136-6" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(theme <span class="sc">~</span> ., <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>) </span></code></pre></div>
-<p><img src="figures/unnamed-chunk-81-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-92-1.png" width="672" /></p>
 <p>It seems that a lot has happened in the code chunk, and there’s quite a bit of information presented by the graphs.</p>
 <p>Let’s walk through the code.</p>
 <ul>
@@ -301,7 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb137-3"><a href="data-visualization.html#cb137-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> packaging, <span class="at">y =</span> pieces, <span class="at">fill =</span> theme)) <span class="sc">+</span></span>
 <span id="cb137-4"><a href="data-visualization.html#cb137-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">8</span>), <span class="at">width =</span> .<span class="dv">7</span>) <span class="sc">+</span></span>
 <span id="cb137-5"><a href="data-visualization.html#cb137-5" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">8</span>), <span class="at">width =</span> .<span class="dv">12</span>) </span></code></pre></div>
-<p><img src="figures/unnamed-chunk-82-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-93-1.png" width="672" /></p>
 </div>
 <div id="scatter-plot" class="section level2 hasAnchor" number="8.2">
 <h2><span class="header-section-number">8.2</span> scatter plot<a href="data-visualization.html#scatter-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -310,7 +310,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb138-3"><a href="data-visualization.html#cb138-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> pieces, <span class="at">y =</span> price, <span class="at">color =</span> theme, <span class="at">shape =</span> theme)) <span class="sc">+</span></span>
 <span id="cb138-4"><a href="data-visualization.html#cb138-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb138-5"><a href="data-visualization.html#cb138-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-83-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-94-1.png" width="672" /></p>
 <p>Let’s examine the code:</p>
 <p>In the <code>aes()</code> section, I’ve used both color <strong>AND</strong> shape to differentiate by <code>theme</code>. Usually, one type of distinction is sufficient, but sometimes colors alone may be hard to differentiate. In such cases, adding another feature (e.g., shape) can improve readability.</p>
 <ul>
@@ -340,7 +340,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="data-visualization.html#cb142-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span> </span>
 <span id="cb142-2"><a href="data-visualization.html#cb142-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> box_office, <span class="at">y =</span> score)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb142-3"><a href="data-visualization.html#cb142-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-86-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-97-1.png" width="672" /></p>
 <p>From the graph, we can see a positive relationship between the <code>box_office</code> and <code>score</code>.</p>
 </div>
 <div id="box-plot" class="section level2 hasAnchor" number="8.3">
@@ -349,34 +349,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="data-visualization.html#cb143-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb143-2"><a href="data-visualization.html#cb143-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score, <span class="at">y =</span> rating)) <span class="sc">+</span></span>
 <span id="cb143-3"><a href="data-visualization.html#cb143-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() </span></code></pre></div>
-<p><img src="figures/unnamed-chunk-87-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-98-1.png" width="672" /></p>
 </div>
 <div id="histogram" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> histogram<a href="data-visualization.html#histogram" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="data-visualization.html#cb144-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb144-2"><a href="data-visualization.html#cb144-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span></span>
 <span id="cb144-3"><a href="data-visualization.html#cb144-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-88-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-99-1.png" width="672" /></p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="data-visualization.html#cb145-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb145-2"><a href="data-visualization.html#cb145-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span></span>
 <span id="cb145-3"><a href="data-visualization.html#cb145-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-89-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-100-1.png" width="672" /></p>
 <div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="data-visualization.html#cb146-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb146-2"><a href="data-visualization.html#cb146-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span></span>
 <span id="cb146-3"><a href="data-visualization.html#cb146-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>)</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-90-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-101-1.png" width="672" /></p>
 <ul>
 <li><code>binwidth</code>: controls the thickness of the bars, if the bars are too thin (<code>binwidth = 1</code>), you’ll see individual data points clearly. However, this may not be ideal for observing general trends in the data. Therefore, I recommend experimenting with different <code>binwidth</code> values to find what works best for your data.</li>
 </ul>
 <div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="data-visualization.html#cb147-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb147-2"><a href="data-visualization.html#cb147-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score, <span class="at">color =</span> rating)) <span class="sc">+</span></span>
 <span id="cb147-3"><a href="data-visualization.html#cb147-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>)</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-91-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-102-1.png" width="672" /></p>
 <p>In the histogram, the <code>color</code> argument controls the <strong>outline</strong> color of the bar, while <code>fill</code> controls the interior color of the bars.</p>
 <div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="data-visualization.html#cb148-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb148-2"><a href="data-visualization.html#cb148-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score, <span class="at">fill =</span> rating)) <span class="sc">+</span></span>
 <span id="cb148-3"><a href="data-visualization.html#cb148-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>)</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-92-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-103-1.png" width="672" /></p>
 </div>
 <div id="density-plot" class="section level2 hasAnchor" number="8.5">
 <h2><span class="header-section-number">8.5</span> density plot<a href="data-visualization.html#density-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -384,17 +384,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="data-visualization.html#cb149-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb149-2"><a href="data-visualization.html#cb149-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span></span>
 <span id="cb149-3"><a href="data-visualization.html#cb149-3" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-93-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-104-1.png" width="672" /></p>
 <p>We can also separate data into subcategories.</p>
 <div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="data-visualization.html#cb150-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb150-2"><a href="data-visualization.html#cb150-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score, <span class="at">fill =</span> rating, <span class="at">color =</span> rating)) <span class="sc">+</span></span>
 <span id="cb150-3"><a href="data-visualization.html#cb150-3" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-94-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-105-1.png" width="672" /></p>
 <p>However, this graph might be hard to read due to overlapping data. For instance, the values for ratings <code>R</code> and <code>PG-13</code> are not clearly distinguishable. To resolve this, we can adjust the <code>transparancy</code> of the graph.</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="data-visualization.html#cb151-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb151-2"><a href="data-visualization.html#cb151-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score, <span class="at">fill =</span> rating, <span class="at">color =</span> rating)) <span class="sc">+</span></span>
 <span id="cb151-3"><a href="data-visualization.html#cb151-3" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-95-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-106-1.png" width="672" /></p>
 <p>Alternatively, we can use <code>geom_density_ridges()</code> to further separate the data, improving readability.</p>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="data-visualization.html#cb152-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggridges&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="data-visualization.html#cb153-1" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
@@ -402,7 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb153-3"><a href="data-visualization.html#cb153-3" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb153-4"><a href="data-visualization.html#cb153-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score,<span class="at">y =</span> rating,  <span class="at">fill =</span> rating, <span class="at">color =</span> rating)) <span class="sc">+</span></span>
 <span id="cb153-5"><a href="data-visualization.html#cb153-5" tabindex="-1"></a>  <span class="fu">geom_density_ridges</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>)</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-97-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-108-1.png" width="672" /></p>
 </div>
 <div id="violin-plot" class="section level2 hasAnchor" number="8.6">
 <h2><span class="header-section-number">8.6</span> violin plot<a href="data-visualization.html#violin-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -410,24 +410,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="data-visualization.html#cb154-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb154-2"><a href="data-visualization.html#cb154-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score,<span class="at">y =</span> rating,  <span class="at">fill =</span> rating, <span class="at">color =</span> rating)) <span class="sc">+</span></span>
 <span id="cb154-3"><a href="data-visualization.html#cb154-3" tabindex="-1"></a>  <span class="fu">geom_violin</span>() </span></code></pre></div>
-<p><img src="figures/unnamed-chunk-98-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-109-1.png" width="672" /></p>
 <p>As usual, you can adjust the width and transparency of the violin plot using <code>width =</code> and <code>alpha =</code>, respectively.</p>
 <div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="data-visualization.html#cb155-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb155-2"><a href="data-visualization.html#cb155-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score,<span class="at">y =</span> rating,  <span class="at">fill =</span> rating, <span class="at">color =</span> rating)) <span class="sc">+</span></span>
 <span id="cb155-3"><a href="data-visualization.html#cb155-3" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">width =</span> <span class="fl">1.2</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) </span></code></pre></div>
-<p><img src="figures/unnamed-chunk-99-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-110-1.png" width="672" /></p>
 <p>Additionally, you can add a boxplot on top of the violin plot to make the visualization more informative.</p>
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="data-visualization.html#cb156-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb156-2"><a href="data-visualization.html#cb156-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score,<span class="at">y =</span> rating,  <span class="at">fill =</span> rating, <span class="at">color =</span> rating)) <span class="sc">+</span></span>
 <span id="cb156-3"><a href="data-visualization.html#cb156-3" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">width =</span> <span class="fl">1.1</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
 <span id="cb156-4"><a href="data-visualization.html#cb156-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) </span></code></pre></div>
-<p><img src="figures/unnamed-chunk-100-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-111-1.png" width="672" /></p>
 <p>One flexible feature of R graphics is that they are created <strong>layer by layer</strong>. Therefore, you can see that changing the order between <code>geom_violin()</code> and <code>geom_boxplot()</code> will affect the resulting graph.</p>
 <div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="data-visualization.html#cb157-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb157-2"><a href="data-visualization.html#cb157-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score,<span class="at">y =</span> rating,  <span class="at">fill =</span> rating, <span class="at">color =</span> rating)) <span class="sc">+</span></span>
 <span id="cb157-3"><a href="data-visualization.html#cb157-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
 <span id="cb157-4"><a href="data-visualization.html#cb157-4" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">width =</span> <span class="fl">1.1</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) </span></code></pre></div>
-<p><img src="figures/unnamed-chunk-101-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-112-1.png" width="672" /></p>
 <p>In this example, we can see that the boxplot is almost invisible, even without adjusting its transparency. This happens because moving <code>geom_violin()</code> after <code>geom_boxplot()</code> causes R to draw the boxplot first, and then add the violin plot on top. Since the violin plot is not very transparent (alpha = 0.9, almost opaque), it effectively shadows the boxplot.</p>
 <blockquote>
 <p>Keep in mind that in <code>ggplot()</code>, the order of layers matters.</p>
@@ -462,7 +462,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s say we want to explore the relationship between the price of Lego sets (<code>price</code>, a <strong>continuous numeric variable</strong>) and their size (<code>size</code>, a <strong>categorical variable</strong>).</p>
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="data-visualization.html#cb162-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
 <span id="cb162-2"><a href="data-visualization.html#cb162-2" tabindex="-1"></a>  <span class="fu">ggpairs</span>(<span class="at">columns =</span> <span class="fu">c</span>(<span class="st">&quot;price&quot;</span>, <span class="st">&quot;size&quot;</span>))</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-105-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-116-1.png" width="672" /></p>
 <p>The top-left panel of the resulting plot shows the distribution of the <code>price</code> – a univariate plot of <code>price</code> vs. itself. The bottom-right panel shows the distribution of <code>size</code>, where RStudio counts the number of Lego sets in each category (<code>large</code> and <code>small</code>).</p>
 <p>The top-right panel presents a boxplot of <code>price</code> vss <code>size</code>, which is commonly used for visualizing the relationship between <strong>numeric variable</strong> and <strong>categorical variable</strong>. Similarly, the bottom-left panel shows the distribution of prices within each <code>size</code> category, but it doesn’t specify which data belongs to <code>large</code> or <code>small</code> categories (possibly because I’m just couldn’t figure it out yet).</p>
 </div>
@@ -471,7 +471,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Next, let’s examine two <strong>numerical variables</strong>: the recommended retail price (<code>price</code>) and the price on Amazon (<code>amazon_price</code>).</p>
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="data-visualization.html#cb163-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
 <span id="cb163-2"><a href="data-visualization.html#cb163-2" tabindex="-1"></a>  <span class="fu">ggpairs</span>(<span class="at">columns =</span> <span class="fu">c</span>(<span class="st">&quot;price&quot;</span>, <span class="st">&quot;amazon_price&quot;</span>))</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-106-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-117-1.png" width="672" /></p>
 <p>This graph differs from the previous one because both variables are numeric. The top-left panel shows a density plot of the recommended retail <code>price</code>, while the bottom-right panel does the <code>amazon_price</code>. Although the distributions are similar, they are not identical.</p>
 <p>In the bottom-right panel, a scatter plot shows a strong positive correlation between the two prices, as reflected by the correlation coefficient displayed in the top-right panel.</p>
 </div>
@@ -480,13 +480,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>What if we add one more numeric variable? We can take a look at the relationship between <code>price</code>, <code>amazon_price</code>, and <code>minifigures</code> (after converting <code>minifigures</code> back to a numeric variable).</p>
 <div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="data-visualization.html#cb164-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
 <span id="cb164-2"><a href="data-visualization.html#cb164-2" tabindex="-1"></a>  <span class="fu">ggpairs</span>(<span class="at">columns =</span> <span class="fu">c</span>(<span class="st">&quot;price&quot;</span>, <span class="st">&quot;amazon_price&quot;</span>, <span class="st">&quot;minifigures&quot;</span>))</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-107-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-118-1.png" width="672" /></p>
 <p>This gives us a clearer overview of the relationship between multiple numeric variables.</p>
 <p>If we want to add more information, like trend lines or confidence intervals, we can use the following code:</p>
 <div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="data-visualization.html#cb165-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
 <span id="cb165-2"><a href="data-visualization.html#cb165-2" tabindex="-1"></a>  <span class="fu">ggpairs</span>(<span class="at">columns =</span> <span class="fu">c</span>(<span class="st">&quot;price&quot;</span>, <span class="st">&quot;amazon_price&quot;</span>, <span class="st">&quot;minifigures&quot;</span>),</span>
 <span id="cb165-3"><a href="data-visualization.html#cb165-3" tabindex="-1"></a>          <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">&quot;smooth&quot;</span>)))</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-108-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-119-1.png" width="672" /></p>
 <p>Here, we simply add <code>lower =</code> and specify what we want.</p>
 <ul>
 <li><p><code>lower =</code>: Controls the display of the lower part of the graph.</p></li>
@@ -499,7 +499,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb166-2"><a href="data-visualization.html#cb166-2" tabindex="-1"></a>  <span class="fu">ggpairs</span>(<span class="at">columns =</span> <span class="fu">c</span>(<span class="st">&quot;price&quot;</span>, <span class="st">&quot;amazon_price&quot;</span>, <span class="st">&quot;minifigures&quot;</span>),</span>
 <span id="cb166-3"><a href="data-visualization.html#cb166-3" tabindex="-1"></a>          <span class="at">upper =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">&quot;cor&quot;</span>, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)),</span>
 <span id="cb166-4"><a href="data-visualization.html#cb166-4" tabindex="-1"></a>          <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">&quot;smooth&quot;</span>)))</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-109-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-120-1.png" width="672" /></p>
 <p>For the <code>upper =</code> part of the graph:</p>
 <ul>
 <li><code>upper = "cor"</code>: Displays the correlation coefficients in the upper panels.</li>
@@ -517,7 +517,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb167-3"><a href="data-visualization.html#cb167-3" tabindex="-1"></a>          <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> size, <span class="at">alpha =</span> .<span class="dv">7</span>),</span>
 <span id="cb167-4"><a href="data-visualization.html#cb167-4" tabindex="-1"></a>          <span class="at">upper =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">&quot;cor&quot;</span>, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)),</span>
 <span id="cb167-5"><a href="data-visualization.html#cb167-5" tabindex="-1"></a>          <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">&quot;smooth&quot;</span>)))</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-110-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-121-1.png" width="672" /></p>
 <p>Adding transparency (<code>alpha =</code>) helps reduce clutter in the plot by making overlapping graphs easier to distinguish.</p>
 <p>Below is another coding style to achieve the same result, which I prefer. It separates the column selection step from the plotting step, making the code easier to manage.</p>
 <div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="data-visualization.html#cb168-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
@@ -525,7 +525,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb168-3"><a href="data-visualization.html#cb168-3" tabindex="-1"></a>  <span class="fu">ggpairs</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> size, <span class="at">alpha =</span> .<span class="dv">7</span>),</span>
 <span id="cb168-4"><a href="data-visualization.html#cb168-4" tabindex="-1"></a>          <span class="at">upper =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">&quot;cor&quot;</span>, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)),</span>
 <span id="cb168-5"><a href="data-visualization.html#cb168-5" tabindex="-1"></a>          <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">&quot;smooth&quot;</span>)))</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-111-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-122-1.png" width="672" /></p>
 <p>Although <code>ggpairs()</code> is useful for exploring relationships between different variables (e.g., comparing test scores), it can sometimes become overwhelming with too many plots. If you’re unsure whether this approach is the best for your data, I recommend creating individual plots first (e.g., density or box plots) before mixing everything together. This will help clarify the relationships you want to explore and the most effective ways to visualize them.</p>
 </div>
 </div>
@@ -545,7 +545,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb169-9"><a href="data-visualization.html#cb169-9" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">&quot;Rating&quot;</span>,</span>
 <span id="cb169-10"><a href="data-visualization.html#cb169-10" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">&quot;Rating&quot;</span>,</span>
 <span id="cb169-11"><a href="data-visualization.html#cb169-11" tabindex="-1"></a>        <span class="at">caption =</span> <span class="st">&quot;sources: movies from openintro&quot;</span>)</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-112-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-123-1.png" width="672" /></p>
 <p>If you prefer not to show certain labels, you can aslo specify this in the code and let the program remove them for you.</p>
 <div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="data-visualization.html#cb170-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb170-2"><a href="data-visualization.html#cb170-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score,<span class="at">y =</span> rating,  <span class="at">fill =</span> rating, <span class="at">color =</span> rating)) <span class="sc">+</span></span>
@@ -555,7 +555,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb170-6"><a href="data-visualization.html#cb170-6" tabindex="-1"></a>    <span class="at">fill =</span> <span class="cn">NULL</span>,</span>
 <span id="cb170-7"><a href="data-visualization.html#cb170-7" tabindex="-1"></a>        <span class="at">color =</span> <span class="cn">NULL</span>,</span>
 <span id="cb170-8"><a href="data-visualization.html#cb170-8" tabindex="-1"></a>        <span class="at">fill =</span> <span class="cn">NULL</span>)</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-113-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-124-1.png" width="672" /></p>
 <p>For example, in the code chunk above, when we set the <code>x-axis</code> to <code>NULL</code>, the label disappears from the graph. However, if we don’t specify the <code>y-axis</code> in the <code>labs()</code> function, the original label from the data will still appear.</p>
 <p>Also, if you want to remove the legend, you can do so by adjusting the <code>theme()</code> function.</p>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="data-visualization.html#cb171-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
@@ -563,7 +563,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb171-3"><a href="data-visualization.html#cb171-3" tabindex="-1"></a>  <span class="fu">geom_density_ridges</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
 <span id="cb171-4"><a href="data-visualization.html#cb171-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span> </span>
 <span id="cb171-5"><a href="data-visualization.html#cb171-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;hide&quot;</span>)</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-114-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-125-1.png" width="672" /></p>
 </div>
 <div id="colors" class="section level3 hasAnchor" number="8.8.2">
 <h3><span class="header-section-number">8.8.2</span> colors<a href="data-visualization.html#colors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -572,14 +572,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb172-2"><a href="data-visualization.html#cb172-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">|&gt;</span></span>
 <span id="cb172-3"><a href="data-visualization.html#cb172-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> size, <span class="at">y =</span> price, <span class="at">fill =</span> <span class="fu">as.factor</span>(minifigures))) <span class="sc">+</span></span>
 <span id="cb172-4"><a href="data-visualization.html#cb172-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-115-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-126-1.png" width="672" /></p>
 <p>For easier demonstration, we will focus on LEGO sets with 1 to 3 minifigures.</p>
 <div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="data-visualization.html#cb173-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
 <span id="cb173-2"><a href="data-visualization.html#cb173-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">|&gt;</span></span>
 <span id="cb173-3"><a href="data-visualization.html#cb173-3" tabindex="-1"></a>  <span class="fu">filter</span>(minifigures <span class="sc">&lt;=</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
 <span id="cb173-4"><a href="data-visualization.html#cb173-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> size, <span class="at">y =</span> price, <span class="at">fill =</span> <span class="fu">as.factor</span>(minifigures))) <span class="sc">+</span></span>
 <span id="cb173-5"><a href="data-visualization.html#cb173-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-116-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-127-1.png" width="672" /></p>
 <p>Now we’re all set!</p>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="data-visualization.html#cb174-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
 <span id="cb174-2"><a href="data-visualization.html#cb174-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">|&gt;</span></span>
@@ -587,7 +587,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb174-4"><a href="data-visualization.html#cb174-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> size, <span class="at">y =</span> price, <span class="at">fill =</span> <span class="fu">as.factor</span>(minifigures))) <span class="sc">+</span></span>
 <span id="cb174-5"><a href="data-visualization.html#cb174-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
 <span id="cb174-6"><a href="data-visualization.html#cb174-6" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;darkblue&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;pink&quot;</span>))</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-117-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-128-1.png" width="672" /></p>
 <p>It’s as simple as that! Also, note that you only need to specify each color once. For instance, although the colors <code>"darkblue"</code>, <code>"yellow"</code>, and <code>"pink"</code> appear twice in the graph, we only need to type them once in stead of using <code>values = c("darkblue", "yellow", "pink", "darkblue", "yellow", "pink")</code>.</p>
 <p>If you don’t want to use default colors but don’t feel like manually selecting distinct colors each time, you can use pre-existing color palettes in RStudio.</p>
 <div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="data-visualization.html#cb175-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;viridis&quot;</span>)</span></code></pre></div>
@@ -599,7 +599,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb177-4"><a href="data-visualization.html#cb177-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> size, <span class="at">y =</span> price, <span class="at">fill =</span> <span class="fu">as.factor</span>(minifigures))) <span class="sc">+</span></span>
 <span id="cb177-5"><a href="data-visualization.html#cb177-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
 <span id="cb177-6"><a href="data-visualization.html#cb177-6" tabindex="-1"></a>    <span class="fu">scale_fill_viridis_d</span>() </span></code></pre></div>
-<p><img src="figures/unnamed-chunk-120-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-131-1.png" width="672" /></p>
 <p>Note that we use <code>scale_fill_viridis_d()</code> here. If you’re using <code>color =</code> instead of <code>fill =</code>, remember to switch to <code>scale_color_viridis_d()</code>.</p>
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="data-visualization.html#cb178-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
 <span id="cb178-2"><a href="data-visualization.html#cb178-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">|&gt;</span></span>
@@ -607,17 +607,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb178-4"><a href="data-visualization.html#cb178-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> size, <span class="at">y =</span> price, <span class="at">color =</span> <span class="fu">as.factor</span>(minifigures))) <span class="sc">+</span></span>
 <span id="cb178-5"><a href="data-visualization.html#cb178-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
 <span id="cb178-6"><a href="data-visualization.html#cb178-6" tabindex="-1"></a>    <span class="fu">scale_color_viridis_d</span>() </span></code></pre></div>
-<p><img src="figures/unnamed-chunk-121-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-132-1.png" width="672" /></p>
 <p><strong>My frequently used color palettes</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>Down to Earth</p>
-<p><img src="figures/unnamed-chunk-122-1.png" width="672" /></p></li>
+<p><img src="figures/unnamed-chunk-133-1.png" width="672" /></p></li>
 <li><p>Reykjavik Winter</p>
-<p><img src="figures/unnamed-chunk-123-1.png" width="672" /></p></li>
+<p><img src="figures/unnamed-chunk-134-1.png" width="672" /></p></li>
 <li><p>Barcelona Sun</p>
-<p><img src="figures/unnamed-chunk-124-1.png" width="672" /></p></li>
+<p><img src="figures/unnamed-chunk-135-1.png" width="672" /></p></li>
 <li><p>Brúarfoss</p>
-<p><img src="figures/unnamed-chunk-125-1.png" width="672" /></p></li>
+<p><img src="figures/unnamed-chunk-136-1.png" width="672" /></p></li>
 </ol>
 </div>
 <div id="scales" class="section level3 hasAnchor" number="8.8.3">
@@ -629,7 +629,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb179-4"><a href="data-visualization.html#cb179-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">8</span>), <span class="at">width =</span> .<span class="dv">7</span>) <span class="sc">+</span></span>
 <span id="cb179-5"><a href="data-visualization.html#cb179-5" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.5</span>), <span class="at">width =</span> .<span class="dv">12</span>) <span class="sc">+</span></span>
 <span id="cb179-6"><a href="data-visualization.html#cb179-6" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(Intelligence <span class="sc">~</span> ., <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>) </span></code></pre></div>
-<p><img src="figures/unnamed-chunk-126-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-137-1.png" width="672" /></p>
 <p>Take a quick glance at the chart. It seems like the <code>good</code> intelligence group has higher strength than the <code>high</code> intelligence group as the bar is higher.</p>
 <p>But is that really the case?</p>
 <p>Take a closer look at the two bar charts. The y-axis scales are different from one graph to another.</p>
@@ -655,7 +655,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb182-5"><a href="data-visualization.html#cb182-5" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.5</span>), <span class="at">width =</span> .<span class="dv">12</span>) <span class="sc">+</span></span>
 <span id="cb182-6"><a href="data-visualization.html#cb182-6" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(Intelligence <span class="sc">~</span> ., <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>) <span class="sc">+</span></span>
 <span id="cb182-7"><a href="data-visualization.html#cb182-7" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>)) </span></code></pre></div>
-<p><img src="figures/unnamed-chunk-128-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-139-1.png" width="672" /></p>
 <p>After setting the same scale for all graphs, it becomes much easier to compare them and observe relationships between variables.</p>
 <p>You can modify the <code>ylim()</code> values based on your data.</p>
 </div>
@@ -682,17 +682,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb185-5"><a href="data-visualization.html#cb185-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">8</span>), <span class="at">width =</span> .<span class="dv">7</span>) <span class="sc">+</span></span>
 <span id="cb185-6"><a href="data-visualization.html#cb185-6" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">8</span>), <span class="at">width =</span> .<span class="dv">12</span>) <span class="ot">-&gt;</span> lego_graph</span>
 <span id="cb185-7"><a href="data-visualization.html#cb185-7" tabindex="-1"></a>lego_graph</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-131-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-142-1.png" width="672" /></p>
 <div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="data-visualization.html#cb186-1" tabindex="-1"></a>lego_graph<span class="sc">+</span></span>
 <span id="cb186-2"><a href="data-visualization.html#cb186-2" tabindex="-1"></a>  <span class="fu">geom_signif</span>(<span class="at">data =</span> lego_sample, </span>
 <span id="cb186-3"><a href="data-visualization.html#cb186-3" tabindex="-1"></a>              <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;DUPLO®&quot;</span>,<span class="st">&quot;Friends&quot;</span>)))</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-132-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-143-1.png" width="672" /></p>
 <p>If I want to move the bar lower, I can change its position using <code>y_position =</code>.</p>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="data-visualization.html#cb187-1" tabindex="-1"></a>lego_graph<span class="sc">+</span></span>
 <span id="cb187-2"><a href="data-visualization.html#cb187-2" tabindex="-1"></a>  <span class="fu">geom_signif</span>(<span class="at">data =</span> lego_sample, </span>
 <span id="cb187-3"><a href="data-visualization.html#cb187-3" tabindex="-1"></a>              <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;DUPLO®&quot;</span>,<span class="st">&quot;Friends&quot;</span>)),</span>
 <span id="cb187-4"><a href="data-visualization.html#cb187-4" tabindex="-1"></a>              <span class="at">y_position =</span> <span class="dv">90</span>) </span></code></pre></div>
-<p><img src="figures/unnamed-chunk-133-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-144-1.png" width="672" /></p>
 <p>You can adjust the number by your need. Trials and errors are required in order to find the perfect position.</p>
 <p>Let’s say we want to add another significance level.</p>
 <div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="data-visualization.html#cb188-1" tabindex="-1"></a>lego_graph <span class="sc">+</span></span>
@@ -702,7 +702,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb188-5"><a href="data-visualization.html#cb188-5" tabindex="-1"></a>  <span class="fu">geom_signif</span>(<span class="at">data =</span> lego_sample,</span>
 <span id="cb188-6"><a href="data-visualization.html#cb188-6" tabindex="-1"></a>              <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Friends&quot;</span>, <span class="st">&quot;City&quot;</span>)),</span>
 <span id="cb188-7"><a href="data-visualization.html#cb188-7" tabindex="-1"></a>              <span class="at">y_position =</span> <span class="dv">73</span>) </span></code></pre></div>
-<p><img src="figures/unnamed-chunk-134-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-145-1.png" width="672" /></p>
 <p>Note that it is highly advised to change the <code>y_position</code> between two bars, so that they don’t overlap and hinder the information.</p>
 <p>If today you don’t want the numbers, just want “not sig” or other words you’d like, you can also modify that by using <code>annotations</code>.</p>
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="data-visualization.html#cb189-1" tabindex="-1"></a>lego_graph <span class="sc">+</span></span>
@@ -714,14 +714,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb189-7"><a href="data-visualization.html#cb189-7" tabindex="-1"></a>              <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Friends&quot;</span>, <span class="st">&quot;City&quot;</span>)),</span>
 <span id="cb189-8"><a href="data-visualization.html#cb189-8" tabindex="-1"></a>              <span class="at">map_signif_level =</span> <span class="cn">TRUE</span>, <span class="at">annotations =</span> <span class="st">&quot;not sig. :P&quot;</span>,</span>
 <span id="cb189-9"><a href="data-visualization.html#cb189-9" tabindex="-1"></a>              <span class="at">y_position =</span> <span class="dv">73</span>)</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-135-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-146-1.png" width="672" /></p>
 <p>If your data is not significant, and you just want to add “NS”, then you could just remove the <code>annotations</code> part and leave the <code>map_signif_level = TRUE</code>.</p>
 <div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="data-visualization.html#cb190-1" tabindex="-1"></a>lego_graph <span class="sc">+</span></span>
 <span id="cb190-2"><a href="data-visualization.html#cb190-2" tabindex="-1"></a>  <span class="fu">geom_signif</span>(<span class="at">data =</span> lego_sample, </span>
 <span id="cb190-3"><a href="data-visualization.html#cb190-3" tabindex="-1"></a>              <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;DUPLO®&quot;</span>,<span class="st">&quot;Friends&quot;</span>)),</span>
 <span id="cb190-4"><a href="data-visualization.html#cb190-4" tabindex="-1"></a>              <span class="at">map_signif_level =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb190-5"><a href="data-visualization.html#cb190-5" tabindex="-1"></a>              <span class="at">y_position =</span> <span class="dv">90</span>) </span></code></pre></div>
-<p><img src="figures/unnamed-chunk-136-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-147-1.png" width="672" /></p>
 <p>These labelling methods applies to other kinds of graphs as well.</p>
 <p>However, if we type <code>geom_signif</code> into the <strong>Help</strong> panel on the right, we can see that the default they are using is <strong>wilcox.test</strong> instead of <strong>t.test</strong>. If, you are like me, used t.test more often, then we need to manually change the test type.</p>
 <p>Take the <code>heroes2</code> dataset for example.</p>
@@ -736,7 +736,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb191-9"><a href="data-visualization.html#cb191-9" tabindex="-1"></a>              <span class="at">test =</span> <span class="st">&quot;t.test&quot;</span>,</span>
 <span id="cb191-10"><a href="data-visualization.html#cb191-10" tabindex="-1"></a>              <span class="at">y_position =</span> <span class="dv">90</span>) <span class="sc">+</span></span>
 <span id="cb191-11"><a href="data-visualization.html#cb191-11" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>))</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-137-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-148-1.png" width="672" /></p>
 <p>As you can see, by simply adding <code>test = "t.test"</code>, we can achieve our goal.</p>
 <p>What if you are dealing with multiple levels of data instead of just two? The only thing you need to do is to add more layers of <code>geom_signif()</code> into the plot.</p>
 <div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="data-visualization.html#cb192-1" tabindex="-1"></a>lego_sample <span class="sc">|&gt;</span></span>
@@ -757,16 +757,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb192-16"><a href="data-visualization.html#cb192-16" tabindex="-1"></a>              <span class="at">test =</span> <span class="st">&quot;t.test&quot;</span>,</span>
 <span id="cb192-17"><a href="data-visualization.html#cb192-17" tabindex="-1"></a>              <span class="at">y_position =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
 <span id="cb192-18"><a href="data-visualization.html#cb192-18" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">90</span>))</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-138-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-149-1.png" width="672" /></p>
 <p><strong>example 2: movies</strong></p>
 <div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="data-visualization.html#cb193-1" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
 <span id="cb193-2"><a href="data-visualization.html#cb193-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> score, <span class="at">y =</span> rating)) <span class="sc">+</span></span>
 <span id="cb193-3"><a href="data-visualization.html#cb193-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="ot">-&gt;</span> movie_graph</span>
 <span id="cb193-4"><a href="data-visualization.html#cb193-4" tabindex="-1"></a>movie_graph</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-139-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-150-1.png" width="672" /></p>
 <div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="data-visualization.html#cb194-1" tabindex="-1"></a>movie_graph <span class="sc">+</span> </span>
 <span id="cb194-2"><a href="data-visualization.html#cb194-2" tabindex="-1"></a>  <span class="fu">geom_signif</span>(<span class="at">data =</span> movies, <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;G&quot;</span>, <span class="st">&quot;PG&quot;</span>)))</span></code></pre></div>
-<p><img src="figures/unnamed-chunk-140-1.png" width="672" /></p>
+<p><img src="figures/unnamed-chunk-151-1.png" width="672" /></p>
 </div>
 </div>
 </div>
